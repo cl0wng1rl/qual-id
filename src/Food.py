@@ -5,6 +5,8 @@ class Food(Category):
     return [
       'apple',
       'chocolate',
+      'cookie',
       'egg',
+      'ham',
       'lemon'
     ]
