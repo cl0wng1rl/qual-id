@@ -5,7 +5,7 @@ import random
 app = Flask(__name__)
 
 @app.route('/get/', methods=['GET'])
-def respond():
+def get_response():
     pattern = Pattern(request.args.get("pattern", ""))
     number = int(request.args.get("number", 1))
 
@@ -15,6 +15,11 @@ def respond():
         response["error"] = "pattern is invalid"
     else:
         response["data"] = get_qual_ids(pattern, number)
+    return jsonify(response)
+
+@app.route('/categories/', methods=['GET'])
+def categories_response():
+    response = {'data': Pattern.get_category_options()}
     return jsonify(response)
 
 def get_qual_ids(pattern, number):
