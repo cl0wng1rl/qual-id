@@ -6,7 +6,8 @@ class Animal(Category):
       'ant',
       'cat',
       'dog',
-      'lobster'
-      'snake'
+      'lizard',
+      'lobster',
+      'snake',
       'whale'
     ]
