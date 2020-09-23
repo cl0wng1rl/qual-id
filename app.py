@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, make_response
 from src.Pattern import Pattern
 import random
 
@@ -9,13 +9,15 @@ def get_response():
     pattern = Pattern(request.args.get("pattern", ""))
     number = int(request.args.get("number", 1))
 
-    response = {}
+    response_obj = {}
 
     if not pattern.is_valid():
-        response["error"] = "pattern is invalid"
+        response_obj["error"] = "pattern is invalid"
     else:
-        response["data"] = get_qual_ids(pattern, number)
-    return jsonify(response)
+        response_obj["data"] = get_qual_ids(pattern, number)
+    
+    response = make_response(response_obj)
+    return response
 
 @app.route('/categories/', methods=['GET'])
 def categories_response():
@@ -25,13 +27,15 @@ def categories_response():
 @app.route('/badge-endpoint/', methods=['GET'])
 def badge_endpoint_response():
     example = get_qual_ids(Pattern('food-animal'), 1)[0]
-    response = {
+    response_obj = {
       "schemaVersion": 1,
       "label": "Qual ID",
       "message": example,
       "color": f"hsl({random.randint(0,359)}, 100%, 50%)"
     }
-    return jsonify(response)
+    response = make_response(response_obj)
+    response.headers['Cache-Control'] = 'no-cache, no-store'
+    return response
 
 def get_qual_ids(pattern, number):
   return [get_qual_id(pattern) for _ in range(number)]
