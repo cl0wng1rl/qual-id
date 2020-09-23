@@ -7,8 +7,7 @@ app = Flask(__name__)
 
 @app.route('/get/', methods=['GET'])
 def respond():
-    pattern = Pattern(request.args.get("pattern", ""))
-    
+    pattern = Pattern(request.args.get("pattern", ""))  
     response = {}
 
     if not pattern.is_valid():
@@ -18,12 +17,7 @@ def respond():
     return jsonify(response)
 
 def get_qual_id(pattern):
-  return '-'.join([get_name(path) for path in pattern.get_paths()])
-    
-def get_name(path):
-  data_file = open(path, "r")
-  data_list = data_file.read().split("\n")
-  return random.choice(data_list)
+  return '-'.join([path.get_random_value() for path in pattern.get_categories()])
 
 @app.route('/')
 def index():
