@@ -24,10 +24,10 @@ def categories_response():
 
 @app.route('/badge-endpoint/', methods=['GET'])
 def badge_endpoint_response():
-    example = get_qual_ids(Pattern('random-random'), 1)[0]
+    example = get_qual_ids(Pattern('food-animal'), 1)[0]
     response = {
       "schemaVersion": 1,
-      "label": "QualID",
+      "label": "Qual ID",
       "message": example,
       "color": f"hsl({random.randint(0,359)}, 100%, 50%)"
     }
