@@ -22,6 +22,17 @@ def categories_response():
     response = {'data': Pattern.get_category_options()}
     return jsonify(response)
 
+@app.route('/badge-endpoint/', methods=['GET'])
+def badge_endpoint_response():
+    example = get_qual_ids(Pattern('random-random'), 1)[0]
+    response = {
+      "schemaVersion": 1,
+      "label": "QualID",
+      "message": example,
+      "color": f"hsl({random.randint(0,359)}, 100%, 50%)"
+    }
+    return jsonify(response)
+
 def get_qual_ids(pattern, number):
   return [get_qual_id(pattern) for _ in range(number)]
 
