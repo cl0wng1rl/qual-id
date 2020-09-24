@@ -1,4 +1,0 @@
-ant
-cat
-dog
-snake
