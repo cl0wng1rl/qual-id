@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, make_response
-from src.Pattern import Pattern
+from qual_id.Pattern import Pattern
 import random
 
 app = Flask(__name__)

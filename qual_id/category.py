@@ -5,4 +5,4 @@ class Category:
     return choice(self.get_values())
   
   def get_values(self):
-    return []
+    return ['']

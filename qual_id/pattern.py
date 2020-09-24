@@ -1,6 +1,6 @@
 from random import choice
-from .categories.Animal import Animal
-from .categories.Food import Food
+from .categories.animal import Animal
+from .categories.food import Food
 
 class Pattern:
   __random_key = "random"

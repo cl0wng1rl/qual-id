@@ -1,4 +1,4 @@
-from ..Category import Category
+from ..category import Category
 
 class Animal(Category):
   def get_values(self):
