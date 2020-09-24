@@ -1,4 +1,4 @@
-from .Category import Category
+from ..Category import Category
 
 class Food(Category):
   def get_values(self):
