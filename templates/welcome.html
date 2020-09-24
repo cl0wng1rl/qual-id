@@ -5,8 +5,39 @@
 />
 <body class="container">
   <h1>Welcome to the Qual ID RESTful API</h1>
-  <h2>'Categories' Endpoint</h2>
-  <p>This endpoint will return a list of available categories.</p>
-  <h2>'Get' Endpoint</h2>
-  <p>This endpoint will return qualitative ID's.</p>
+  <h2>'categories' Endpoint</h2>
+  <p>
+    This endpoint will return a list of available categories. Each one can be used in the pattern
+    parameter in the url.
+  </p>
+  <h2>'get' Endpoint</h2>
+  <p>
+    This endpoint will return qualitative ID's based on the <i>pattern</i> and
+    <i>number</i> parameters.
+  </p>
+  <h3>'pattern' Parameter</h3>
+  <p>
+    A valid pattern is given as a list of categories, seperated by hyphens ('-'). This will
+    determine the pattern that the Qual IDs will follow. For example the pattern
+    <code>food-animal</code> would return results composed of a <code>food</code> and an
+    <code>animal</code>.
+  </p>
+  <p>
+    Up to 5 categories can be joined together to make a pattern. Additionally, the word
+    <code>random</code> can be given in place of a category, and a random category will be used.
+  </p>
+  <h3>'number' Parameter</h3>
+  <p>
+    The number parameter simply dictates how many Qual IDs following a given pattern will be
+    returned. If this parameter is omitted it will default to 1.
+  </p>
+  <h3>An Example Request</h3>
+  <p>Here is an example URL for the 'get' endpoint:</p>
+  <code>https://qual-id.herokuapp.com/get/?pattern=food-animal&number=3</code>
+  <p>
+    <br />
+    This would return 3 Qual IDs following the pattern of <code>food-animal</code>. An example
+    response would be:
+  </p>
+  <code>{"data":["apple-dog","waffle-dog","cookie-snake"]}</code>
 </body>
