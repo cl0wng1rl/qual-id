@@ -37,3 +37,9 @@ class TestPattern(unittest.TestCase):
     categories = self.pattern.get_categories()
     self.assertEqual(len(categories), 2)
     [self.assertNotEqual(category, None) for category in categories]
+
+  def test__get_categories__pattern_with_randoms__returns_array_of_correct_length(self):
+    self.pattern = Pattern('-'.join(['random'] * 2))
+    categories = self.pattern.get_categories()
+    self.assertEqual(len(categories), 2)
+    [self.assertNotEqual(category, None) for category in categories]
