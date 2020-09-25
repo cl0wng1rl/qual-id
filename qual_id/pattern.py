@@ -27,9 +27,6 @@ class Pattern:
   def __categories_length_is_acceptable(self):
     return (0 < len(self.__categories) < 6)
 
-  def __get_path_from_category(self, category):
-    return Pattern.__category_map[category]
-
   def __categories_all_exist(self):
     return all([(category in Pattern.__category_map) for category in self.__categories])
 
