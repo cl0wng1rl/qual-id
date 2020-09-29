@@ -9,6 +9,7 @@ class Pattern:
   __category_map = {
       "animal": Animal(),
       "food": Food(),
+      "drink": Drink(),
   }
 
   @staticmethod

@@ -10,5 +10,9 @@ class Drink(Category):
             'coffee',
             'tea',
             'wine',
-            'chocolate'
+            'chocolate',
+            'ice',
+            'smoothie',
+            'latte',
+            'macchiato'
         ]
