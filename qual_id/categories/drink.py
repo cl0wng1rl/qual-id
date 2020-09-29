@@ -1,7 +1,7 @@
 from ..category import Category
 
 class Drink(Category):
-    def get_values:
+    def get_values(self):
         return[
             'juice',
             'milk',
