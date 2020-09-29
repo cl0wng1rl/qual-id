@@ -2,6 +2,7 @@ from random import choice
 from .categories.animal import Animal
 from .categories.food import Food
 from .categories.drink import Drink
+from .categories.instrument import Instrument
 
 
 class Pattern:
@@ -11,6 +12,7 @@ class Pattern:
       "animal": Animal(),
       "food": Food(),
       "drink": Drink(),
+      "instrument": Instrument(),
   }
 
   @staticmethod
