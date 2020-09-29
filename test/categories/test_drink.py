@@ -1,5 +1,5 @@
 import unittest
-from qual_id.categories.drink import Instrument
+from qual_id.categories.drink import Drink
 import random
 
 
