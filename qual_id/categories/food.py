@@ -10,5 +10,15 @@ class Food(Category):
         'cookie',
         'egg',
         'lemon',
-        'waffle'
+        'waffle',
+        'grape',
+        'peach',
+        'mango',
+        'pinnaple',
+        'avocado',
+        'carrot',
+        'potato',
+        'kiwi',
+        'strawberry',
+        'orange'
     ]
