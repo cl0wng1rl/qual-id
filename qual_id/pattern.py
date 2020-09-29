@@ -1,6 +1,7 @@
 from random import choice
 from .categories.animal import Animal
 from .categories.food import Food
+from .categories.instrument import Instrument
 
 
 class Pattern:
@@ -9,6 +10,7 @@ class Pattern:
   __category_map = {
       "animal": Animal(),
       "food": Food(),
+      "instrument": Instrument(),
   }
 
   @staticmethod
