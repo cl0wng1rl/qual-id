@@ -19,5 +19,5 @@ class TestCategory(unittest.TestCase):
     return random.choice(self.category.get_values())
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
   unittest.main()

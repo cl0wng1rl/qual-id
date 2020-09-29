@@ -43,3 +43,7 @@ class TestPattern(unittest.TestCase):
     categories = self.pattern.get_categories()
     self.assertEqual(len(categories), 2)
     [self.assertNotEqual(category, None) for category in categories]
+
+
+if __name__ == '__main__':  # pragma: no cover
+  unittest.main()
