@@ -3,7 +3,7 @@ from qual_id.categories.color import Color
 import random
 
 
-class TestDrink(unittest.TestCase):
+class TestColor(unittest.TestCase):
   def setUp(self):
     self.color = Color()
 
