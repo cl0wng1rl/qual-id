@@ -10,7 +10,6 @@ class Game(Category):
         'hockey',
         'chess',
         'tennis',
-        'table_tennis',
         'badminton',
         'football',
         'wrestling'
