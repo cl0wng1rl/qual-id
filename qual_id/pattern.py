@@ -2,6 +2,7 @@ from random import choice
 from .categories.animal import Animal
 from .categories.food import Food
 from .categories.drink import Drink
+from .category.color import Color
 
 
 class Pattern:
