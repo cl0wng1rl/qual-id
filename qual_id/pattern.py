@@ -3,6 +3,7 @@ from .categories.animal import Animal
 from .categories.food import Food
 from .categories.drink import Drink
 from .categories.instrument import Instrument
+from .categories.games import Games
 
 
 class Pattern:
@@ -13,6 +14,7 @@ class Pattern:
       "food": Food(),
       "drink": Drink(),
       "instrument": Instrument(),
+      "games":Games()
   }
 
   @staticmethod
