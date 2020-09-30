@@ -10,5 +10,11 @@ class Animal(Category):
         'lizard',
         'lobster',
         'snake',
-        'whale'
+        'whale',
+        'shark',
+        'tiger',
+        'elephant',
+        'leopard',
+        'monkey',
+        'dolphin'
     ]
