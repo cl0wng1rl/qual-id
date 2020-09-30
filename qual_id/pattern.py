@@ -11,6 +11,7 @@ class Pattern:
       "animal": Animal(),
       "food": Food(),
       "drink": Drink(),
+      "color": Color(),
   }
 
   @staticmethod
