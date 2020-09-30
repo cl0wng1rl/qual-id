@@ -1,7 +1,7 @@
 from ..category import Category
 
 
-class Games(Category):
+class Game(Category):
   def get_values(self):
     return [
         'basketball',
@@ -10,7 +10,7 @@ class Games(Category):
         'hockey',
         'chess',
         'tennis',
-        'table-tennis',
+        'table_tennis',
         'badminton',
         'football',
         'wrestling'
