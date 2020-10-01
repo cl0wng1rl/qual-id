@@ -43,19 +43,20 @@ class Pattern:
     return list(Pattern.__category_map.keys())
 
   def __init__(self, pattern_string):
-    self.__categories = self.__replace_randoms(pattern_string.split('-'))
+    categories_array = [p for p in pattern_string.split('-') if p != ""]
+    self.__categories = self.__replace_randoms(categories_array)
 
-  def is_valid(self):
-    return self.__categories_length_is_acceptable() and self.__categories_all_exist()
+  def has_acceptable_categories_length(self):
+    return self.__categories_length_is_acceptable()
+
+  def get_nonexistent_categories(self):
+    return [category for category in self.__categories if category not in Pattern.__category_map]
 
   def get_categories(self):
     return [Pattern.__category_map[category] for category in self.__categories]
 
   def __categories_length_is_acceptable(self):
     return (0 < len(self.__categories) < 6)
-
-  def __categories_all_exist(self):
-    return all([(category in Pattern.__category_map) for category in self.__categories])
 
   @staticmethod
   def __random_category():
