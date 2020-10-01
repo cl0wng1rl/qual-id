@@ -4,7 +4,7 @@ from .categories.food import Food
 from .categories.drink import Drink
 from .categories.color import Color
 from .categories.shape import Shape
-
+from .categories.film import Film
 
 class Pattern:
   __random_key = "random"
@@ -15,6 +15,7 @@ class Pattern:
       "drink": Drink(),
       "color": Color(),
       "shape": Shape(),
+      'film': Film(),
   }
 
   @staticmethod
