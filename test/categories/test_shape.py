@@ -7,13 +7,8 @@ class TestShape(unittest.TestCase):
   def setUp(self):
     self.shape = Shape()
 
-  def test__get_values__returns_list(self):
-    self.assertIsInstance(self.shape.get_values(), list)
-    self.assertGreater(len(self.shape.get_values()), 0)
-
-  def test__get_values__each_string_is_correct(self):
-    for value in self.shape.get_values():
-      self.assertFalse(' ' in value)
+  def test__get_values__is_valid(self):
+        self.assertTrue(CategoryHelper.get_values_is_valid(self.shape))
 
 
 if __name__ == '__main__':  # pragma: no cover
