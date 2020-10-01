@@ -3,7 +3,7 @@ from qual_id.categories.electronic import Electronic
 from test.utils.category_helper import CategoryHelper
 
 
-class TestAnimal(unittest.TestCase):
+class TestElectronic(unittest.TestCase):
   def setUp(self):
     self.electronic = Electronic()
 
