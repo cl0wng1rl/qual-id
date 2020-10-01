@@ -1,6 +1,6 @@
 import unittest
 from qual_id.categories.shape import Shape
-import random
+from test.utils.category_helper import CategoryHelper
 
 
 class TestShape(unittest.TestCase):
