@@ -15,6 +15,7 @@ from .categories.music import Music
 from .categories.tool import Tool
 from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
+from .categories.city import City
 
 class Pattern:
   __random_key = "random"
@@ -35,7 +36,8 @@ class Pattern:
       "music": Music(),
       "tool": Tool(),
       "searchengine": SearchEngine(),
-      "adjective": Adjective()
+      "adjective": Adjective(),
+      "city": City()
   }
 
   @staticmethod
