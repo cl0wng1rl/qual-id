@@ -16,7 +16,7 @@ from .categories.tool import Tool
 from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
 from .categories.city import City
-from .categories.langauage import Language
+from .categories.language import Language
 
 class Pattern:
   __random_key = "random"
