@@ -20,5 +20,13 @@ class Food(Category):
         'potato',
         'kiwi',
         'strawberry',
+        'orange',
+        'pizza',
+        'burger',
+        'kebab',
+        'noddle',
+        'egg benedict',
+        'fried rice',
+        'banana',
         'orange'
     ]
