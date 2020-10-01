@@ -3,7 +3,7 @@ from qual_id.categories.planet import Planet
 from test.utils.category_helper import CategoryHelper
 
 
-class TestColor(unittest.TestCase):
+class TestPlanet(unittest.TestCase):
   def setUp(self):
     self.planet = Planet()
 
