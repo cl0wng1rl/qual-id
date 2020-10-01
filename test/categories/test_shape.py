@@ -1,18 +1,18 @@
 import unittest
-from qual_id.categories.shapes import Shapes
+from qual_id.categories.shape import Shape
 import random
 
 
-class TestFood(unittest.TestCase):
+class TestShape(unittest.TestCase):
   def setUp(self):
-    self.shapes = Shapes()
+    self.shape = Shape()
 
   def test__get_values__returns_list(self):
-    self.assertIsInstance(self.shapes.get_values(), list)
-    self.assertGreater(len(self.shapes.get_values()), 0)
+    self.assertIsInstance(self.shape.get_values(), list)
+    self.assertGreater(len(self.shape.get_values()), 0)
 
   def test__get_values__each_string_is_correct(self):
-    for value in self.shapes.get_values():
+    for value in self.shape.get_values():
       self.assertFalse(' ' in value)
 
 
