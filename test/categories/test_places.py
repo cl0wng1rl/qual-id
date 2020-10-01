@@ -3,7 +3,7 @@ from qual_id.categories.country import Country
 from test.utils.category_helper import CategoryHelper
 
 
-class TestCountryl(unittest.TestCase):
+class TestCountry(unittest.TestCase):
   def setUp(self):
     self.country = Country()
 
