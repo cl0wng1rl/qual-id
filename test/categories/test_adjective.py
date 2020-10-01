@@ -1,19 +1,14 @@
 import unittest
 from qual_id.categories.adjective import Adjective
-import random
+from test.utils.category_helper import CategoryHelper
 
 
-class TestAdjectives(unittest.TestCase):
+class TestAdjective(unittest.TestCase):
   def setUp(self):
     self.adjective = Adjective()
 
-  def test__get_values__returns_list(self):
-    self.assertIsInstance(self.adjective.get_values(), list)
-    self.assertGreater(len(self.adjective.get_values()), 0)
-
-  def test__get_values__each_string_is_correct(self):
-    for value in self.adjective.get_values():
-      self.assertFalse(' ' in value)
+  def test__get_values__is_valid(self):
+    self.assertTrue(CategoryHelper.get_values_is_valid(self.adjective))
 
 
 if __name__ == '__main__':  # pragma: no cover

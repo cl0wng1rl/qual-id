@@ -36,4 +36,4 @@ class Adjective(Category):
 		'blue',
 		'indigo',
 		'red',
-    ]
+	]
