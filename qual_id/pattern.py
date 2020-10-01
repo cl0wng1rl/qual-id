@@ -6,6 +6,7 @@ from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
+from .categories.country import Country
 
 
 class Pattern:
@@ -18,7 +19,8 @@ class Pattern:
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
-      "instrument": Instrument()
+      "instrument": Instrument(),
+      "country": Country()
   }
 
   @staticmethod
