@@ -13,6 +13,7 @@ from .categories.instrument import Instrument
 from .categories.music import Music
 from .categories.tool import Tool
 from .categories.searchengine import SearchEngine
+from .categories.adjective import Adjective
 
 class Pattern:
   __random_key = "random"
@@ -31,7 +32,8 @@ class Pattern:
       "instrument": Instrument(),
       "music": Music(),
       "tool": Tool(),
-      "searchengine": SearchEngine()
+      "searchengine": SearchEngine(),
+      "adjective": Adjective()
   }
 
   @staticmethod
