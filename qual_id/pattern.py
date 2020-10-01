@@ -3,12 +3,13 @@ from .categories.animal import Animal
 from .categories.color import Color
 from .categories.shape import Shape
 from .categories.drink import Drink
+from .categories.electronic import Electronic
+from .categories.emotion import Emotion
 from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.music import Music
-from .categories.emotion import Emotion
 from .categories.tool import Tool
 
 class Pattern:
@@ -19,6 +20,7 @@ class Pattern:
       "color": Color(),
       "shape": Shape(),
       "drink": Drink(),
+      "electronic":Electronic(),
       "emotion": Emotion(),
       "food": Food(),
       "game":Game(),
