@@ -16,6 +16,7 @@ from .categories.tool import Tool
 from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
 from .categories.city import City
+from .categories.planet import Planet
 
 class Pattern:
   __random_key = "random"
@@ -37,7 +38,8 @@ class Pattern:
       "tool": Tool(),
       "searchengine": SearchEngine(),
       "adjective": Adjective(),
-      "city": City()
+      "city": City(),
+      "planet": Planet()
   }
 
   @staticmethod
