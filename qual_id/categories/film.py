@@ -9,7 +9,7 @@ class Film(Category):
         'horror',
         'crime',
         'thriller',
-        'mistery',
+        'mystery',
         'romance',
         'western',
         'fantasy'
