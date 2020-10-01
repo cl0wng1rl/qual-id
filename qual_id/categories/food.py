@@ -1,6 +1,5 @@
 from ..category import Category
 
-
 class Food(Category):
   def get_values(self):
     return [

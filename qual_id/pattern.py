@@ -1,13 +1,19 @@
 from random import choice
 from .categories.animal import Animal
 from .categories.color import Color
+from .categories.country import Country
+from .categories.shape import Shape
 from .categories.drink import Drink
+from .categories.electronic import Electronic
+from .categories.emotion import Emotion
 from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
+from .categories.music import Music
+from .categories.tool import Tool
+from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
-
 
 class Pattern:
   __random_key = "random"
@@ -15,11 +21,18 @@ class Pattern:
   __category_map = {
       "animal": Animal(),
       "color": Color(),
+      "country": Country(),
+      "shape": Shape(),
       "drink": Drink(),
+      "electronic":Electronic(),
+      "emotion": Emotion(),
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
       "instrument": Instrument(),
+      "music": Music(),
+      "tool": Tool(),
+      "searchengine": SearchEngine(),
       "adjective": Adjective()
   }
 
