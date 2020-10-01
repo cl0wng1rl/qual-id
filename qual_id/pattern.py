@@ -6,7 +6,7 @@ from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
-
+from .categories.emotion import Emotion
 
 class Pattern:
   __random_key = "random"
@@ -18,7 +18,8 @@ class Pattern:
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
-      "instrument": Instrument()
+      "instrument": Instrument(),
+      "emotion": Emotion()
   }
 
   @staticmethod
