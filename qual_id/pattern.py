@@ -2,12 +2,14 @@ from random import choice
 from .categories.animal import Animal
 from .categories.color import Color
 from .categories.drink import Drink
+from .categories.electronic import Electronic
+from .categories.emotion import Emotion
 from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
-from .categories.electronic import Electronic
-
+from .categories.music import Music
+from .categories.tool import Tool
 
 class Pattern:
   __random_key = "random"
@@ -16,12 +18,14 @@ class Pattern:
       "animal": Animal(),
       "color": Color(),
       "drink": Drink(),
+      "electronic":Electronic(),
+      "emotion": Emotion(),
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
       "instrument": Instrument(),
-      "electronic":Electronic()
-
+      "music": Music(),
+      "tool": Tool()
   }
 
   @staticmethod
