@@ -12,6 +12,7 @@ from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.music import Music
 from .categories.tool import Tool
+from .categories.searchengine import SearchEngine
 
 class Pattern:
   __random_key = "random"
@@ -29,7 +30,8 @@ class Pattern:
       "geography":Geography(),
       "instrument": Instrument(),
       "music": Music(),
-      "tool": Tool()
+      "tool": Tool(),
+      "searchengine": SearchEngine()
   }
 
   @staticmethod
