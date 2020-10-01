@@ -1,6 +1,7 @@
 from random import choice
 from .categories.animal import Animal
 from .categories.color import Color
+from .categories.shape import Shape
 from .categories.drink import Drink
 from .categories.food import Food
 from .categories.game import Game
@@ -16,6 +17,7 @@ class Pattern:
   __category_map = {
       "animal": Animal(),
       "color": Color(),
+      "shape": Shape(),
       "drink": Drink(),
       "emotion": Emotion(),
       "food": Food(),
