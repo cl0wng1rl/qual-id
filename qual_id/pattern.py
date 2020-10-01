@@ -19,7 +19,7 @@ class Pattern:
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
-      "instrument": Instrument()
+      "instrument": Instrument(),
       "electronic":Electronic()
 
   }
