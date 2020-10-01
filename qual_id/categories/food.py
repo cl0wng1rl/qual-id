@@ -13,7 +13,7 @@ class Food(Category):
         'grape',
         'peach',
         'mango',
-        'pinnaple',
+        'pineapple',
         'avocado',
         'carrot',
         'potato',
