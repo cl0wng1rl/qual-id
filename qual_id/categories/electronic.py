@@ -13,5 +13,5 @@ class Electronic(Category):
         'trimmer',
         'headphones',
         'fan',
-		'elevator'
+        'elevator'
     ]

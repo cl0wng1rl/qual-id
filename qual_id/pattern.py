@@ -16,12 +16,10 @@ class Pattern:
       "animal": Animal(),
       "color": Color(),
       "drink": Drink(),
-      "instrument": Instrument(),
-      "game":Game(),
       "food": Food(),
       "game":Game(),
       "geography":Geography(),
-      "instrument": Instrument(),
+      "instrument": Instrument()
       "electronic":Electronic()
 
   }
