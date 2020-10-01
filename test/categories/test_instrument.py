@@ -1,19 +1,14 @@
 import unittest
 from qual_id.categories.instrument import Instrument
-import random
+from test.utils.category_helper import CategoryHelper
 
 
 class TestInstrument(unittest.TestCase):
   def setUp(self):
     self.instrument = Instrument()
 
-  def test__get_values__returns_list(self):
-    self.assertIsInstance(self.instrument.get_values(), list)
-    self.assertGreater(len(self.instrument.get_values()), 0)
-
-  def test__get_values__each_string_is_correct(self):
-    for value in self.instrument.get_values():
-      self.assertFalse(' ' in value)
+  def test__get_values__is_valid(self):
+    self.assertTrue(CategoryHelper.get_values_is_valid(self.instrument))
 
 
 if __name__ == '__main__':  # pragma: no cover

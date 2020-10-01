@@ -1,7 +1,10 @@
 from random import choice
 from .categories.animal import Animal
-from .categories.food import Food
+from .categories.color import Color
 from .categories.drink import Drink
+from .categories.food import Food
+from .categories.game import Game
+from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.adjective import Adjective
 
@@ -11,8 +14,11 @@ class Pattern:
 
   __category_map = {
       "animal": Animal(),
-      "food": Food(),
+      "color": Color(),
       "drink": Drink(),
+      "food": Food(),
+      "game":Game(),
+      "geography":Geography(),
       "instrument": Instrument(),
       "adjective": Adjective()
   }
