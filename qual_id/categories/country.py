@@ -9,7 +9,6 @@ class Country(Category):
         'Japan',
         'Paris',
         'iceberg',
-        'Cabo Verde,
         'Cambodia',
         'Cameroon',
         'Canada',
