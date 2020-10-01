@@ -6,13 +6,12 @@ class Game(Category):
     return [
         'basketball',
         'cricket',
-        'baseball',
         'hockey',
         'chess',
         'tennis',
         'badminton',
         'football',
-        'wrestling'
+        'wrestling',
         'rugby',
         'baseball',
         'cycling'

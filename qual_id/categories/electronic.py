@@ -5,13 +5,13 @@ class Electronic(Category):
   def get_values(self):
     return [
         'laptop',
-        'Desktop',
+        'desktop',
         'refrigerator',
         'mobile',
         'television',
         'radio',
         'trimmer',
-		'headPhones',
-		'fan',
+        'headphones',
+        'fan',
 		'elevator'
     ]
