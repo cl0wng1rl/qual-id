@@ -6,6 +6,7 @@ from .categories.food import Food
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
+from .categories.music import Music
 from .categories.emotion import Emotion
 from .categories.tool import Tool
 
@@ -16,11 +17,12 @@ class Pattern:
       "animal": Animal(),
       "color": Color(),
       "drink": Drink(),
-      "food": Food(),
-      "game": Game(),
-      "geography": Geography(),
-      "instrument": Instrument(),
       "emotion": Emotion(),
+      "food": Food(),
+      "game":Game(),
+      "geography":Geography(),
+      "instrument": Instrument(),
+      "music": Music(),
       "tool": Tool()
   }
 
