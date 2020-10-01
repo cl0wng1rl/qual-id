@@ -1,20 +1,31 @@
 from random import choice
 from .categories.animal import Animal
-from .categories.food import Food
-from .categories.drink import Drink
 from .categories.color import Color
 from .categories.shape import Shape
-
+from .categories.drink import Drink
+from .categories.food import Food
+from .categories.game import Game
+from .categories.geography import Geography
+from .categories.instrument import Instrument
+from .categories.music import Music
+from .categories.emotion import Emotion
+from .categories.tool import Tool
 
 class Pattern:
   __random_key = "random"
 
   __category_map = {
       "animal": Animal(),
-      "food": Food(),
-      "drink": Drink(),
       "color": Color(),
       "shape": Shape(),
+      "drink": Drink(),
+      "emotion": Emotion(),
+      "food": Food(),
+      "game":Game(),
+      "geography":Geography(),
+      "instrument": Instrument(),
+      "music": Music(),
+      "tool": Tool()
   }
 
   @staticmethod
