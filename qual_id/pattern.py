@@ -18,6 +18,7 @@ from .categories.adjective import Adjective
 from .categories.city import City
 from .categories.planet import Planet
 from .categories.language import Language
+from .categories.vehicle import Vehicle
 
 class Pattern:
   __random_key = "random"
@@ -41,7 +42,8 @@ class Pattern:
       "adjective": Adjective(),
       "city": City(),
       "planet": Planet(),
-      "language": Language()
+      "language": Language(),
+      "vehicle": Vehicle()
   }
 
   @staticmethod
