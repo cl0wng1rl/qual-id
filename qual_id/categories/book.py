@@ -3,7 +3,7 @@ from ..category import Category
 class Book(Category):
   def get_values(self):
     return [
-        'Art',
+        'art',
         'music',
         'business',
         'comic',
