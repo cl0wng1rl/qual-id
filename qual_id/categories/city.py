@@ -1,5 +1,6 @@
 from ..category import Category
 
+
 class City(Category):
     def get_values(self):
         return[
@@ -30,5 +31,22 @@ class City(Category):
             'London',
             'Toronto',
             'Berlin',
-            'Madrid'
+            'Madrid',
+            'Seattle',
+            'SanFrancisco',
+            'Ankara',
+            'Riyadh',
+            'Male',
+            'PortLouis',
+            'Skopje',
+            'Reykjavik',
+            'Jerusalem',
+            'Dublin',
+            'Edinburgh',
+            'Cardiff',
+            'Ottawa',
+            'Munich',
+            'Belgrade',
+            'Prague',
+            'Bern'
         ]

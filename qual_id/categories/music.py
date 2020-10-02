@@ -18,4 +18,7 @@ class Music(Category):
             'kpop',
             'jpop',
             'punk',
+            'classical',
+            'hiphop',
+            'rock'
         ]

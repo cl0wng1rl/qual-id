@@ -1,5 +1,6 @@
 from ..category import Category
 
+
 class Color(Category):
     def get_values(self):
         return[
@@ -12,5 +13,42 @@ class Color(Category):
             'yellow',
             'brown',
             'orange',
-            'purple'
+            'purple',
+            'amber',
+            'magenta',
+            'beige',
+            'bronze',
+            'burgundy',
+            'cerulean',
+            'indigo',
+            'violet',
+            'scarlet',
+            'teal',
+            'taupe',
+            'silver',
+            'gold',
+            'ruby',
+            'rose',
+            'plum',
+            'sapphire',
+            'salmon',
+            'sangria',
+            'viridian',
+            'tan',
+            'ochre',
+            'lilac',
+            'lime',
+            'ivory',
+            'jade',
+            'erin',
+            'coral',
+            'byzantium',
+            'apricot',
+            'azure',
+            'aquamarine',
+            'turquoise',
+            'ultamarine',
+            'cyan',
+            'olive',
+            'raspberry'
         ]
