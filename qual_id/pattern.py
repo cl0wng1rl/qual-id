@@ -1,5 +1,6 @@
 from random import choice
 from .categories.animal import Animal
+from .categories.clothing import Clothing
 from .categories.color import Color
 from .categories.country import Country
 from .categories.shape import Shape
@@ -21,11 +22,13 @@ from .categories.planet import Planet
 from .categories.language import Language
 from .categories.vehicle import Vehicle
 
+
 class Pattern:
   __random_key = "random"
 
   __category_map = {
       "animal": Animal(),
+      "clothing":Clothing(),
       "color": Color(),
       "country": Country(),
       "shape": Shape(),
@@ -46,6 +49,7 @@ class Pattern:
       "planet": Planet(),
       "language": Language(),
       "vehicle": Vehicle()
+      
   }
 
   @staticmethod
