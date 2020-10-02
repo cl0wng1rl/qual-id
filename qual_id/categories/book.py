@@ -5,18 +5,18 @@ class Book(Category):
     def get_values(self):
         return [
             "art",
-            "music",
             "business",
             "comic",
-            "technology",
             "cooking",
-            "entertaiment",
             "education",
+            "entertaiment",
             "history",
             "kids",
             "literature",
             "medical",
+            "music",
+            "religion",
             "romance",
             "sport",
-            "religion",
+            "technology",
         ]
