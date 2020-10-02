@@ -21,6 +21,7 @@ from .categories.city import City
 from .categories.planet import Planet
 from .categories.language import Language
 from .categories.vehicle import Vehicle
+from .categories.sports import Sports
 
 
 class Pattern:
@@ -48,7 +49,8 @@ class Pattern:
       "city": City(),
       "planet": Planet(),
       "language": Language(),
-      "vehicle": Vehicle()
+      "vehicle": Vehicle(),
+      "sports": Sports()
       
   }
 
