@@ -16,6 +16,7 @@ from .categories.tool import Tool
 from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
 from .categories.city import City
+from .categories.planet import Planet
 from .categories.language import Language
 from .categories.vehicle import Vehicle
 
@@ -40,6 +41,7 @@ class Pattern:
       "searchengine": SearchEngine(),
       "adjective": Adjective(),
       "city": City(),
+      "planet": Planet(),
       "language": Language(),
       "vehicle": Vehicle()
   }
