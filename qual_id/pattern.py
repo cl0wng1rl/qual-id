@@ -40,7 +40,7 @@ class Pattern:
       "searchengine": SearchEngine(),
       "adjective": Adjective(),
       "city": City(),
-      "planet": Planet()
+      "planet": Planet(),
       "language": Language()
   }
 
