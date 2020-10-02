@@ -17,6 +17,7 @@ from .categories.searchengine import SearchEngine
 from .categories.adjective import Adjective
 from .categories.city import City
 from .categories.language import Language
+from .categories.brand import Brand
 
 class Pattern:
   __random_key = "random"
@@ -39,7 +40,8 @@ class Pattern:
       "searchengine": SearchEngine(),
       "adjective": Adjective(),
       "city": City(),
-      "language": Language()
+      "language": Language(),
+      "brand": Brand()
   }
 
   @staticmethod
