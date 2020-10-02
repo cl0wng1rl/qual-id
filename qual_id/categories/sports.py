@@ -10,7 +10,7 @@ class Sports(Category):
             'cricket',
             'kickball',
             'tennis',
-            'ping pong',
+            'pingpong',
             'baseball',
             'hockey',
             'volleyball',

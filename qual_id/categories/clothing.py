@@ -3,7 +3,7 @@ from ..category import Category
 class Clothing(Category):
   def get_values(self):
     return [
-        't-shirt',
+        'tshirt',
         'shoes',
         'socks',
         'pants',
