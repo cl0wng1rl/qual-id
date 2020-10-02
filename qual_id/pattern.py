@@ -4,6 +4,7 @@ from .categories.color import Color
 from .categories.country import Country
 from .categories.shape import Shape
 from .categories.film import Film
+from .categories.book import Book
 from .categories.drink import Drink
 from .categories.electronic import Electronic
 from .categories.emotion import Emotion
@@ -29,6 +30,7 @@ class Pattern:
       "country": Country(),
       "shape": Shape(),
       "film": Film(),
+      "book": Book(),
       "drink": Drink(),
       "electronic":Electronic(),
       "emotion": Emotion(),
