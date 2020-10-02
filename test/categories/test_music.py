@@ -11,5 +11,5 @@ class TestMusic(unittest.TestCase):
         self.assertTrue(CategoryHelper.get_values_is_valid(self.music))
 
 
-if __name__ == '__main__': # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     unittest.main()

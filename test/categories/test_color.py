@@ -4,12 +4,12 @@ from test.utils.category_helper import CategoryHelper
 
 
 class TestColor(unittest.TestCase):
-  def setUp(self):
-    self.color = Color()
+    def setUp(self):
+        self.color = Color()
 
-  def test__get_values__is_valid(self):
-    self.assertTrue(CategoryHelper.get_values_is_valid(self.color))
+    def test__get_values__is_valid(self):
+        self.assertTrue(CategoryHelper.get_values_is_valid(self.color))
 
 
-if __name__ == '__main__':  # pragma: no cover
-  unittest.main()
+if __name__ == "__main__":  # pragma: no cover
+    unittest.main()
