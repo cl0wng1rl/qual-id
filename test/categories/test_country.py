@@ -1,14 +1,14 @@
 import unittest
-from qual_id.categories.food import Food
+from qual_id.categories.country import Country
 from test.utils.category_helper import CategoryHelper
 
 
-class TestFood(unittest.TestCase):
+class TestCountry(unittest.TestCase):
   def setUp(self):
-    self.food = Food()
+    self.country = Country()
 
   def test__get_values__is_valid(self):
-    self.assertTrue(CategoryHelper.get_values_is_valid(self.food))
+    self.assertTrue(CategoryHelper.get_values_is_valid(self.country))
 
 
 if __name__ == '__main__':  # pragma: no cover
