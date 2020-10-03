@@ -6,6 +6,7 @@ from .categories.color import Color
 from .categories.shape import Shape
 from .categories.film import Film
 from .categories.book import Book
+from .categories.company import Company
 
 class Pattern:
   __random_key = "random"
@@ -18,6 +19,7 @@ class Pattern:
       "shape": Shape(),
       "film": Film(),
       "book": Book(),
+      "company": Company(),
   }
 
   @staticmethod
