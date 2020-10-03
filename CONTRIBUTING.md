@@ -30,6 +30,8 @@ print(sorted(<YOUR_CATEGORY>().get_values()))
 
 _will print the alphabetised list._
 
+The formatting is done with `black`, so if you know what that means then please aim to use `black` to format your .py files.
+
 # Thank You
 
 Seriously, thank you for any contribution, we really appreciate it!

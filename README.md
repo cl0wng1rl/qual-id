@@ -12,6 +12,9 @@
   <a href="https://qual-id.herokuapp.com/get/?pattern=food-animal">
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fqual-id.herokuapp.com%2Fbadge-endpoint%2F"/>
   </a>
+  <a href="https://github.com/psf/black">
+    <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg" />
+  </a>
   <a href="https://hacktoberfest.digitalocean.com/">
     <img src="https://img.shields.io/badge/Hacktoberfest-2020-blueviolet" />
   </a>
