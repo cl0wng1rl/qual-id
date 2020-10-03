@@ -8,6 +8,7 @@ class CategoryHelper:
             CategoryHelper.__get_contains_repeats_message(category),
             CategoryHelper.__get_contains_invalid_string_message(category),
             CategoryHelper.__get_alphabetical_message(category),
+            CategoryHelper.__get_contains_uppercase_string_message(category),
         ]
 
         error_messages = [message for message in messages if message]
@@ -46,9 +47,22 @@ class CategoryHelper:
         return "" if sorted(category.get_values()) == category.get_values() else message
 
     @staticmethod
+    def __get_contains_uppercase_string_message(category):
+        invalids = [
+            value
+            for value in category.get_values()
+            if CategoryHelper.__string_contains_uppercase_character(value)
+        ]
+        return CategoryHelper.__get_message("contains uppercase strings: ", invalids)
+
+    @staticmethod
     def __get_message(beginning, lst):
         return (beginning + ", ".join(lst)) if len(lst) else ""
 
     @staticmethod
     def __string_contains_disallowed_character(str):
         return any([c in str for c in CategoryHelper.__disallowed_characters])
+
+    @staticmethod
+    def __string_contains_uppercase_character(str):
+        return any([c for c in list(str) if c.isupper()])
