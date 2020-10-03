@@ -3,4 +3,4 @@ from ..category import Category
 
 class Instrument(Category):
     def get_values(self):
-        return ["guitar", "bass", "drumkit", "banjo", "cello", "violin", "ukelele"]
+        return ["banjo", "bass", "cello", "drumkit", "guitar", "ukelele", "violin"]
