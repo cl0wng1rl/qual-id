@@ -18,7 +18,7 @@ class Brand(Category):
             'Nvidia',
             'Oppo',
             'Puma',
-            'Reebok'
+            'Reebok',
             'Reliance',
             'Samsung',
             'Sandisk',
