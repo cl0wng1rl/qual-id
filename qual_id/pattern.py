@@ -20,6 +20,7 @@ from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
+from .categories.brand import Brand
 
 
 class Pattern:
@@ -47,6 +48,7 @@ class Pattern:
         "shape": Shape(),
         "tool": Tool(),
         "vehicle": Vehicle(),
+        "brand": Brand(),
     }
 
     @staticmethod
