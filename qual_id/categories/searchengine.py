@@ -10,6 +10,7 @@ class SearchEngine(Category):
             "ecosia",
             "ekoru",
             "gibiru",
+            "givewater",
             "google",
             "onesearch",
             "slideshare",
@@ -19,5 +20,4 @@ class SearchEngine(Category):
             "wiki",
             "yahoo",
             "yandex",
-            "givewater",
         ]
