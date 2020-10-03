@@ -5,8 +5,8 @@ class Vehicle(Category):
     def get_values(self):
         return [
             "aeroplane",
-            "bus",
             "boat",
+            "bus",
             "canoe",
             "car",
             "crane",
@@ -24,8 +24,8 @@ class Vehicle(Category):
             "spaceship",
             "submarine",
             "tanker",
+            "tractor",
             "train",
             "truck",
-            "tractor",
             "van",
         ]
