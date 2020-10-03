@@ -20,6 +20,7 @@ from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
+from .categories.brand import Brand
 
 
 class Pattern:
@@ -29,6 +30,7 @@ class Pattern:
         "adjective": Adjective(),
         "animal": Animal(),
         "book": Book(),
+        "brand": Brand(),
         "city": City(),
         "color": Color(),
         "country": Country(),
