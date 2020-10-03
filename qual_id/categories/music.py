@@ -19,6 +19,5 @@ class Music(Category):
             'jpop',
             'punk',
             'classical',
-            'hiphop',
-            'rock'
+            'hiphop'
         ]

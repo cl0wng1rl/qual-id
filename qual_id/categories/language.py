@@ -22,7 +22,6 @@ class Language(Category):
             'Filipino',
             'Indonesian',
             'Arabic',
-            'Persian',
             'Mandarin',
             'Telugu',
             'Malayalam'

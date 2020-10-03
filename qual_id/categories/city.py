@@ -48,5 +48,8 @@ class City(Category):
             'Munich',
             'Belgrade',
             'Prague',
-            'Bern'
+            'Bern',
+            'Rome',
+            'Milan',
+            'Venice'
         ]

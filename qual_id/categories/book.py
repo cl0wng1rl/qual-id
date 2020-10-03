@@ -29,7 +29,6 @@ class Book(Category):
             'biography',
             'autobiography',
             'economics',
-            'business',
             'dictionary',
             'memoir',
             'health',

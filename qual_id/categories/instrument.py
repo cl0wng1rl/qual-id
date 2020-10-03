@@ -13,6 +13,5 @@ class Instrument(Category):
         'ukelele',
         'piano',
         'organ',
-        'harp',
-        'cello'
+        'harp'
     ]

@@ -39,5 +39,7 @@ class Country(Category):
             'Moldova',
             'Hungary',
             'Belgium',
-            'Switzerland'
+            'Switzerland',
+            'Austria',
+            'Greece'
         ]
