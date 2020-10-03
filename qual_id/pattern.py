@@ -20,6 +20,7 @@ class Pattern:
       "film": Film(),
       "book": Book(),
       "company": Company(),
+      
   }
 
   @staticmethod
