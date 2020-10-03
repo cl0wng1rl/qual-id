@@ -24,5 +24,5 @@ class Brand(Category):
             'Sandisk',
             'Tesla',
             'Vizio',
-            'Xoom',   
+            'Xoom'  
             ]
