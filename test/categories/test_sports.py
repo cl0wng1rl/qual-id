@@ -8,7 +8,8 @@ class TestSports(unittest.TestCase):
         self.sports = Sports()
 
     def test__get_values__is_valid(self):
-        self.assertTrue(CategoryHelper.get_values_is_valid(self.sports))
+        error_message = CategoryHelper.get_values_error_message(self.sports)
+        self.assertTrue(error_message == "", error_message)
 
 
 if __name__ == '__main__': # pragma: no cover
