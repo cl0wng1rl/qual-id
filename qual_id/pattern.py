@@ -1,8 +1,8 @@
 from random import choice
 from .categories.adjective import Adjective
 from .categories.animal import Animal
-
 from .categories.book import Book
+from .categories.brand import Brand
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
