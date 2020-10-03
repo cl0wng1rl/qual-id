@@ -8,7 +8,8 @@ class TestGame(unittest.TestCase):
         self.game = Game()
 
     def test__get_values__is_valid(self):
-        self.assertTrue(CategoryHelper.get_values_is_valid(self.game))
+        error_message = CategoryHelper.get_values_error_message(self.game)
+        self.assertTrue(error_message == "", error_message)
 
 
 if __name__ == "__main__":  # pragma: no cover

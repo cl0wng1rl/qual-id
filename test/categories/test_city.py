@@ -8,7 +8,8 @@ class TestCity(unittest.TestCase):
         self.city = City()
 
     def test__get_values__is_valid(self):
-        self.assertTrue(CategoryHelper.get_values_is_valid(self.city))
+        error_message = CategoryHelper.get_values_error_message(self.city)
+        self.assertTrue(error_message == "", error_message)
 
 
 if __name__ == "__main__":  # pragma: no cover

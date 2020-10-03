@@ -8,7 +8,8 @@ class TestPlanet(unittest.TestCase):
         self.planet = Planet()
 
     def test__get_values__is_valid(self):
-        self.assertTrue(CategoryHelper.get_values_is_valid(self.planet))
+        error_message = CategoryHelper.get_values_error_message(self.planet)
+        self.assertTrue(error_message == "", error_message)
 
 
 if __name__ == "__main__":  # pragma: no cover

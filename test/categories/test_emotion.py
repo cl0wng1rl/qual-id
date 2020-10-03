@@ -8,7 +8,8 @@ class TestEmotion(unittest.TestCase):
         self.emotion = Emotion()
 
     def test__get_values__is_valid(self):
-        self.assertTrue(CategoryHelper.get_values_is_valid(self.emotion))
+        error_message = CategoryHelper.get_values_error_message(self.emotion)
+        self.assertTrue(error_message == "", error_message)
 
 
 if __name__ == "__main__":  # pragma: no cover
