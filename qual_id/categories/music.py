@@ -5,9 +5,11 @@ class Music(Category):
     def get_values(self):
         return [
             "blues",
+            "classical",
             "dubstep",
             "funk",
             "hardcore",
+            "hiphop",
             "house",
             "indie",
             "jazz",

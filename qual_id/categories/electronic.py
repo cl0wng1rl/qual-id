@@ -9,9 +9,11 @@ class Electronic(Category):
             "fan",
             "headphones",
             "laptop",
+            "microwave",
             "mobile",
             "radio",
             "refrigerator",
+            "tablet",
             "television",
             "trimmer",
         ]
