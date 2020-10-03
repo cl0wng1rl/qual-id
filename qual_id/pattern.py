@@ -20,9 +20,9 @@ from .categories.music import Music
 from .categories.planet import Planet
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
+from .categories.sports import Sports
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
-from .categories.sports import Sports
 
 class Pattern:
     __random_key = "random"
