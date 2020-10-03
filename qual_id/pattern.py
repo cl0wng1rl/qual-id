@@ -30,6 +30,7 @@ class Pattern:
         "adjective": Adjective(),
         "animal": Animal(),
         "book": Book(),
+        "brand": Brand(),
         "city": City(),
         "color": Color(),
         "country": Country(),
@@ -48,7 +49,6 @@ class Pattern:
         "shape": Shape(),
         "tool": Tool(),
         "vehicle": Vehicle(),
-        "brand": Brand()
     }
 
     @staticmethod
