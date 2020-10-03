@@ -10,7 +10,6 @@ class Country(Category):
             'Japan',
             'Pakistan',
             'France',
-            'Austria',
             'Bahamas',
             'Australia',
             'Bulgaria',
