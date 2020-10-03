@@ -4,16 +4,16 @@ from ..category import Category
 class Drink(Category):
     def get_values(self):
         return [
-            "juice",
-            "milk",
             "beer",
-            "water",
-            "coffee",
-            "tea",
-            "wine",
             "chocolate",
+            "coffee",
             "ice",
-            "smoothie",
+            "juice",
             "latte",
             "macchiato",
+            "milk",
+            "smoothie",
+            "tea",
+            "water",
+            "wine",
         ]
