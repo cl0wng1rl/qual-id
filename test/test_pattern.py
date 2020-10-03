@@ -8,8 +8,14 @@ class TestPattern(unittest.TestCase):
         self.pattern = None
 
     def test__get_category_options__returns_non_empty_list(self):
-        self.pattern = Pattern("test_pattern")
+        self.pattern = Pattern("")
         self.assertGreater(len(self.pattern.get_category_options()), 0)
+
+    def test__get_category_options__returns_alphabetically_ordered_list(self):
+        self.pattern = Pattern("")
+        categories = self.pattern.get_category_options()
+        error_message = "categories should be listed in alphabetical order"
+        self.assertEqual(categories, sorted(categories), error_message)
 
     def test__has_acceptable_categories_length__valid_number_of_categories_returns_true(
         self,
