@@ -6,12 +6,12 @@ class Film(Category):
         return [
             "action",
             "comedy",
-            "drama",
-            "horror",
             "crime",
-            "thriller",
+            "drama",
+            "fantasy",
+            "horror",
             "mystery",
             "romance",
+            "thriller",
             "western",
-            "fantasy",
         ]
