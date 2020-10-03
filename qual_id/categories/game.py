@@ -2,17 +2,17 @@ from ..category import Category
 
 
 class Game(Category):
-  def get_values(self):
-    return [
-        'basketball',
-        'cricket',
-        'hockey',
-        'chess',
-        'tennis',
-        'badminton',
-        'football',
-        'wrestling',
-        'rugby',
-        'baseball',
-        'cycling'
-    ]
+    def get_values(self):
+        return [
+            "badminton",
+            "baseball",
+            "basketball",
+            "chess",
+            "cricket",
+            "cycling",
+            "football",
+            "hockey",
+            "rugby",
+            "tennis",
+            "wrestling",
+        ]

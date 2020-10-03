@@ -20,6 +20,18 @@ Adding a new category involves adding a new class that inherits from the `Catego
 
 We request that for any contribution, at least 10 values are added, but of course the more the better!
 
+There are rules in place for the code formatting. Namely, values in the list returned by `get_values` must not contain special characters, spaces or upper case characters. The list must also be in alphabetical order. The keys in the `__category_map` must also be in alphabetical order.
+_If you see an error relating to alphabetical order, running_
+
+```
+from <YOUR_CATEGORY_FILE> import <YOUR_CATEGORY>
+print(sorted(<YOUR_CATEGORY>().get_values()))
+```
+
+_will print the alphabetised list._
+
+The formatting is done with `black`, so if you know what that means then please aim to use `black` to format your .py files.
+
 # Thank You
 
 Seriously, thank you for any contribution, we really appreciate it!
