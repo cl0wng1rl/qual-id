@@ -48,7 +48,7 @@ class Pattern:
         "shape": Shape(),
         "tool": Tool(),
         "vehicle": Vehicle(),
-        "brand": Brand(),
+        "brand": Brand()
     }
 
     @staticmethod
