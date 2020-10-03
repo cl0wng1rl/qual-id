@@ -17,18 +17,18 @@ class TestCategoryHelper(unittest.TestCase):
     ):
         self.category = MockCategoryWithInvalidGetValuesMethod_Spaces()
         error_message = CategoryHelper.get_values_error_message(self.category)
-        expected_message = "contains invalid strings: value A, value B, value C"
+        expected_message = "contains invalid strings: value a, value b, value c"
         self.assertEqual(error_message, expected_message)
 
-    def test__get_values_error_message__with_invalid_category_due_to_dashes__returns_false(
+    def test__get_values_error_message__with_invalid_category_due_to_dashes__returns_error_messages(
         self,
     ):
         self.category = MockCategoryWithInvalidGetValuesMethod_Dashes()
         error_message = CategoryHelper.get_values_error_message(self.category)
-        expected_message = "contains invalid strings: value-A, value-B, value-C"
+        expected_message = "contains invalid strings: value-a, value-b, value-c"
         self.assertEqual(error_message, expected_message)
 
-    def test__get_values_error_message__with_invalid_category_due_to_empty_list__returns_false(
+    def test__get_values_error_message__with_invalid_category_due_to_empty_list__returns_error_messages(
         self,
     ):
         self.category = MockCategoryWithInvalidGetValuesMethod_Empty()
@@ -36,20 +36,28 @@ class TestCategoryHelper(unittest.TestCase):
         expected_message = "should return non-empty list"
         self.assertEqual(error_message, expected_message)
 
-    def test__get_values_error_message__with_invalid_category_due_to_repeats__returns_false(
+    def test__get_values_error_message__with_invalid_category_due_to_repeats__returns_error_messages(
         self,
     ):
         self.category = MockCategoryWithInvalidGetValuesMethod_Repeats()
         error_message = CategoryHelper.get_values_error_message(self.category)
-        expected_message = "contains repeats: valueB"
+        expected_message = "contains repeats: valueb"
         self.assertEqual(error_message, expected_message)
 
-    def test__get_values_error_message__with_invalid_category_due_to_non_alphabetical__returns_false(
+    def test__get_values_error_message__with_invalid_category_due_to_non_alphabetical__returns_error_messages(
         self,
     ):
         self.category = MockCategoryWithInvalidGetValuesMethod_NonAlphabetical()
         error_message = CategoryHelper.get_values_error_message(self.category)
         expected_message = "should be in alphabetical order"
+        self.assertEqual(error_message, expected_message)
+
+    def test__get_values_error_message__with_invalid_category_due_to_uppercase__returns_error_messages(
+        self,
+    ):
+        self.category = MockCategoryWithInvalidGetValuesMethod_Uppercase()
+        error_message = CategoryHelper.get_values_error_message(self.category)
+        expected_message = "contains uppercase strings: valueA, valueB, valueC"
         self.assertEqual(error_message, expected_message)
 
 
@@ -60,27 +68,27 @@ if __name__ == "__main__":  # pragma: no cover
 class MockCategoryWithValidGetValuesMethod(Category):
     def get_values(self):
         return [
-            "valueA",
-            "valueB",
-            "valueC",
+            "valuea",
+            "valueb",
+            "valuec",
         ]
 
 
 class MockCategoryWithInvalidGetValuesMethod_Spaces(Category):
     def get_values(self):
         return [
-            "value A",
-            "value B",
-            "value C",
+            "value a",
+            "value b",
+            "value c",
         ]
 
 
 class MockCategoryWithInvalidGetValuesMethod_Dashes(Category):
     def get_values(self):
         return [
-            "value-A",
-            "value-B",
-            "value-C",
+            "value-a",
+            "value-b",
+            "value-c",
         ]
 
 
@@ -92,16 +100,25 @@ class MockCategoryWithInvalidGetValuesMethod_Empty(Category):
 class MockCategoryWithInvalidGetValuesMethod_Repeats(Category):
     def get_values(self):
         return [
-            "valueA",
-            "valueB",
-            "valueB",
+            "valuea",
+            "valueb",
+            "valueb",
         ]
 
 
 class MockCategoryWithInvalidGetValuesMethod_NonAlphabetical(Category):
     def get_values(self):
         return [
-            "valueC",
+            "valuec",
+            "valuea",
+            "valueb",
+        ]
+
+
+class MockCategoryWithInvalidGetValuesMethod_Uppercase(Category):
+    def get_values(self):
+        return [
             "valueA",
             "valueB",
+            "valueC",
         ]
