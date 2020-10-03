@@ -3,7 +3,7 @@ from qual_id.categories.company import Company
 from test.utils.category_helper import CategoryHelper
 
 
-class TestElectronic(unittest.TestCase):
+class TestCompany(unittest.TestCase):
     def setUp(self):
         self.company = Company()
 
