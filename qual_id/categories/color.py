@@ -5,13 +5,13 @@ class Color(Category):
     def get_values(self):
         return [
             "black",
-            "red",
             "blue",
-            "green",
-            "white",
-            "grey",
-            "yellow",
             "brown",
+            "green",
+            "grey",
             "orange",
             "purple",
+            "red",
+            "white",
+            "yellow",
         ]
