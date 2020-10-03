@@ -10,5 +10,8 @@ class Instrument(Category):
         'banjo',
         'cello',
         'violin',
-        'ukelele'
+        'ukelele',
+        'piano',
+        'organ',
+        'harp'
     ]
