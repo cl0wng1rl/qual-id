@@ -44,6 +44,14 @@ class TestCategoryHelper(unittest.TestCase):
         expected_message = "contains repeats: valueB"
         self.assertEqual(error_message, expected_message)
 
+    def test__get_values_error_message__with_invalid_category_due_to_non_alphabetical__returns_false(
+        self,
+    ):
+        self.category = MockCategoryWithInvalidGetValuesMethod_NonAlphabetical()
+        error_message = CategoryHelper.get_values_error_message(self.category)
+        expected_message = "should be in alphabetical order"
+        self.assertEqual(error_message, expected_message)
+
 
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
@@ -86,5 +94,14 @@ class MockCategoryWithInvalidGetValuesMethod_Repeats(Category):
         return [
             "valueA",
             "valueB",
+            "valueB",
+        ]
+
+
+class MockCategoryWithInvalidGetValuesMethod_NonAlphabetical(Category):
+    def get_values(self):
+        return [
+            "valueC",
+            "valueA",
             "valueB",
         ]
