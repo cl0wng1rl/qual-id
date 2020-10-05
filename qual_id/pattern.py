@@ -17,6 +17,7 @@ from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.language import Language
 from .categories.music import Music
+from .categories.operatingsystem import OperatingSystem
 from .categories.planet import Planet
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
@@ -46,6 +47,7 @@ class Pattern:
         "instrument": Instrument(),
         "language": Language(),
         "music": Music(),
+        "operatingsystem": OperatingSystem(),
         "planet": Planet(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
