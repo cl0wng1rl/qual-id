@@ -2,7 +2,9 @@ from random import choice
 from .categories.adjective import Adjective
 from .categories.animal import Animal
 from .categories.book import Book
+from .categories.brand import Brand
 from .categories.city import City
+from .categories.clothing import Clothing
 from .categories.color import Color
 from .categories.country import Country
 from .categories.drink import Drink
@@ -18,18 +20,20 @@ from .categories.music import Music
 from .categories.planet import Planet
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
+from .categories.sports import Sports
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
-
 class Pattern:
     __random_key = "random"
-
+    
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
         "book": Book(),
+        "brand": Brand(),
         "city": City(),
+        "clothing":Clothing(),
         "color": Color(),
         "country": Country(),
         "drink": Drink(),
@@ -45,6 +49,7 @@ class Pattern:
         "planet": Planet(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
+        "sports": Sports(),
         "tool": Tool(),
         "vehicle": Vehicle(),
     }
