@@ -19,6 +19,7 @@ from .categories.language import Language
 from .categories.music import Music
 from .categories.operatingsystem import OperatingSystem
 from .categories.planet import Planet
+from .categories.programminglanguage import ProgrammingLanguage
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
