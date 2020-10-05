@@ -50,6 +50,7 @@ class Pattern:
         "music": Music(),
         "operatingsystem": OperatingSystem(),
         "planet": Planet(),
+        "programminglanguage": ProgrammingLanguage(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
         "sports": Sports(),
