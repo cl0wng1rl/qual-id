@@ -6,6 +6,7 @@ from .categories.brand import Brand
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
+from .categories.constellation import Constellation
 from .categories.country import Country
 from .categories.drink import Drink
 from .categories.electronic import Electronic
@@ -35,8 +36,9 @@ class Pattern:
         "book": Book(),
         "brand": Brand(),
         "city": City(),
-        "clothing":Clothing(),
+        "clothing": Clothing(),
         "color": Color(),
+        "constellation": Constellation(),
         "country": Country(),
         "drink": Drink(),
         "electronic": Electronic(),
