@@ -9,9 +9,9 @@ class Company(Category):
         "corporate",
         "finance",
         "government",
-        "medical",
-        "media",
         "manufacturing",
+        "media",
+        "medical",
         "service",
         "transportation"
     ]
