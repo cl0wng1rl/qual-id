@@ -1,11 +1,15 @@
 from random import choice
+
 from .categories.adjective import Adjective
 from .categories.animal import Animal
 from .categories.book import Book
 from .categories.brand import Brand
+from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
+from .categories.company import Company
+from .categories.constellation import Constellation
 from .categories.country import Country
 from .categories.drink import Drink
 from .categories.electronic import Electronic
@@ -19,24 +23,30 @@ from .categories.language import Language
 from .categories.music import Music
 from .categories.operatingsystem import OperatingSystem
 from .categories.planet import Planet
+from .categories.pokemon import Pokemon
 from .categories.programminglanguage import ProgrammingLanguage
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
+from .categories.state import State
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
+
 class Pattern:
     __random_key = "random"
-    
+
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
         "book": Book(),
         "brand": Brand(),
+        "celebrity": Celebrity(),
         "city": City(),
-        "clothing":Clothing(),
+        "clothing": Clothing(),
         "color": Color(),
+        "company": Company(),
+        "constellation": Constellation(),
         "country": Country(),
         "drink": Drink(),
         "electronic": Electronic(),
@@ -50,10 +60,12 @@ class Pattern:
         "music": Music(),
         "operatingsystem": OperatingSystem(),
         "planet": Planet(),
+        "pokemon": Pokemon(),
         "programminglanguage": ProgrammingLanguage(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
         "sports": Sports(),
+        "state": State(),
         "tool": Tool(),
         "vehicle": Vehicle(),
     }
