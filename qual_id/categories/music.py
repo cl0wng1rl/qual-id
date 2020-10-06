@@ -17,8 +17,8 @@ class Music(Category):
             "kpop",
             "metal",
             "orchestra",
-            "punk",
-            "rock&roll",            
+            "punk",           
             "rock",
+            "rock&roll",            
             "techno",
         ]
