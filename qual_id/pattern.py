@@ -30,6 +30,7 @@ from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
 from .categories.state import State
+from .categories.tea import Tea
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
@@ -68,6 +69,7 @@ class Pattern:
         "shape": Shape(),
         "sports": Sports(),
         "state": State(),
+        "tea": Tea(),
         "tool": Tool(),
         "vehicle": Vehicle(),
     }
