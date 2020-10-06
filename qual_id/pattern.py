@@ -5,6 +5,7 @@ from .categories.animal import Animal
 from .categories.book import Book
 from .categories.brand import Brand
 from .categories.celebrity import Celebrity
+from .categories.chemicalelement import ChemicalElement
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
@@ -42,6 +43,7 @@ class Pattern:
         "book": Book(),
         "brand": Brand(),
         "celebrity": Celebrity(),
+        "chemicalelement": ChemicalElement(),
         "city": City(),
         "clothing": Clothing(),
         "color": Color(),
