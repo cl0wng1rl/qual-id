@@ -21,7 +21,7 @@ class Profession(Category):
             "engineer",
             "farmer",
             "manager",
-            "Nurse",
+            "nurse",
             "optician",
             "painter",
             "photographer",
