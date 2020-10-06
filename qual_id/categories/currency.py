@@ -22,5 +22,5 @@ class Currency(Category):
         'sar',
         'sgd',
         'usd',
-        'zar'
+        'zar',
     ]
