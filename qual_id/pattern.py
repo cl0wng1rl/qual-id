@@ -54,6 +54,7 @@ class Pattern:
         "searchengine": SearchEngine(),
         "shape": Shape(),
         "sports": Sports(),
+        "state": State(),
         "tool": Tool(),
         "vehicle": Vehicle(),
     }
