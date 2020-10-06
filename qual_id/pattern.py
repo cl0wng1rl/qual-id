@@ -25,6 +25,7 @@ from .categories.programminglanguage import ProgrammingLanguage
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
+from .categories.state import State
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
