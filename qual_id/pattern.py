@@ -16,6 +16,7 @@ from .categories.electronic import Electronic
 from .categories.emotion import Emotion
 from .categories.film import Film
 from .categories.food import Food
+from .categories.fruit import Fruit
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
@@ -55,6 +56,7 @@ class Pattern:
         "emotion": Emotion(),
         "film": Film(),
         "food": Food(),
+        "fruit": Fruit(),
         "game": Game(),
         "geography": Geography(),
         "instrument": Instrument(),
