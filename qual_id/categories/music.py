@@ -20,4 +20,5 @@ class Music(Category):
             "punk",
             "rock",
             "techno",
+            "rock&roll",
         ]
