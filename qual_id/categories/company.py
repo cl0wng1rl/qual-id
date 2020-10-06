@@ -3,15 +3,15 @@ from ..category import Category
 class Company(Category):
   def get_values(self):
     return [
-        'agriculture',
-        'art',
-        'construction',
-        'corporate',
-        'medical',
-        'service',
-        'transportation',
-        'finance',
-        'government',
-        'media',
-        'manufacturing'
+        "agriculture",
+        "art",
+        "construction",
+        "corporate",
+        "finance",
+        "government",
+        "medical",
+        "media",
+        "manufacturing",
+        "service",
+        "transportation"
     ]
