@@ -18,7 +18,7 @@ class Music(Category):
             "metal",
             "orchestra",
             "punk",
+            "rock&roll",            
             "rock",
             "techno",
-            "rock&roll",
         ]
