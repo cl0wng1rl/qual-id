@@ -1,8 +1,10 @@
 from random import choice
+
 from .categories.adjective import Adjective
 from .categories.animal import Animal
 from .categories.book import Book
 from .categories.brand import Brand
+from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
@@ -30,14 +32,16 @@ from .categories.state import State
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
+
 class Pattern:
     __random_key = "random"
-    
+
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
         "book": Book(),
         "brand": Brand(),
+        "celebrity": Celebrity(),
         "city": City(),
         "clothing": Clothing(),
         "color": Color(),
