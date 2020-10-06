@@ -19,6 +19,7 @@ from .categories.language import Language
 from .categories.music import Music
 from .categories.operatingsystem import OperatingSystem
 from .categories.planet import Planet
+from .categories.pokemon import Pokemon
 from .categories.programminglanguage import ProgrammingLanguage
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
@@ -50,6 +51,7 @@ class Pattern:
         "music": Music(),
         "operatingsystem": OperatingSystem(),
         "planet": Planet(),
+        "pokemon": Pokemon(),
         "programminglanguage": ProgrammingLanguage(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
