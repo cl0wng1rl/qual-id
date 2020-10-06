@@ -28,12 +28,8 @@ class Music(Category):
             "pop",
             "punk",
             "reggae",
-            "rhythm and blues and soul",
             "rock",
-            "rock and roll",
             "snap",
             "techno",
             "trap",
-            "trap",
-            "western swing",
         ]
