@@ -13,13 +13,13 @@ class Pattern:
 
   __category_map = {
       "animal": Animal(),
-      "food": Food(),
-      "drink": Drink(),
-      "color": Color(),
-      "shape": Shape(),
-      "film": Film(),
       "book": Book(),
+      "color": Color(),
       "company": Company(),
+      "drink": Drink(),
+      "film": Film(),
+      "food": Food(),
+      "shape": Shape(),
       
   }
 
