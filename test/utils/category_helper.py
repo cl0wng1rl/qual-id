@@ -1,5 +1,5 @@
 class CategoryHelper:
-    __disallowed_characters = [" ", "-", "_"]
+    __disallowed_characters = [" ", "-", "_", "&"]
 
     @staticmethod
     def get_values_error_message(category):
