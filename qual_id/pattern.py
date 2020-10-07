@@ -13,6 +13,7 @@ from .categories.constellation import Constellation
 from .categories.country import Country
 from .categories.drink import Drink
 from .categories.electronic import Electronic
+from .categories.element import Element
 from .categories.emotion import Emotion
 from .categories.film import Film
 from .categories.food import Food
@@ -54,6 +55,7 @@ class Pattern:
         "country": Country(),
         "drink": Drink(),
         "electronic": Electronic(),
+        "element": Element(),
         "emotion": Emotion(),
         "film": Film(),
         "food": Food(),
