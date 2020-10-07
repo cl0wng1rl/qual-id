@@ -4,7 +4,7 @@ from ..category import Category
 class Currency(Category):
   def get_values(self):
     return [
-        'bolivar'
+        'bolivar',
         'dinar',
         'dollar',
         'dram', 
@@ -17,7 +17,7 @@ class Currency(Category):
         'rand',
         'real',
         'ruble',
-        'rupee'
+        'rupee',
         'shilling',
         'yuan',
     ]
