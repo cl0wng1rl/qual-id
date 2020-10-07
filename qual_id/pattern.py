@@ -14,6 +14,7 @@ from .categories.country import Country
 from .categories.drink import Drink
 from .categories.electronic import Electronic
 from .categories.emotion import Emotion
+from .categories.festivals import Festivals
 from .categories.film import Film
 from .categories.food import Food
 from .categories.fruit import Fruit
@@ -55,6 +56,7 @@ class Pattern:
         "drink": Drink(),
         "electronic": Electronic(),
         "emotion": Emotion(),
+        "festivals": Festivals(),
         "film": Film(),
         "food": Food(),
         "fruit": Fruit(),
