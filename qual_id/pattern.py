@@ -32,7 +32,6 @@ from .categories.planet import Planet
 from .categories.pokemon import Pokemon
 from .categories.profession import Profession
 from .categories.programminglanguage import ProgrammingLanguage
-from .categories.scientist import Scientist
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
@@ -78,7 +77,6 @@ class Pattern:
         "pokemon": Pokemon(),
         "profession": Profession(),
         "programminglanguage": ProgrammingLanguage(),
-        "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
         "sports": Sports(),
