@@ -39,7 +39,7 @@ def categories_response():
 
 @app.route("/badge-endpoint/", methods=["GET"])
 def badge_endpoint_response():
-    example = get_qual_ids(Pattern("food-animal"), 1)[0]
+    example = get_qual_ids(Pattern("fruit-geography"), 1)[0]
     response_obj = {
         "schemaVersion": 1,
         "label": "Qual ID",
