@@ -23,6 +23,7 @@ from .categories.instrument import Instrument
 from .categories.language import Language
 from .categories.music import Music
 from .categories.operatingsystem import OperatingSystem
+from .categories.particle import Particle
 from .categories.planet import Planet
 from .categories.pokemon import Pokemon
 from .categories.profession import Profession
@@ -63,6 +64,7 @@ class Pattern:
         "language": Language(),
         "music": Music(),
         "operatingsystem": OperatingSystem(),
+        "particle": Particle(),
         "planet": Planet(),
         "pokemon": Pokemon(),
         "profession": Profession(),
