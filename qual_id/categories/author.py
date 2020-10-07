@@ -1,0 +1,41 @@
+from ..category import Category
+
+
+class Author(Category):
+    def get_values(self):
+        return [
+            "aesop",
+            "agathachristie",
+            "aldoushuxley",
+            "antonchekov",
+            "arthurconandoyle",
+            "charlesdickens",
+            "emilydickinson",
+            "ernesthemingway",
+            "georgeeliot",
+            "georgeorwell",
+            "harperlee",
+            "hgwells",
+            "homer",
+            "isaacasimov",
+            "jamesjoyce",
+            "janeausten",
+            "jkrowling",
+            "jonathanswift",
+            "leotolstoy",
+            "lewiscaroll",
+            "marktwain",
+            "maryshelley",
+            "migueldecervantes",
+            "oscarwilde",
+            "robertfrost",
+            "robertlouisstevenson",
+            "rudyardkipling",
+            "stephenking",
+            "thomashardy",
+            "victorhugo",
+            "virginiawoolf",
+            "waltwhitman",
+            "williamshakespeare",
+            "williamwordsworth",
+        ]
