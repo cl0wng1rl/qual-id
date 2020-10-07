@@ -3,6 +3,7 @@ from random import choice
 from .categories.adjective import Adjective
 from .categories.animal import Animal
 from .categories.author import Author
+from .categories.bird import Bird
 from .categories.book import Book
 from .categories.brand import Brand
 from .categories.celebrity import Celebrity
@@ -49,6 +50,7 @@ class Pattern:
         "adjective": Adjective(),
         "animal": Animal(),
         "author": Author(),
+        "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
         "celebrity": Celebrity(),
