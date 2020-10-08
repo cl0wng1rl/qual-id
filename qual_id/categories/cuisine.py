@@ -45,5 +45,5 @@ class Cuisine(Category):
             "thai",
             "tibetian",
             "turkish",
-            "welsh"
+            "welsh",
         ]
