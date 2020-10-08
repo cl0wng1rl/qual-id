@@ -1,8 +1,12 @@
 from random import choice
+
 from .categories.adjective import Adjective
 from .categories.animal import Animal
+from .categories.author import Author
+from .categories.bird import Bird
 from .categories.book import Book
 from .categories.brand import Brand
+from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
@@ -10,35 +14,47 @@ from .categories.company import Company
 from .categories.constellation import Constellation
 from .categories.country import Country
 from .categories.cuisine import Cuisine
+from .categories.currency import Currency
 from .categories.drink import Drink
 from .categories.electronic import Electronic
+from .categories.element import Element
 from .categories.emotion import Emotion
+from .categories.festivals import Festivals
 from .categories.film import Film
 from .categories.food import Food
+from .categories.fruit import Fruit
 from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.language import Language
 from .categories.music import Music
 from .categories.operatingsystem import OperatingSystem
+from .categories.particle import Particle
 from .categories.planet import Planet
 from .categories.pokemon import Pokemon
+from .categories.profession import Profession
 from .categories.programminglanguage import ProgrammingLanguage
+from .categories.scientist import Scientist
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
 from .categories.sports import Sports
 from .categories.state import State
+from .categories.tea import Tea
 from .categories.tool import Tool
 from .categories.vehicle import Vehicle
 
+
 class Pattern:
     __random_key = "random"
-    
+
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
+        "author": Author(),
+        "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
+        "celebrity": Celebrity(),
         "city": City(),
         "clothing": Clothing(),
         "color": Color(),
@@ -46,24 +62,32 @@ class Pattern:
         "constellation": Constellation(),
         "country": Country(),
         "cuisine": Cuisine(),
+        "currency": Currency(),
         "drink": Drink(),
         "electronic": Electronic(),
+        "element": Element(),
         "emotion": Emotion(),
+        "festivals": Festivals(),
         "film": Film(),
         "food": Food(),
+        "fruit": Fruit(),
         "game": Game(),
         "geography": Geography(),
         "instrument": Instrument(),
         "language": Language(),
         "music": Music(),
         "operatingsystem": OperatingSystem(),
+        "particle": Particle(),
         "planet": Planet(),
         "pokemon": Pokemon(),
+        "profession": Profession(),
         "programminglanguage": ProgrammingLanguage(),
+        "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
         "sports": Sports(),
         "state": State(),
+        "tea": Tea(),
         "tool": Tool(),
         "vehicle": Vehicle(),
     }

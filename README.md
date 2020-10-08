@@ -9,7 +9,7 @@
   <a href="https://qual-id.herokuapp.com">
     <img src="http://heroku-shields.herokuapp.com/qual-id"/>
   </a>
-  <a href="https://qual-id.herokuapp.com/get/?pattern=food-animal">
+  <a href="https://qual-id.herokuapp.com/get/?pattern=fruit-geography">
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fqual-id.herokuapp.com%2Fbadge-endpoint%2F"/>
   </a>
   <a href="https://github.com/psf/black">
