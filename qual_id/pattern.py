@@ -13,6 +13,7 @@ from .categories.color import Color
 from .categories.company import Company
 from .categories.constellation import Constellation
 from .categories.country import Country
+from .categories.cuisine import Cuisine
 from .categories.currency import Currency
 from .categories.drink import Drink
 from .categories.electronic import Electronic
@@ -60,6 +61,7 @@ class Pattern:
         "company": Company(),
         "constellation": Constellation(),
         "country": Country(),
+        "cuisine": Cuisine(),
         "currency": Currency(),
         "drink": Drink(),
         "electronic": Electronic(),
