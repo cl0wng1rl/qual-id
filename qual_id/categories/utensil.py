@@ -24,7 +24,6 @@ class Utensil(Category):
             "scoop",
             "spatula",
             "spoon",
-            "spoon",
             "strainer",
             "tongs",
             "tray"
