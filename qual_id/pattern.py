@@ -41,6 +41,7 @@ from .categories.sports import Sports
 from .categories.state import State
 from .categories.tea import Tea
 from .categories.tool import Tool
+from .categories.utensil import Utensil
 from .categories.vehicle import Vehicle
 
 
@@ -89,6 +90,7 @@ class Pattern:
         "state": State(),
         "tea": Tea(),
         "tool": Tool(),
+        "utensil": Utensil(),
         "vehicle": Vehicle(),
     }
 
