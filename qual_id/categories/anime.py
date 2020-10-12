@@ -19,7 +19,6 @@ class Anime(Category):
             "dororo",
             "durarara",
             "erased",
-            "fmab",
             "gintama",
             "gosick",
             "haikyuu",
