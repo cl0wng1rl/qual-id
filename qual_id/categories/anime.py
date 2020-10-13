@@ -6,7 +6,7 @@ class Anime(Category):
         return [
             "akira",
             "anohana",
-            "baccano"
+            "baccano",
             "bakemonogatari",
             "bakuman",
             "berserk",

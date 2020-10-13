@@ -7,6 +7,7 @@ from .categories.author import Author
 from .categories.bird import Bird
 from .categories.book import Book
 from .categories.brand import Brand
+from .categories.capital import Capital
 from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
@@ -57,6 +58,7 @@ class Pattern:
         "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
+        "capital": Capital(),
         "celebrity": Celebrity(),
         "city": City(),
         "clothing": Clothing(),
