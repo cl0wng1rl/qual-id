@@ -197,3 +197,4 @@ class Capital(Category):
             "yerevan",
             "zagreb"
         ]
+        
