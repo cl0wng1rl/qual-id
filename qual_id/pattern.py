@@ -2,6 +2,7 @@ from random import choice
 
 from .categories.adjective import Adjective
 from .categories.animal import Animal
+from .categories.anime import Anime
 from .categories.author import Author
 from .categories.bird import Bird
 from .categories.book import Book
@@ -51,6 +52,7 @@ class Pattern:
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
+        "anime" : Anime(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),
