@@ -61,7 +61,7 @@ def get_qual_id(pattern):
 
 def get_response_in_format(response_obj, response_format):
     if response_format == "csv":
-        return make_response(response_obj["data"] or response_obj["error"])
+        return make_response(",".join(response_obj["data"]) or response_obj["error"])
     return make_response(response_obj)
 
 
