@@ -9,6 +9,7 @@ app = Flask(__name__)
 def get_response():
     pattern = Pattern(request.args.get("pattern", ""))
     number = int(request.args.get("number", 1))
+    response_format = request.args.get("format", "json")
     nonexistent_categories = pattern.get_nonexistent_categories()
 
     response_obj = {}
@@ -27,8 +28,7 @@ def get_response():
     else:
         response_obj["data"] = get_qual_ids(pattern, number)
 
-    response = make_response(response_obj)
-    return response
+    return get_response_in_format(response_obj, response_format)
 
 
 @app.route("/categories/", methods=["GET"])
@@ -57,6 +57,12 @@ def get_qual_ids(pattern, number):
 
 def get_qual_id(pattern):
     return "-".join([path.get_random_value() for path in pattern.get_categories()])
+
+
+def get_response_in_format(response_obj, response_format):
+    if response_format == "csv":
+        return make_response(response_obj["data"] or response_obj["error"])
+    return make_response(response_obj)
 
 
 @app.route("/")
