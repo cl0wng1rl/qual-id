@@ -88,7 +88,7 @@ class Pattern:
         "pokemon": Pokemon(),
         "profession": Profession(),
         "programminglanguage": ProgrammingLanguage(),
-        "randomid": RandomId(),
+        "id": RandomId(),
         "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
