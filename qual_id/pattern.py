@@ -54,7 +54,7 @@ class Pattern:
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
-        "anime" : Anime(),
+        "anime": Anime(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),
