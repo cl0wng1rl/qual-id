@@ -2,10 +2,12 @@ from random import choice
 
 from .categories.adjective import Adjective
 from .categories.animal import Animal
+from .categories.anime import Anime
 from .categories.author import Author
 from .categories.bird import Bird
 from .categories.book import Book
 from .categories.brand import Brand
+from .categories.capital import Capital
 from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
@@ -42,6 +44,7 @@ from .categories.sports import Sports
 from .categories.state import State
 from .categories.tea import Tea
 from .categories.tool import Tool
+from .categories.utensil import Utensil
 from .categories.vehicle import Vehicle
 
 
@@ -51,10 +54,12 @@ class Pattern:
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
+        "anime" : Anime(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
+        "capital": Capital(),
         "celebrity": Celebrity(),
         "city": City(),
         "clothing": Clothing(),
@@ -91,6 +96,7 @@ class Pattern:
         "state": State(),
         "tea": Tea(),
         "tool": Tool(),
+        "utensil": Utensil(),
         "vehicle": Vehicle(),
     }
 
