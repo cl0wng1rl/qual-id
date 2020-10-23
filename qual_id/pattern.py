@@ -34,6 +34,7 @@ from .categories.planet import Planet
 from .categories.pokemon import Pokemon
 from .categories.profession import Profession
 from .categories.programminglanguage import ProgrammingLanguage
+from .categories.randomid import RandomId
 from .categories.scientist import Scientist
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
@@ -82,6 +83,7 @@ class Pattern:
         "pokemon": Pokemon(),
         "profession": Profession(),
         "programminglanguage": ProgrammingLanguage(),
+        "randomid": RandomId(),
         "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
