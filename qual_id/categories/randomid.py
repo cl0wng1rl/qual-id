@@ -4,7 +4,7 @@ import strgen
 
 class RandomId(Category):
     def get_values(self):
-        return [self.get_random_id()]
+        return [self.get_id()]
 
-    def get_random_id(self):
-        return strgen.StringGenerator("[a-zA-Z0-9]{10}").render()
+    def get_id(self):
+        return strgen.StringGenerator("[a-z0-9]{10}").render()
