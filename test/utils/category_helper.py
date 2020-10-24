@@ -37,14 +37,15 @@ class CategoryHelper:
     @staticmethod
     def __get_contains_repeats_message(category):
         repeats = category.get_values()
-        uniques = set(category.get_values())
+        uniques = set(repeats)
         [repeats.remove(unique) for unique in uniques]
         return CategoryHelper.__get_message("contains repeats: ", repeats)
 
     @staticmethod
     def __get_alphabetical_message(category):
         message = "should be in alphabetical order"
-        return "" if sorted(category.get_values()) == category.get_values() else message
+        values = category.get_values()
+        return "" if sorted(values) == values else message
 
     @staticmethod
     def __get_contains_uppercase_string_message(category):

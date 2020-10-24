@@ -36,6 +36,7 @@ from .categories.planet import Planet
 from .categories.pokemon import Pokemon
 from .categories.profession import Profession
 from .categories.programminglanguage import ProgrammingLanguage
+from .categories.randomid import RandomId
 from .categories.scientist import Scientist
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
@@ -53,7 +54,7 @@ class Pattern:
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
-        "anime" : Anime(),
+        "anime": Anime(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),
@@ -78,6 +79,7 @@ class Pattern:
         "fruit": Fruit(),
         "game": Game(),
         "geography": Geography(),
+        "id": RandomId(),
         "instrument": Instrument(),
         "language": Language(),
         "music": Music(),
