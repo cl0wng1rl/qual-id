@@ -36,7 +36,7 @@ from .categories.randomid import RandomId
 from .categories.scientist import Scientist
 from .categories.searchengine import SearchEngine
 from .categories.shape import Shape
-from .categories.sports import Sports
+from .categories.sport import Sport
 from .categories.state import State
 from .categories.tea import Tea
 from .categories.tool import Tool
@@ -85,7 +85,7 @@ class Pattern:
         "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
-        "sports": Sports(),
+        "sport": Sport(),
         "state": State(),
         "tea": Tea(),
         "tool": Tool(),

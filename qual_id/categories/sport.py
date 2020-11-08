@@ -1,9 +1,9 @@
 from ..category import Category
 
 
-class Sports(Category):
+class Sport(Category):
     def get_values(self):
-        return[
+        return [
             "baseball",
             "basketball",
             "boxing",
@@ -12,7 +12,7 @@ class Sports(Category):
             "football",
             "gymnastics",
             "hockey",
-            "kickball",
+            "lacrosse",
             "pingpong",
             "rugby",
             "skiing",
