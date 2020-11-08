@@ -11,7 +11,6 @@ class Author(Category):
             "frost",
             "hemingway",
             "homer",
-            "jkrowling",
             "kipling",
             "orwell",
             "shakespeare",

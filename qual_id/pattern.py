@@ -2,17 +2,14 @@ from random import choice
 
 from .categories.adjective import Adjective
 from .categories.animal import Animal
-from .categories.anime import Anime
 from .categories.author import Author
 from .categories.bird import Bird
 from .categories.book import Book
 from .categories.brand import Brand
 from .categories.capital import Capital
-from .categories.celebrity import Celebrity
 from .categories.city import City
 from .categories.clothing import Clothing
 from .categories.color import Color
-from .categories.company import Company
 from .categories.constellation import Constellation
 from .categories.country import Country
 from .categories.cuisine import Cuisine
@@ -25,7 +22,6 @@ from .categories.festivals import Festivals
 from .categories.film import Film
 from .categories.food import Food
 from .categories.fruit import Fruit
-from .categories.game import Game
 from .categories.geography import Geography
 from .categories.instrument import Instrument
 from .categories.language import Language
@@ -54,17 +50,14 @@ class Pattern:
     __category_map = {
         "adjective": Adjective(),
         "animal": Animal(),
-        "anime": Anime(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
         "capital": Capital(),
-        "celebrity": Celebrity(),
         "city": City(),
         "clothing": Clothing(),
         "color": Color(),
-        "company": Company(),
         "constellation": Constellation(),
         "country": Country(),
         "cuisine": Cuisine(),
@@ -77,7 +70,6 @@ class Pattern:
         "film": Film(),
         "food": Food(),
         "fruit": Fruit(),
-        "game": Game(),
         "geography": Geography(),
         "id": RandomId(),
         "instrument": Instrument(),
