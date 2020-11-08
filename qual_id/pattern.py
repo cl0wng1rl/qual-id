@@ -42,6 +42,7 @@ from .categories.tea import Tea
 from .categories.tool import Tool
 from .categories.utensil import Utensil
 from .categories.vehicle import Vehicle
+from .categories.wine import Wine
 
 
 class Pattern:
@@ -90,6 +91,7 @@ class Pattern:
         "tool": Tool(),
         "utensil": Utensil(),
         "vehicle": Vehicle(),
+        "wine": Wine(),
     }
 
     @staticmethod
