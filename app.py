@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.pattern import Pattern
+from qual_id.category_map import CategoryMap
 import random
 
 app = Flask(__name__)
@@ -7,33 +8,12 @@ app = Flask(__name__)
 
 @app.route("/get/", methods=["GET"])
 def get_response():
-    pattern = Pattern(request.args.get("pattern", ""))
-    number = int(request.args.get("number", 1))
-    response_format = request.args.get("format", "json")
-    nonexistent_categories = pattern.get_nonexistent_categories()
-
-    response_obj = {}
-
-    if not pattern.has_acceptable_categories_length():
-        num_categories_entered = len(pattern.get_categories())
-        response_obj["error"] = (
-            "Number of categories entered (%s) is invalid! Should be between 1 to 5 categories"
-            % (num_categories_entered)
-        )
-    elif len(nonexistent_categories) > 0:
-        response_obj["error"] = "Error! Found %s invalid categories: %s" % (
-            len(nonexistent_categories),
-            nonexistent_categories,
-        )
-    else:
-        response_obj["data"] = get_qual_ids(pattern, number)
-
-    return get_response_in_format(response_obj, response_format)
+    return get_response_with_category_map(CategoryMap())
 
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    response = {"data": Pattern.get_category_options()}
+    response = {"data": CategoryMap.all()}
     return jsonify(response)
 
 
@@ -51,12 +31,29 @@ def badge_endpoint_response():
     return response
 
 
+def get_response_with_category_map(category_map):
+    pattern_string = request.args.get("pattern", "")
+    pattern = Pattern(pattern_string, category_map)
+    number = int(request.args.get("number", 1))
+
+    response_obj = get_qual_ids(pattern, number)
+
+    response_format = request.args.get("format", "json")
+    return get_response_in_format(response_obj, response_format)
+
+
 def get_qual_ids(pattern, number):
-    return [get_qual_id(pattern) for _ in range(number)]
+    response_obj = {}
+    error = pattern.error()
+    if error:
+        response_obj["error"] = error
+    else:
+        response_obj["data"] = [get_qual_id(pattern) for _ in range(number)]
+    return response_obj
 
 
 def get_qual_id(pattern):
-    return "-".join([path.get_random_value() for path in pattern.get_categories()])
+    return "-".join([category.random() for category in pattern.get_categories()])
 
 
 def get_response_in_format(response_obj, response_format):

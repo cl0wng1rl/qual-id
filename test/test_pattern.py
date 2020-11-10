@@ -1,77 +1,95 @@
 import unittest
+from qual_id.category_map import CategoryMap
 from qual_id.pattern import Pattern
-from unittest.mock import Mock, call
+from unittest.mock import Mock, call, patch
 
 
 class TestPattern(unittest.TestCase):
-    def test__get_category_options__returns_non_empty_list(self):
-        self.pattern = Pattern("", self.mock_category_map())
-        self.assertGreater(len(self.pattern.get_category_options()), 0)
-
-    def test__get_category_options__returns_alphabetically_ordered_list(self):
-        self.pattern = Pattern("", self.mock_category_map())
-        categories = self.pattern.get_category_options()
-        error_message = "categories should be listed in alphabetical order"
-        self.assertEqual(categories, sorted(categories), error_message)
-
-    def test__has_acceptable_categories_length__valid_number_of_categories_returns_true(
-        self,
-    ):
-        self.pattern = Pattern("test_pattern", self.mock_category_map())
-        categories = self.pattern.get_category_options()
-
-        self.pattern = Pattern("-".join([categories[0], categories[1]]))
-        self.assertTrue(self.pattern.has_acceptable_categories_length())
-
-    def test__get_nonexistent_categories__nonempty_invalid_category_list__returns_false(
-        self,
-    ):
-        self.pattern = Pattern("invalid_pattern", self.mock_category_map())
-        self.assertTrue(len(self.pattern.get_nonexistent_categories()) > 0)
-
-    def test__has_acceptable_categories_length__pattern_with_more_than_5_categories__returns_false(
-        self,
-    ):
-        self.pattern = Pattern("test_pattern", self.mock_category_map())
-        categories = self.pattern.get_category_options()
-
-        self.pattern = Pattern("-".join([categories[0]] * 6))
-        self.assertFalse(self.pattern.has_acceptable_categories_length())
-
-    def test__has_acceptable_categories_length__empty_pattern__returns_false(self):
-        self.pattern = Pattern("", self.mock_category_map())
-        self.assertFalse(self.pattern.has_acceptable_categories_length())
+    CATEGORY_KEYS = ["first_category", "second_category"]
+    RANDOM_KEY = "random"
 
     def test__get_categories__pattern__returns_array_of_correct_length(self):
-        first_category_name, second_category_name = "first_category", "second_category"
-        pattern_string = "-".join([first_category_name, second_category_name])
-
+        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
         mock_category_map = self.mock_category_map()
-        self.pattern = Pattern(pattern_string, mock_category_map)
+        pattern = Pattern(pattern_string, mock_category_map)
 
-        categories = self.pattern.get_categories()
+        categories = pattern.get_categories()
 
         self.assertEqual(len(categories), 2)
 
     def test__get_categories__pattern__correctly_calls_get_on_category_map(self):
-        first_category_name, second_category_name = "first_category", "second_category"
-        pattern_string = "-".join([first_category_name, second_category_name])
-
+        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
         mock_category_map = self.mock_category_map()
+        pattern = Pattern(pattern_string, mock_category_map)
 
-        self.pattern = Pattern(pattern_string, mock_category_map)
-        self.pattern.get_categories()
+        pattern.get_categories()
 
-        expected_calls = [call(first_category_name), call(second_category_name)]
+        expected_calls = [call(self.CATEGORY_KEYS[0]), call(self.CATEGORY_KEYS[1])]
         self.assertEqual(expected_calls, mock_category_map.get.call_args_list)
 
-    def test__get_categories__pattern_with_randoms__returns_array_of_correct_length(
+    def test__get_categories__pattern_with_randoms__correctly_calls_get_on_category_map(
         self,
     ):
-        self.pattern = Pattern("-".join(["random"] * 2))
-        categories = self.pattern.get_categories()
-        self.assertEqual(len(categories), 2)
-        [self.assertNotEqual(category, None) for category in categories]
+        with patch.object(CategoryMap, "all") as mock_all_method:
+            mock_all_method.return_value = [self.CATEGORY_KEYS[0]]
+
+            pattern_string = "-".join([self.RANDOM_KEY] * 2)
+            mock_category_map = self.mock_category_map()
+            pattern = Pattern(pattern_string, mock_category_map)
+
+            categories = pattern.get_categories()
+
+            self.assertEqual(len(categories), 2)
+            expected_calls = [call(self.CATEGORY_KEYS[0]), call(self.CATEGORY_KEYS[0])]
+            self.assertEqual(expected_calls, mock_category_map.get.call_args_list)
+
+    def test__error__valid_pattern__returns_false(self):
+        with patch.object(CategoryMap, "invalid") as mock_invalid_method:
+            mock_invalid_method.return_value = []
+
+            pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+            mock_category_map = self.mock_category_map()
+            pattern = Pattern(pattern_string, mock_category_map)
+
+            result = pattern.error()
+
+            self.assertFalse(result)
+
+    def test__error__pattern_with_invalid_category__returns_error_message(self):
+        with patch.object(CategoryMap, "invalid") as mock_invalid_method:
+            invalid = [self.CATEGORY_KEYS[0]]
+            mock_invalid_method.return_value = invalid
+
+            pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+            mock_category_map = self.mock_category_map()
+            pattern = Pattern(pattern_string, mock_category_map)
+
+            result = pattern.error()
+
+            self.assertEqual("invalid categories: %s" % (invalid), result)
+
+    def test__error__empty_pattern__returns_error_message(self):
+        with patch.object(CategoryMap, "invalid") as mock_invalid_method:
+            mock_invalid_method.return_value = []
+
+            mock_category_map = self.mock_category_map()
+            pattern = Pattern("", mock_category_map)
+
+            result = pattern.error()
+
+            self.assertEqual("number of categories should be between 1 and 5", result)
+
+    def test__error__pattern_with_too_many_categories__returns_error_message(self):
+        with patch.object(CategoryMap, "invalid") as mock_invalid_method:
+            mock_invalid_method.return_value = []
+
+            pattern_string = "-".join([self.CATEGORY_KEYS[0]] * 6)
+            mock_category_map = self.mock_category_map()
+            pattern = Pattern(pattern_string, mock_category_map)
+
+            result = pattern.error()
+
+            self.assertEqual("number of categories should be between 1 and 5", result)
 
     def mock_category_map(self):
         mock = Mock()
