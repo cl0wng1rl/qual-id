@@ -24,7 +24,7 @@ def get_neutral_response():
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    response = {"data": CategoryMap.all()}
+    response = {"data": CategoryMapFactory.all().categories()}
     return jsonify(response)
 
 
@@ -44,8 +44,8 @@ def badge_endpoint_response():
 
 def get_response_with_category_map(category_map):
     pattern_string = request.args.get("pattern", "")
-    pattern = Pattern(pattern_string, category_map)
     number = int(request.args.get("number", 1))
+    pattern = Pattern(pattern_string, category_map)
 
     response_obj = get_qual_ids(pattern, number)
 

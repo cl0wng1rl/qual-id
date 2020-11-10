@@ -37,16 +37,23 @@ class TestCategoryMap(unittest.TestCase):
 
     def test__invalid__with_valid_keys__returns_empty_list(self):
         keys_to_validate = [self.VALID_KEY, self.SECOND_VALID_KEY]
-        self.assertEqual(CategoryMap.invalid(keys_to_validate), [])
+        self.assertEqual(self.category_map.invalid(keys_to_validate), [])
 
     def test__invalid__with_an_invalid_key__returns_invalid_key(self):
         keys_to_validate = [self.VALID_KEY, self.INVALID_KEY]
-        self.assertEqual(CategoryMap.invalid(keys_to_validate), [self.INVALID_KEY])
+        result = self.category_map.invalid(keys_to_validate)
+        self.assertEqual(result, [self.INVALID_KEY])
 
-    def test__all__returns_alphabetical_list(self):
+    def test__categories__default__returns_alphabetical_list(self):
         error_message = "categories should be listed in alphabetical order"
-        categories = CategoryMap.all()
+        categories = CategoryMap().categories()
         self.assertEqual(categories, sorted(categories), error_message)
+
+    def test__categories__returns_keys(self):
+        keys = [self.VALID_KEY, self.SECOND_VALID_KEY]
+        self.category_map = CategoryMap(keys)
+        categories = self.category_map.categories()
+        self.assertEqual(keys, categories)
 
 
 if __name__ == "__main__":  # pragma: no cover

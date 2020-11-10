@@ -3,14 +3,6 @@ from qual_id.categories import *
 
 
 class CategoryMap:
-    @staticmethod
-    def invalid(keys):
-        return [key for key in keys if key not in CategoryMap.__all]
-
-    @staticmethod
-    def all():
-        return [key for key in CategoryMap.__all]
-
     def __init__(self, keys=[]):
         self.__map = self.__construct_map(keys) if keys else CategoryMap.__all
 
@@ -19,6 +11,12 @@ class CategoryMap:
 
     def has(self, key):
         return key in self.__map
+
+    def categories(self):
+        return [key for key in self.__map]
+
+    def invalid(self, keys):
+        return [key for key in keys if key not in self.__map]
 
     def __construct_map(self, keys):
         category_map = {}

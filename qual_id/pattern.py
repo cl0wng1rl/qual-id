@@ -7,8 +7,8 @@ class Pattern:
 
     def __init__(self, pattern_string, category_map=CategoryMap()):
         self.__categories = [p for p in pattern_string.split("-") if p != ""]
-        self.__replace_randoms()
         self.__category_map = category_map
+        self.__replace_randoms()
 
     def get_categories(self):
         return [self.__category_map.get(category) for category in self.__categories]
@@ -16,7 +16,7 @@ class Pattern:
     def error(self):
         if not self.__valid_number_of_categories():
             return "number of categories should be between 1 and 5"
-        invalid = CategoryMap.invalid(self.__categories)
+        invalid = self.__category_map.invalid(self.__categories)
         if invalid:
             return "invalid categories: %s" % (invalid)
         return False
@@ -25,14 +25,12 @@ class Pattern:
         return 0 < len(self.__categories) < 6
 
     def __replace_randoms(self):
-        self.__categories = [Pattern.__replace_random(x) for x in self.__categories]
+        self.__categories = [self.__replace_random(x) for x in self.__categories]
 
-    @staticmethod
-    def __replace_random(category):
+    def __replace_random(self, category):
         if category == Pattern.__random_key:
-            return Pattern.__random_category()
+            return self.__random_category()
         return category
 
-    @staticmethod
-    def __random_category():
-        return choice(CategoryMap.all())
+    def __random_category(self):
+        return choice(self.__category_map.categories())
