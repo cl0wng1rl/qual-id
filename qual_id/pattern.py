@@ -9,7 +9,7 @@ class Pattern:
     def get_category_options():
         return CategoryMap.all()
 
-    def __init__(self, pattern_string, category_map=CategoryMap([])):
+    def __init__(self, pattern_string, category_map=CategoryMap()):
         categories_array = [p for p in pattern_string.split("-") if p != ""]
         self.__categories = self.__replace_randoms(categories_array)
         self.__category_map = category_map
