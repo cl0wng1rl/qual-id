@@ -13,7 +13,7 @@ class TestCategory(unittest.TestCase):
     def test__get_random_choice__mock_random_choice__returns_empty_string(self):
         random.seed(0)
         fixed_choice = self.__get_random_choice_from_values()
-        self.assertEqual(self.category.get_random_value(), fixed_choice)
+        self.assertEqual(self.category.random(), fixed_choice)
 
     def __get_random_choice_from_values(self):
         return random.choice(self.category.get_values())
