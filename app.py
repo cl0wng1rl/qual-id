@@ -12,16 +12,6 @@ def get_response():
     return get_response_with_category_map(CategoryMapFactory.all())
 
 
-@app.route("/get/minimal/", methods=["GET"])
-def get_response():
-    return get_response_with_category_map(CategoryMapFactory.minimal())
-
-
-@app.route("/get/neutral/", methods=["GET"])
-def get_response():
-    return get_response_with_category_map(CategoryMapFactory.neutral())
-
-
 @app.route("/categories/", methods=["GET"])
 def categories_response():
     response = {"data": CategoryMap.all()}
