@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.pattern import Pattern
 from qual_id.category_map import CategoryMap
+from qual_id.category_map_factory import CategoryMapFactory
 import random
 
 app = Flask(__name__)
@@ -8,7 +9,17 @@ app = Flask(__name__)
 
 @app.route("/get/", methods=["GET"])
 def get_response():
-    return get_response_with_category_map(CategoryMap())
+    return get_response_with_category_map(CategoryMapFactory.all())
+
+
+@app.route("/get/minimal/", methods=["GET"])
+def get_response():
+    return get_response_with_category_map(CategoryMapFactory.minimal())
+
+
+@app.route("/get/neutral/", methods=["GET"])
+def get_response():
+    return get_response_with_category_map(CategoryMapFactory.neutral())
 
 
 @app.route("/categories/", methods=["GET"])
