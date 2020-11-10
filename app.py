@@ -13,12 +13,12 @@ def get_response():
 
 
 @app.route("/get/minimal/", methods=["GET"])
-def get_response():
+def get_minimal_response():
     return get_response_with_category_map(CategoryMapFactory.minimal())
 
 
 @app.route("/get/neutral/", methods=["GET"])
-def get_response():
+def get_neutral_response():
     return get_response_with_category_map(CategoryMapFactory.neutral())
 
 
