@@ -1,17 +1,18 @@
 from ..category import Category
 
+
 class Clothing(Category):
-  def get_values(self):
-    return [
+    def get_values(self):
+        return [
             "coat",
             "hat",
-            "mittens",
+            "mitten",
             "pants",
             "scarf",
-            "shoes",
+            "shoe",
             "shorts",
             "skirt",
-            "socks",
+            "sock",
             "suit",
             "tie",
             "tshirt",
