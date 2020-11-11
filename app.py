@@ -17,8 +17,10 @@ def get_response():
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    response = {"data": CategoryMapFactory.get("all").categories()}
-    return jsonify(response)
+    collection_string = request.args.get("collection", "all")
+    if not CategoryMapFactory.has(collection_string):
+        return jsonify({"error": "invalid collection: %s" % (collection_string)})
+    return jsonify({"data": CategoryMapFactory.get(collection_string).categories()})
 
 
 @app.route("/badge-endpoint/", methods=["GET"])
