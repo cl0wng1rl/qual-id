@@ -57,23 +57,6 @@ class TestValidator(unittest.TestCase):
         validator = Validator(pattern_string, collection_string)
         self.assertEqual(mock_error_message, validator.error())
 
-    @patch.object(CategoryMapFactory, "has")
-    @patch.object(CategoryMapFactory, "get")
-    @patch("qual_id.pattern.Pattern")
-    def test__valid_pattern__valid_pattern_and_collection__returns_pattern(
-        self, mock_error, mock_get, mock_has
-    ):
-        mock_has.return_value = True
-        mock_get.return_value = self.get_mock_category_map()
-        mock_error.return_value = False
-
-        pattern_string = "pattern"
-        collection_string = "collection"
-
-        validator = Validator(pattern_string, collection_string)
-        validator.error()
-        self.assertIsInstance(validator.valid_pattern(), Pattern)
-
     def get_mock_category_map(self):
         mock = Mock()
         mock.get.return_value = self.mock_category()

@@ -49,7 +49,8 @@ def get_qual_ids(pattern_string, collection_string, number):
     if error:
         response_obj["error"] = error
     else:
-        pattern = validator.valid_pattern()
+        category_map = CategoryMapFactory.get(collection_string)
+        pattern = Pattern(pattern_string, category_map)
         response_obj["data"] = [get_qual_id(pattern) for _ in range(number)]
     return response_obj
 

@@ -12,8 +12,4 @@ class Validator:
         if not CategoryMapFactory.has(self.__collection_string):
             return "invalid collection: %s" % (self.__collection_string)
         category_map = CategoryMapFactory.get(self.__collection_string)
-        self.__pattern = Pattern(self.__pattern_string, category_map)
-        return self.__pattern.error()
-
-    def valid_pattern(self):
-        return self.__pattern
+        return Pattern(self.__pattern_string, category_map).error()
