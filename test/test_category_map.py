@@ -15,11 +15,6 @@ class TestCategoryMap(unittest.TestCase):
     def test__get__valid_key__returns_category(self):
         self.assertIsInstance(self.category_map.get(self.VALID_KEY), Category)
 
-    def test__get__invalid_key__returns_false(self):
-        result = self.category_map.get(self.INVALID_KEY)
-        self.assertIsInstance(result, bool)
-        self.assertFalse(result)
-
     def test__has__valid_key__returns_true(self):
         self.assertTrue(self.category_map.has(self.VALID_KEY))
         self.assertTrue(self.category_map.has(self.SECOND_VALID_KEY))

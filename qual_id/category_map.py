@@ -7,7 +7,7 @@ class CategoryMap:
         self.__map = self.__construct_map(keys) if keys else CategoryMap.__all
 
     def get(self, key):
-        return self.__map[key] if self.has(key) else False
+        return self.__map[key]
 
     def has(self, key):
         return key in self.__map
