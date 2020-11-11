@@ -17,7 +17,7 @@ def get_response():
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    response = {"data": CategoryMapFactory.get().categories()}
+    response = {"data": CategoryMapFactory.get("all").categories()}
     return jsonify(response)
 
 
