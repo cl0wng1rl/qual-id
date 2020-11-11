@@ -1,8 +1,5 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.response import Response
-from qual_id.validator import Validator
-from qual_id.pattern import Pattern
-from qual_id.category_map import CategoryMap
 from qual_id.category_map_factory import CategoryMapFactory
 import random
 
