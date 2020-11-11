@@ -37,7 +37,7 @@ def badge_endpoint_response():
 
 def get_response_obj(args):
     pattern_string = args.get("pattern", "")
-    collection_string = args.get("collection", "")
+    collection_string = args.get("collection", "all")
     number = int(args.get("number", 1))
     return get_qual_ids(pattern_string, collection_string, number)
 

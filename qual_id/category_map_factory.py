@@ -4,14 +4,14 @@ from qual_id.category_map import CategoryMap
 class CategoryMapFactory:
     @staticmethod
     def get(str):
-        keys = CategoryMapFactory.__name_to_keys[str] if str else []
-        return CategoryMap(keys)
+        return CategoryMap(CategoryMapFactory.__name_to_keys[str])
 
     @staticmethod
     def has(str):
-        return (str in CategoryMapFactory.__name_to_keys) or str == ""
+        return str in CategoryMapFactory.__name_to_keys
 
     __name_to_keys = {
+        "all": [],
         "minimal": [
             "adjective",
             "animal",

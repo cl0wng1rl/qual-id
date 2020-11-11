@@ -4,8 +4,8 @@ from qual_id.category_map_factory import CategoryMapFactory
 
 
 class TestCategoryMapFactory(unittest.TestCase):
-    def test__get__empty_string__returns_category(self):
-        self.assertIsInstance(CategoryMapFactory.get(""), CategoryMap)
+    def test__get__all__returns_category(self):
+        self.assertIsInstance(CategoryMapFactory.get("all"), CategoryMap)
 
     def test__get__minimal__returns_category(self):
         self.assertIsInstance(CategoryMapFactory.get("minimal"), CategoryMap)
