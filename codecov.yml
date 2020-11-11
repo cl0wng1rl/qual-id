@@ -1,2 +1,2 @@
 ignore:
-  - app.py
+  - "app.py"
