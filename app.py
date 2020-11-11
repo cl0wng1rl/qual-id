@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template, make_response
+from qual_id.validator import Validator
 from qual_id.pattern import Pattern
 from qual_id.category_map import CategoryMap
 from qual_id.category_map_factory import CategoryMapFactory
@@ -9,22 +10,14 @@ app = Flask(__name__)
 
 @app.route("/get/", methods=["GET"])
 def get_response():
-    return get_response_with_category_map(CategoryMapFactory.all())
-
-
-@app.route("/get/minimal/", methods=["GET"])
-def get_minimal_response():
-    return get_response_with_category_map(CategoryMapFactory.minimal())
-
-
-@app.route("/get/neutral/", methods=["GET"])
-def get_neutral_response():
-    return get_response_with_category_map(CategoryMapFactory.neutral())
+    response_obj = get_response_obj(request.args)
+    response_format = request.args.get("format", "json")
+    return get_response_in_format(response_obj, response_format)
 
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    response = {"data": CategoryMapFactory.all().categories()}
+    response = {"data": CategoryMapFactory.get().categories()}
     return jsonify(response)
 
 
@@ -42,23 +35,21 @@ def badge_endpoint_response():
     return response
 
 
-def get_response_with_category_map(category_map):
-    pattern_string = request.args.get("pattern", "")
-    number = int(request.args.get("number", 1))
-    pattern = Pattern(pattern_string, category_map)
-
-    response_obj = get_qual_ids(pattern, number)
-
-    response_format = request.args.get("format", "json")
-    return get_response_in_format(response_obj, response_format)
+def get_response_obj(args):
+    pattern_string = args.get("pattern", "")
+    collection_string = args.get("collection", "")
+    number = int(args.get("number", 1))
+    return get_qual_ids(pattern_string, collection_string, number)
 
 
-def get_qual_ids(pattern, number):
+def get_qual_ids(pattern_string, collection_string, number):
     response_obj = {}
-    error = pattern.error()
+    validator = Validator(pattern_string, collection_string)
+    error = validator.error()
     if error:
         response_obj["error"] = error
     else:
+        pattern = validator.valid_pattern()
         response_obj["data"] = [get_qual_id(pattern) for _ in range(number)]
     return response_obj
 

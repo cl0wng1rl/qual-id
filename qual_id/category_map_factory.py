@@ -3,12 +3,20 @@ from qual_id.category_map import CategoryMap
 
 class CategoryMapFactory:
     @staticmethod
+    def get(str):
+        keys = CategoryMapFactory.__name_to_keys[str] if str else []
+        return CategoryMap(keys)
+
+    @staticmethod
+    def has(str):
+        return (str in CategoryMapFactory.__name_to_keys) or str == ""
+
+    @staticmethod
     def all():
         return CategoryMap()
 
-    @staticmethod
-    def minimal():
-        categories = [
+    __name_to_keys = {
+        "minimal": [
             "adjective",
             "animal",
             "bird",
@@ -20,12 +28,8 @@ class CategoryMapFactory:
             "planet",
             "tea",
             "vehicle",
-        ]
-        return CategoryMap(categories)
-
-    @staticmethod
-    def neutral():
-        categories = [
+        ],
+        "neutral": [
             "adjective",
             "animal",
             "bird",
@@ -51,5 +55,5 @@ class CategoryMapFactory:
             "utensil",
             "vehicle",
             "wine",
-        ]
-        return CategoryMap(categories)
+        ],
+    }
