@@ -11,10 +11,6 @@ class CategoryMapFactory:
     def has(str):
         return (str in CategoryMapFactory.__name_to_keys) or str == ""
 
-    @staticmethod
-    def all():
-        return CategoryMap()
-
     __name_to_keys = {
         "minimal": [
             "adjective",
