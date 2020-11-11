@@ -23,7 +23,7 @@ def categories_response():
 
 @app.route("/badge-endpoint/", methods=["GET"])
 def badge_endpoint_response():
-    example = get_qual_ids(Pattern("fruit-geography"), 1)[0]
+    example = get_qual_ids("fruit-geography", "all", 1)[0]
     response_obj = {
         "schemaVersion": 1,
         "label": "Qual ID",
@@ -39,10 +39,7 @@ def get_response_obj(args):
     pattern_string = args.get("pattern", "")
     collection_string = args.get("collection", "all")
     number = int(args.get("number", 1))
-    return get_qual_ids(pattern_string, collection_string, number)
 
-
-def get_qual_ids(pattern_string, collection_string, number):
     response_obj = {}
     validator = Validator(pattern_string, collection_string)
     error = validator.error()
@@ -51,8 +48,14 @@ def get_qual_ids(pattern_string, collection_string, number):
     else:
         category_map = CategoryMapFactory.get(collection_string)
         pattern = Pattern(pattern_string, category_map)
-        response_obj["data"] = [get_qual_id(pattern) for _ in range(number)]
+        response_obj["data"] = get_qual_ids(pattern_string, collection_string, number)
     return response_obj
+
+
+def get_qual_ids(pattern_string, collection_string, number):
+    category_map = CategoryMapFactory.get(collection_string)
+    pattern = Pattern(pattern_string, category_map)
+    return [get_qual_id(pattern) for _ in range(number)]
 
 
 def get_qual_id(pattern):
