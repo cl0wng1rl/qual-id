@@ -60,6 +60,7 @@ class CategoryMap:
         "scientist": Scientist(),
         "searchengine": SearchEngine(),
         "shape": Shape(),
+        "spice": Spice(),
         "sport": Sport(),
         "state": State(),
         "tea": Tea(),
