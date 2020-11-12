@@ -6,7 +6,7 @@ from unittest.mock import Mock, call, patch
 
 class TestPattern(unittest.TestCase):
     CATEGORY_KEYS = ["first_category", "second_category"]
-    PATTERN = "-".join(self.CATEGORY_KEYS[:2])
+    PATTERN = "-".join(CATEGORY_KEYS[:2])
     RANDOM_KEY = "random"
 
     def test__get_categories__pattern__returns_array_of_correct_length(self):

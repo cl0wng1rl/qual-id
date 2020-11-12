@@ -49,7 +49,7 @@ class Flower(Category):
             "snowdrop",
             "sunflower",
             "tulip",
-            "valerian",,
+            "valerian",
             "violet",
             "wisteria",
         ]
