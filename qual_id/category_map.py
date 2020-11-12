@@ -24,6 +24,7 @@ class CategoryMap:
     __all = {
         "adjective": Adjective(),
         "animal": Animal(),
+        "atmosphere": Atmosphere(),
         "author": Author(),
         "bird": Bird(),
         "book": Book(),

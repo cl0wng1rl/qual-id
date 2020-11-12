@@ -1,5 +1,6 @@
 from .adjective import Adjective
 from .animal import Animal
+from .atmosphere import Atmosphere
 from .author import Author
 from .bird import Bird
 from .book import Book
