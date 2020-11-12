@@ -63,8 +63,8 @@ while test $# -gt 0; do
       shift
       ;;
     *)
-      break
-      ;;
+      echo "invalid parameter: $1"
+      exit 1
   esac
 done
 
