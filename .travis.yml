@@ -1,16 +1,12 @@
 language: python
 python:
-  - "3.6" # current default Python on Travis CI
-
+  - "3.6"
 install:
   - pip install -r requirements.txt
-
 script:
   - coverage run -m unittest discover -v
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
 before_deploy:
   - git config --local user.name "Gabriel Barker"
   - git config --local user.email "$GITHUB_EMAIL"
@@ -22,13 +18,12 @@ before_deploy:
   - cp bin/qual-id.sh $tag/
   - cp README.md LICENSE $tag/
   - tar czvf $tag.tar.gz $tag
-
 deploy:
   provider: releases
   api_key:
-    secure: FNNd4lrwKk6Qnv0fJMmtDJjOKI++oaMfqCOByj2G10GOOxjPngm/+WWkhRaUl6lXTuRKLC7L7zmNcPoOqdB6cwZZjEGADUuOQuzF8VUlMX9VDERVFoMNldGKH1dXUK8+0so/siZwZcPRvJqb4KSlQ9rCcu5VR7fV+A/lZpM30cgbnM1wP8vypl+8HNS+hqgutlNtalgNFpHoTV62IdVovv0KUw3iPmA1na/xBk8/tixA8T3Kps35gsNS1uc8bz3yoXzkr/84Qg2RM37soEDbxT/kCp2/v5B0Ake/LfN8KSSPcWoJt01mEazSDRBJs8eMjaBbtgE1ExFLBD3pD9b3WX6JgEwpiLJpHuAPZz/wFGqCDoLxb8ZkbQ/Qt1pkCzGizlX2tpi8auAM3Ur+ZMWg0aZtJ7ZsXyDHj95eSe0wdQD1PyjIuoy3qqaxqUlf0L897IYfiHShPIjTM08My3hDcbixnJz77Yg7nZnuVY/DvsCmoH+sHxUSH9SWE4cuexGqIjiVIpDs6O/ch1xou5VjW2nLmDOc7Q3W+hab9yD57WzJCNbykSyju/qQATAtMO61bB3SfewHl5x3J7vTnAkC9hmeh4RyPp7cc4VVuy0zKXjIsx7VBm9Fj0R3W+YnSfZcmfwTW5WzLjqA+WVNYCTBgRhbNf0P7y9PNhNQSFIpU/M=
+    secure: I6l2K5XOnkUwPr4Bgf7etsKXd3tHpNg+apvXvPgQOCkK6q2KWHmBacbzXZaqZApT+HOweatU4XWi5Zg9b+SywksTCbTOcWHv980hp4+JPMBdpypc088iLzsyLhJGnf76nUJzRGMOYiGXksstajzyh/7DfSMa/vthUMGe1MKKkPOz4rcIhvz6Av6IlQndOYkYWHX77j+6xrnjAGNoM267YJkRLSFf1CqqoBCMuhzakg0jQPAlLzqRBp0A6GuT/dkarmU1FxO7l1Nm1mJx6BmDTdEF9HPOW53Jjp9K75GBpVuentXvXVK+5+32JxSxHRxb4y+JzDxen48TznbjcN9SXhYyKr/l/kjOAbTV9AGBrUN1XHPVOhJr6Nf+o4By485ZxpLkI3G5bM71PrYDlGWBtDa+EB6YM7nKlwxFqD7jcjhWV/fjxGUpG21fWfopl4AQEgsU0YC12mqb2N0WEmPbSD4Eku3LK9OkH751rDwNH0OS6mnYzLn2MaddnpcL3fNly2NoX/VsjQcsFHwfIaRuvDiCUAlQi42UBsQi6gXSsB8nTAiRf/NvRNeH0c03TT1Cas0Ci68RsBOr9dLSlM3EUD+UcjYMI/sreBkxjFN4wAlnSEndWiAskQRYlJ84rYsnupCF0XyX3voohhBedw8tnxbBaaE0kfN+l/hmaCKqbc8=
   file: $tag.tar.gz
   on:
     repo: gabrielbarker/qual-id
     branch: main
-  skip_cleanup: true
+  skip_cleanup: "true"
