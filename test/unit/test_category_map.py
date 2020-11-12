@@ -15,20 +15,12 @@ class TestCategoryMap(unittest.TestCase):
     def test__get__valid_key__returns_category(self):
         self.assertIsInstance(self.category_map.get(self.VALID_KEY), Category)
 
-    def test__has__valid_key__returns_true(self):
-        self.assertTrue(self.category_map.has(self.VALID_KEY))
-        self.assertTrue(self.category_map.has(self.SECOND_VALID_KEY))
-        self.assertTrue(self.category_map.has(self.THIRD_VALID_KEY))
-
-    def test__has__invalid_key__returns_false(self):
-        self.assertFalse(self.category_map.has(self.INVALID_KEY))
-
     def test__constructed_with_list__only_has_give_keys(self):
         keys = [self.VALID_KEY, self.SECOND_VALID_KEY]
         self.category_map = CategoryMap(keys)
-        self.assertTrue(self.category_map.has(self.VALID_KEY))
-        self.assertTrue(self.category_map.has(self.SECOND_VALID_KEY))
-        self.assertFalse(self.category_map.has(self.THIRD_VALID_KEY))
+        keys_to_test = [self.VALID_KEY, self.SECOND_VALID_KEY, self.THIRD_VALID_KEY]
+        expected = [self.THIRD_VALID_KEY]
+        self.assertEqual(expected, self.category_map.invalid(keys_to_test))
 
     def test__invalid__with_valid_keys__returns_empty_list(self):
         keys_to_validate = [self.VALID_KEY, self.SECOND_VALID_KEY]

@@ -9,9 +9,6 @@ class CategoryMap:
     def get(self, key):
         return self.__map[key]
 
-    def has(self, key):
-        return key in self.__map
-
     def categories(self):
         return [key for key in self.__map]
 
