@@ -6,10 +6,11 @@ from unittest.mock import Mock, call, patch
 
 class TestPattern(unittest.TestCase):
     CATEGORY_KEYS = ["first_category", "second_category"]
+    PATTERN = "-".join(self.CATEGORY_KEYS[:2])
     RANDOM_KEY = "random"
 
     def test__get_categories__pattern__returns_array_of_correct_length(self):
-        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+        pattern_string = TestPattern.PATTERN
         mock_category_map = self.get_mock_category_map()
         pattern = Pattern(pattern_string, mock_category_map)
 
@@ -18,7 +19,7 @@ class TestPattern(unittest.TestCase):
         self.assertEqual(len(categories), 2)
 
     def test__get_categories__pattern__correctly_calls_get_on_category_map(self):
-        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+        pattern_string = TestPattern.PATTERN
         mock_category_map = self.get_mock_category_map()
         pattern = Pattern(pattern_string, mock_category_map)
 
@@ -42,7 +43,7 @@ class TestPattern(unittest.TestCase):
         self.assertEqual(expected_calls, mock_category_map.get.call_args_list)
 
     def test__error__valid_pattern__returns_false(self):
-        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+        pattern_string = TestPattern.PATTERN
         mock_category_map = self.get_mock_category_map()
         pattern = Pattern(pattern_string, mock_category_map)
 
@@ -51,7 +52,7 @@ class TestPattern(unittest.TestCase):
         self.assertFalse(result)
 
     def test__error__pattern_with_invalid_category__returns_error_message(self):
-        pattern_string = "-".join(self.CATEGORY_KEYS[:2])
+        pattern_string = TestPattern.PATTERN
         mock_category_map = self.get_mock_category_map()
         invalid = [self.CATEGORY_KEYS[0]]
         mock_category_map.invalid.return_value = invalid
