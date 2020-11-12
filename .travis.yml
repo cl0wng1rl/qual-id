@@ -1,7 +1,6 @@
 language: python
 python:
   - "3.6" # current default Python on Travis CI
-  - "3.8"
 
 install:
   - pip install -r requirements.txt
@@ -13,7 +12,6 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 before_deploy:
-  - cargo build --target "$TARGET" --release
   - git config --local user.name "Gabriel Barker"
   - git config --local user.email "$GITHUB_EMAIL"
   - name=$(bin/qual-id.sh -p bird-instrument)
