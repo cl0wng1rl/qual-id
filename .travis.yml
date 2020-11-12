@@ -10,12 +10,12 @@ after_success:
 before_deploy:
   - git config --local user.name "Gabriel Barker"
   - git config --local user.email "$GITHUB_EMAIL"
-  - name=$(bin/qual-id.sh -p bird-instrument)
+  - name=$(bin/qual-id -p bird-instrument)
   - tag="${name%\"}"
   - tag="${tag#\"}"
   - git tag $tag
   - mkdir $tag
-  - cp bin/qual-id.sh $tag/
+  - cp bin/qual-id $tag/
   - cp README.md LICENSE $tag/
   - tar czvf $tag.tar.gz $tag
 deploy:
