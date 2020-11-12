@@ -31,6 +31,7 @@ class CategoryMap:
         "bird": Bird(),
         "book": Book(),
         "brand": Brand(),
+        "cake": Cake(),
         "capital": Capital(),
         "city": City(),
         "clothing": Clothing(),

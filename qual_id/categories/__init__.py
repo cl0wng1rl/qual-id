@@ -4,6 +4,7 @@ from .author import Author
 from .bird import Bird
 from .book import Book
 from .brand import Brand
+from .cake import Cake
 from .capital import Capital
 from .city import City
 from .clothing import Clothing
