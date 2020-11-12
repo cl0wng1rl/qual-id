@@ -5,7 +5,7 @@ from qual_id.category_map import CategoryMap
 class Pattern:
     __random_key = "random"
 
-    def __init__(self, pattern_string, category_map=CategoryMap()):
+    def __init__(self, pattern_string, category_map):
         self.__categories = [p for p in pattern_string.split("-") if p != ""]
         self.__category_map = category_map
         self.__replace_randoms()
