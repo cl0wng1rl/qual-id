@@ -47,6 +47,7 @@ class CategoryMap:
         "flower": Flower(),
         "food": Food(),
         "fruit": Fruit(),
+        "gem": Gem(),
         "geography": Geography(),
         "id": RandomId(),
         "instrument": Instrument(),

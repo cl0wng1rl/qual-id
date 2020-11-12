@@ -23,6 +23,7 @@ from .fish import Fish
 from .flower import Flower
 from .food import Food
 from .fruit import Fruit
+from .gem import Gem
 from .geography import Geography
 from .instrument import Instrument
 from .language import Language
