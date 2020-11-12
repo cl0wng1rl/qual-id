@@ -43,6 +43,7 @@ class CategoryMap:
         "emotion": Emotion(),
         "festivals": Festivals(),
         "film": Film(),
+        "flower": Flower(),
         "food": Food(),
         "fruit": Fruit(),
         "geography": Geography(),

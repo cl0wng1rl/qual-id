@@ -41,6 +41,7 @@ class CategoryMapFactory:
             "drink",
             "element",
             "emotion",
+            "flower",
             "food",
             "fruit",
             "geography",

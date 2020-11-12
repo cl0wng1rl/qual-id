@@ -19,6 +19,7 @@ from .element import Element
 from .emotion import Emotion
 from .festivals import Festivals
 from .film import Film
+from .flower import Flower
 from .food import Food
 from .fruit import Fruit
 from .geography import Geography
