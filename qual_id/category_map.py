@@ -69,5 +69,6 @@ class CategoryMap:
         "tool": Tool(),
         "utensil": Utensil(),
         "vehicle": Vehicle(),
+        "weather": Weather(),
         "wine": Wine(),
     }

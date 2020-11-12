@@ -45,4 +45,5 @@ from .tea import Tea
 from .tool import Tool
 from .utensil import Utensil
 from .vehicle import Vehicle
+from .weather import Weather
 from .wine import Wine
