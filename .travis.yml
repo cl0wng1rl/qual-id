@@ -15,7 +15,9 @@ before_deploy:
   - tag="${tag#\"}"
   - git tag $tag
   - mkdir $tag
-  - cp bin/qual-id $tag/
+  - cp -R qual_id/ $tag/qual_id/
+  - cp cli.py $tag/
+  - mv $tag/cli.py $tag/qual-id
   - cp README.md LICENSE $tag/
   - tar czvf $tag.tar.gz $tag
 deploy:
