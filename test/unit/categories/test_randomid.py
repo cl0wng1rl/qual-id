@@ -1,15 +1,19 @@
 import unittest
 from qual_id.categories.randomid import RandomId
 from test.unit.utils.category_helper import CategoryHelper
+import random
 
 
 class TestRandomId(unittest.TestCase):
     def setUp(self):
-        self.randomId = RandomId()
+        random.seed(1)
 
-    def test__get_values__is_valid(self):
-        error_message = CategoryHelper.get_values_error_message(self.randomId)
-        self.assertTrue(error_message == "", error_message)
+    def test__get_values__is_random_id(self):
+        randomId = RandomId()
+        result = randomId.get_values()[0]
+        expected_id = "ieqh524yng"
+
+        self.assertEqual(expected_id, result)
 
 
 if __name__ == "__main__":  # pragma: no cover
