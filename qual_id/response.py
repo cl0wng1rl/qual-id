@@ -1,7 +1,6 @@
 from qual_id.validator import Validator
 from qual_id.category_map_factory import CategoryMapFactory
 from qual_id.pattern import Pattern
-from flask import jsonify, make_response
 
 
 class Response:
