@@ -1,10 +1,4 @@
-#!/bin/bash
-
-import sys
-from qual_id.response import Response
-
-
-class Parser:
+class CliParser:
     def __init__(self, args):
         self.__args = args
         self.__shift()
@@ -56,9 +50,3 @@ class Parser:
         print("-n, --number              specify how many qual IDs to receive")
         print("-f, --format              specify the format of the qual IDs")
         print(" ")
-
-
-parser = Parser(sys.argv)
-config = parser.parse()
-qual_id = Response(config).get_response_obj()
-print(qual_id)
