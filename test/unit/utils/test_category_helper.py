@@ -64,19 +64,16 @@ class TestCategoryHelper(unittest.TestCase):
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
 
-
 class MockCategoryWithValidGetValuesMethod(Category):
-    def get_values(self):
-        return [
-            "valuea",
-            "valueb",
-            "valuec",
-        ]
+    _values = [
+        "valuea",
+        "valueb",
+        "valuec",
+    ]
 
 
 class MockCategoryWithInvalidGetValuesMethod_Spaces(Category):
-    def get_values(self):
-        return [
+    _values = [
             "value a",
             "value b",
             "value c",
@@ -84,8 +81,7 @@ class MockCategoryWithInvalidGetValuesMethod_Spaces(Category):
 
 
 class MockCategoryWithInvalidGetValuesMethod_Dashes(Category):
-    def get_values(self):
-        return [
+    _values = [
             "value-a",
             "value-b",
             "value-c",
@@ -93,13 +89,11 @@ class MockCategoryWithInvalidGetValuesMethod_Dashes(Category):
 
 
 class MockCategoryWithInvalidGetValuesMethod_Empty(Category):
-    def get_values(self):
-        return []
+    _values = []
 
 
 class MockCategoryWithInvalidGetValuesMethod_Repeats(Category):
-    def get_values(self):
-        return [
+    _values = [
             "valuea",
             "valueb",
             "valueb",
@@ -107,8 +101,7 @@ class MockCategoryWithInvalidGetValuesMethod_Repeats(Category):
 
 
 class MockCategoryWithInvalidGetValuesMethod_NonAlphabetical(Category):
-    def get_values(self):
-        return [
+    _values = [
             "valuec",
             "valuea",
             "valueb",
@@ -116,8 +109,7 @@ class MockCategoryWithInvalidGetValuesMethod_NonAlphabetical(Category):
 
 
 class MockCategoryWithInvalidGetValuesMethod_Uppercase(Category):
-    def get_values(self):
-        return [
+    _values = [
             "valueA",
             "valueB",
             "valueC",

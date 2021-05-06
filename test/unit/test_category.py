@@ -8,7 +8,7 @@ class TestCategory(unittest.TestCase):
         self.category = Category()
 
     def test__get_values__returns_list_with_empty_string(self):
-        self.assertEqual(self.category.get_values(), [""])
+        self.assertEqual(self.category._values, [""])
 
     def test__get_random_choice__mock_random_choice__returns_empty_string(self):
         random.seed(0)
@@ -16,7 +16,7 @@ class TestCategory(unittest.TestCase):
         self.assertEqual(self.category.random(), fixed_choice)
 
     def __get_random_choice_from_values(self):
-        return random.choice(self.category.get_values())
+        return random.choice(self.category._values)
 
 
 if __name__ == "__main__":  # pragma: no cover
