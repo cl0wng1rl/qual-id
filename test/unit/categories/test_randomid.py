@@ -10,7 +10,7 @@ class TestRandomId(unittest.TestCase):
 
     def test__get_values__is_random_id(self):
         randomId = RandomId()
-        result = randomId.get_values()[0]
+        result = randomId.random()
         expected_id = "ieqh524yng"
 
         self.assertEqual(expected_id, result)

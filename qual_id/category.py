@@ -2,8 +2,13 @@ from random import choice
 
 
 class Category:
-    def random(self):
-        return choice(self.get_values())
+    _name = "category"
+    _values = [""]
 
-    def get_values(self):
-        return [""]
+    @classmethod
+    def random(cls):
+        return choice(cls._values)
+
+    @classmethod
+    def get_name(cls):
+        return cls._name
