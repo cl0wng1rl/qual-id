@@ -5,6 +5,7 @@ from .author import Author
 from .bird import Bird
 from .book import Book
 from .brand import Brand
+from .bread import Bread
 from .cake import Cake
 from .capital import Capital
 from .city import City
@@ -14,6 +15,7 @@ from .constellation import Constellation
 from .country import Country
 from .cuisine import Cuisine
 from .currency import Currency
+from .dog import Dog
 from .drink import Drink
 from .electronic import Electronic
 from .element import Element
@@ -45,6 +47,7 @@ from .state import State
 from .tea import Tea
 from .tool import Tool
 from .utensil import Utensil
+from .vegetable import Vegetable
 from .vehicle import Vehicle
 from .weather import Weather
 from .wine import Wine
