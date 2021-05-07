@@ -1,9 +1,8 @@
 class CategoryMetadataValidator:
     __disallowed_characters = [" ", "-", "_", "&"]
 
-
     @staticmethod
-    def get_values_error_message(category):
+    def validate(category):
         messages = [
             CategoryMetadataValidator.__get_has_name_error_message(category),
             CategoryMetadataValidator.__get_name_lowercase_error_message(category),
@@ -29,11 +28,11 @@ class CategoryMetadataValidator:
 
     @staticmethod
     def __get_returns_list_error_message(category):
-        returns_list = CategoryMetadataValidator.__get_values_returns_a_list(category)
+        returns_list = CategoryMetadataValidator.__values_is_a_non_empty_list(category)
         return "" if returns_list else "should return non-empty list"
 
     @staticmethod
-    def __get_values_returns_a_list(category):
+    def __values_is_a_non_empty_list(category):
         is_list = isinstance(category._values, list)
         is_empty = len(category._values) == 0
         return is_list and not is_empty
@@ -52,7 +51,9 @@ class CategoryMetadataValidator:
             for value in category._values
             if CategoryMetadataValidator.__string_contains_disallowed_character(value)
         ]
-        return CategoryMetadataValidator.__get_message("contains invalid strings: ", invalids)
+        return CategoryMetadataValidator.__get_message(
+            "contains invalid strings: ", invalids
+        )
 
     @staticmethod
     def __get_alphabetical_message(category):
@@ -67,7 +68,9 @@ class CategoryMetadataValidator:
             for value in category._values
             if CategoryMetadataValidator.__string_contains_uppercase_character(value)
         ]
-        return CategoryMetadataValidator.__get_message("contains uppercase strings: ", invalids)
+        return CategoryMetadataValidator.__get_message(
+            "contains uppercase strings: ", invalids
+        )
 
     @staticmethod
     def __get_message(beginning, lst):
@@ -75,7 +78,9 @@ class CategoryMetadataValidator:
 
     @staticmethod
     def __string_contains_disallowed_character(str):
-        return any([c in str for c in CategoryMetadataValidator.__disallowed_characters])
+        return any(
+            [c in str for c in CategoryMetadataValidator.__disallowed_characters]
+        )
 
     @staticmethod
     def __string_contains_uppercase_character(str):
