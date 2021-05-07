@@ -3,16 +3,16 @@ from qual_id.categories import *
 from test.meta.category_metadata_validator import CategoryMetadataValidator
 
 
-class TestAnimal(unittest.TestCase):
+class TestCategories(unittest.TestCase):
     def setUp(self):
-        self.categories = TestAnimal._get_all_categories()
+        self.categories = TestCategories._get_all_categories()
 
     def test__all_categories__values_are_valid(self):
         [self.validate_values_are_valid(category) for category in self.categories]
 
     def validate_values_are_valid(self, category):
-        error_message = CategoryMetadataValidator.get_values_error_message(category)
-        self.assertTrue(error_message == "", TestAnimal._user_error_message(category, error_message))
+        error_message = CategoryMetadataValidator.validate(category)
+        self.assertTrue(error_message == "", TestCategories._user_error_message(category, error_message))
 
     @staticmethod
     def _user_error_message(category, error_message):
