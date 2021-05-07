@@ -6,7 +6,7 @@ import random
 class TestCategory(unittest.TestCase):
 
     def test__get_name__returns_category(self):
-        self.assertEqual(Category.get_name(), "category")
+        self.assertEqual(Category.get_name(), "")
 
     def test__get_random_choice__mock_random_choice__returns_empty_string(self):
         random.seed(0)

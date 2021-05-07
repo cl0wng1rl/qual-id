@@ -2,7 +2,7 @@ from random import choice
 
 
 class Category:
-    _name = "category"
+    _name = ""
     _values = [""]
 
     @classmethod
