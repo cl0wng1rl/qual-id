@@ -5,6 +5,8 @@ class CategoryMetadataValidator:
     @staticmethod
     def get_values_error_message(category):
         messages = [
+            CategoryMetadataValidator.__get_has_name_error_message(category),
+            CategoryMetadataValidator.__get_name_lowercase_error_message(category),
             CategoryMetadataValidator.__get_returns_list_error_message(category),
             CategoryMetadataValidator.__get_contains_repeats_message(category),
             CategoryMetadataValidator.__get_contains_invalid_string_message(category),
@@ -14,6 +16,16 @@ class CategoryMetadataValidator:
 
         error_messages = [message for message in messages if message]
         return "\n".join(error_messages)
+
+    @staticmethod
+    def __get_has_name_error_message(category):
+        has_name = category.get_name() != ""
+        return "" if has_name else "should have a name"
+
+    @staticmethod
+    def __get_name_lowercase_error_message(category):
+        is_lowercase = category.get_name().lower() == category.get_name()
+        return "" if is_lowercase else "name should be all lowercase"
 
     @staticmethod
     def __get_returns_list_error_message(category):
