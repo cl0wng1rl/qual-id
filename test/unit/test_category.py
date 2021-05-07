@@ -5,10 +5,10 @@ import random
 
 class TestCategory(unittest.TestCase):
 
-    def test__get_name__returns_category(self):
-        self.assertEqual(Category.get_name(), "")
+    def test__name__returns_category(self):
+        self.assertEqual(Category.name(), "")
 
-    def test__get_random_choice__mock_random_choice__returns_empty_string(self):
+    def test__random__mock_random_choice__returns_empty_string(self):
         random.seed(0)
         fixed_choice = random.choice(Category._values)
         self.assertEqual(Category.random(), fixed_choice)
