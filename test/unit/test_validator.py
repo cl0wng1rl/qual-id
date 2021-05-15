@@ -1,20 +1,20 @@
 import unittest
 from qual_id.pattern import Pattern
-from qual_id.category_map import CategoryMap
-from qual_id.category_map_factory import CategoryMapFactory
+from qual_id.collection import Collection
+from qual_id.collection_factory import CollectionFactory
 from qual_id.validator import Validator
 from unittest.mock import Mock, call, patch
 
 
 class TestValidator(unittest.TestCase):
-    @patch.object(CategoryMapFactory, "has")
-    @patch.object(CategoryMapFactory, "get")
+    @patch.object(CollectionFactory, "has")
+    @patch.object(CollectionFactory, "get")
     @patch.object(Pattern, "error")
     def test__error__valid_pattern_and_collection__false(
         self, mock_error, mock_get, mock_has
     ):
         mock_has.return_value = True
-        mock_get.return_value = self.get_mock_category_map()
+        mock_get.return_value = self.get_mock_collection()
         mock_error.return_value = False
 
         pattern_string = "pattern"
@@ -23,8 +23,8 @@ class TestValidator(unittest.TestCase):
         validator = Validator(pattern_string, collection_string)
         self.assertFalse(validator.error())
 
-    @patch.object(CategoryMapFactory, "has")
-    @patch.object(CategoryMapFactory, "get")
+    @patch.object(CollectionFactory, "has")
+    @patch.object(CollectionFactory, "get")
     @patch("qual_id.pattern.Pattern")
     def test__error__invalid_collection__error_message(
         self, mock_error, mock_get, mock_has
@@ -39,14 +39,14 @@ class TestValidator(unittest.TestCase):
         expected_error_message = "invalid collection: " + collection_string
         self.assertEqual(expected_error_message, validator.error())
 
-    @patch.object(CategoryMapFactory, "has")
-    @patch.object(CategoryMapFactory, "get")
+    @patch.object(CollectionFactory, "has")
+    @patch.object(CollectionFactory, "get")
     @patch.object(Pattern, "error")
     def test__error__invalid_pattern__error_message(
         self, mock_error, mock_get, mock_has
     ):
         mock_has.return_value = True
-        mock_get.return_value = self.get_mock_category_map()
+        mock_get.return_value = self.get_mock_collection()
 
         mock_error_message = "error message"
         mock_error.return_value = mock_error_message
@@ -57,7 +57,7 @@ class TestValidator(unittest.TestCase):
         validator = Validator(pattern_string, collection_string)
         self.assertEqual(mock_error_message, validator.error())
 
-    def get_mock_category_map(self):
+    def get_mock_collection(self):
         mock = Mock()
         mock.get.return_value = self.mock_category()
         mock.invalid.return_value = []

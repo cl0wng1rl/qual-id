@@ -1,22 +1,22 @@
 from random import choice
-from qual_id.category_map import CategoryMap
+from qual_id.collection import Collection
 
 
 class Pattern:
     __random_key = "random"
 
-    def __init__(self, pattern_string, category_map):
+    def __init__(self, pattern_string, collection):
         self.__categories = [p for p in pattern_string.split("-") if p != ""]
-        self.__category_map = category_map
+        self._collection = collection
         self.__replace_randoms()
 
     def get_categories(self):
-        return [self.__category_map.get(category) for category in self.__categories]
+        return [self._collection.get(category) for category in self.__categories]
 
     def error(self):
         if not self.__valid_number_of_categories():
             return "number of categories should be between 1 and 5"
-        invalid = self.__category_map.invalid(self.__categories)
+        invalid = self._collection.invalid(self.__categories)
         if invalid:
             return "invalid categories: %s" % (invalid)
         return False
@@ -29,8 +29,5 @@ class Pattern:
 
     def __replace_random(self, category):
         if category == Pattern.__random_key:
-            return self.__random_category()
+            return self._collection.random()
         return category
-
-    def __random_category(self):
-        return choice(self.__category_map.categories())

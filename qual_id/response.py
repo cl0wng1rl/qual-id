@@ -1,5 +1,5 @@
 from qual_id.validator import Validator
-from qual_id.category_map_factory import CategoryMapFactory
+from qual_id.collection_factory import CollectionFactory
 from qual_id.pattern import Pattern
 
 
@@ -21,8 +21,8 @@ class Response:
         return self.__format_response(response_obj)
 
     def get_qual_ids(self):
-        category_map = CategoryMapFactory.get(self.__collection)
-        pattern = Pattern(self.__pattern, category_map)
+        collection = CollectionFactory.get(self.__collection)
+        pattern = Pattern(self.__pattern, collection)
         return [self.__get_qual_id(pattern) for _ in range(self.__number)]
 
     def __format_response(self, response_obj):

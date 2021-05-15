@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.response import Response
-from qual_id.category_map_factory import CategoryMapFactory
+from qual_id.collection_factory import CollectionFactory
 import random
 
 app = Flask(__name__)
@@ -14,9 +14,9 @@ def get_response():
 @app.route("/categories/", methods=["GET"])
 def categories_response():
     collection_string = request.args.get("collection", "all")
-    if not CategoryMapFactory.has(collection_string):
+    if not CollectionFactory.has(collection_string):
         return jsonify({"error": "invalid collection: %s" % (collection_string)})
-    return jsonify({"data": CategoryMapFactory.get(collection_string).categories()})
+    return jsonify({"data": CollectionFactory.get(collection_string).categories()})
 
 
 @app.route("/badge-endpoint/", methods=["GET"])

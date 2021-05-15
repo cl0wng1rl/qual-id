@@ -1,5 +1,5 @@
 from qual_id.pattern import Pattern
-from qual_id.category_map_factory import CategoryMapFactory
+from qual_id.collection_factory import CollectionFactory
 
 
 class Validator:
@@ -9,7 +9,7 @@ class Validator:
         self.__pattern = None
 
     def error(self):
-        if not CategoryMapFactory.has(self.__collection_string):
+        if not CollectionFactory.has(self.__collection_string):
             return "invalid collection: %s" % (self.__collection_string)
-        category_map = CategoryMapFactory.get(self.__collection_string)
-        return Pattern(self.__pattern_string, category_map).error()
+        collection = CollectionFactory.get(self.__collection_string)
+        return Pattern(self.__pattern_string, collection).error()
