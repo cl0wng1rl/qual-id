@@ -1,7 +1,7 @@
 from .collections import *
 
 class CollectionFactory:
-    _collections = [All.get_instance(), Minimal.get_instance(), Neutral.get_instance()]
+    _collections = [All, Minimal, Neutral]
     _collection_map = dict((c.name(), c) for c in _collections)
     
     @staticmethod
