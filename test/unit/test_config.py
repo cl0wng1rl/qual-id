@@ -4,16 +4,16 @@ from qual_id.config import Config
 
 class TestConfig(unittest.TestCase):
     ARGS = {
-        "pattern": "TEST PATTERN",
+        "pattern": "TEST-PATTERN",
         "collection": "TEST COLLECTION",
         "number": 1,
         "format": "TEST FORMAT",
     }
 
-    def test__get_pattern__returns_correct_pattern(self):
+    def test__get_categories__returns_correct_pattern(self):
         config = Config(self.ARGS)
-        expected_pattern = self.ARGS.get("pattern")
-        self.assertEqual(config.get_pattern(), expected_pattern)
+        expected_pattern = self.ARGS.get("pattern").split("-")
+        self.assertEqual(config.get_categories(), expected_pattern)
 
     def test__get_collection__returns_correct_collection(self):
         config = Config(self.ARGS)

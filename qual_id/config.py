@@ -10,13 +10,13 @@ class Config:
     FORMAT_DEFAULT = "json"
 
     def __init__(self, args):
-        self._pattern = args.get(self.PATTERN_KEY, self.PATTERN_DEFAULT)
+        self._categories = args.get(self.PATTERN_KEY, self.PATTERN_DEFAULT).split("-")
         self._collection = args.get(self.COLLECTION_KEY, self.COLLECTION_DEFAULT)
         self._number = int(args.get(self.NUMBER_KEY, self.NUMBER_DEFAULT))
         self._format = args.get(self.FORMAT_KEY, self.FORMAT_DEFAULT)
 
-    def get_pattern(self):
-        return self._pattern
+    def get_categories(self):
+        return self._categories
 
     def get_collection(self):
         return self._collection
