@@ -5,13 +5,13 @@ from qual_id.collection_factory import CollectionFactory
 
 class TestCollectionFactory(unittest.TestCase):
     def test__get__all__returns_category(self):
-        self.assertIsInstance(CollectionFactory.get("all"), Collection)
+        self.assertEqual(CollectionFactory.get("all").__base__, Collection)
 
     def test__get__minimal__returns_category(self):
-        self.assertIsInstance(CollectionFactory.get("minimal"), Collection)
+        self.assertEqual(CollectionFactory.get("minimal").__base__, Collection)
 
     def test__get__neutral__returns_category(self):
-        self.assertIsInstance(CollectionFactory.get("neutral"), Collection)
+        self.assertEqual(CollectionFactory.get("neutral").__base__, Collection)
 
     def test__has__invalid_string__returns_false(self):
         self.assertFalse(CollectionFactory.has("$$$"))
