@@ -23,14 +23,14 @@ class TestResponse(unittest.TestCase):
     @patch.object(CollectionFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "get_categories")
+    @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args__returns_correct_object(
-        self, mock_pattern_get_categories, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
         mock_get.return_value = self.get_mock_collection()
         mock_validator_is_valid.return_value = True
         mock_validator_error_message.return_value = None
-        mock_pattern_get_categories.return_value = self.get_mock_categories()
+        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
         response = Response(self.args)
 
         expected = {"data": self.dual_double_qual_id_array()}
@@ -39,14 +39,14 @@ class TestResponse(unittest.TestCase):
     @patch.object(CollectionFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "get_categories")
+    @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args_with_csv_format__returns_correct_object(
-        self, mock_pattern_get_categories, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
         mock_get.return_value = self.get_mock_collection()
         mock_validator_is_valid.return_value = True
         mock_validator_error_message.return_value = None
-        mock_pattern_get_categories.return_value = self.get_mock_categories()
+        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
 
         self.args["format"] = TestResponse.CSV
         response = Response(self.args)
@@ -57,14 +57,14 @@ class TestResponse(unittest.TestCase):
     @patch.object(CollectionFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "get_categories")
+    @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args__returns_correct_object(
-        self, mock_pattern_get_categories, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
         mock_get.return_value = self.get_mock_collection()
         mock_validator_is_valid.return_value = False
         mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
-        mock_pattern_get_categories.return_value = self.get_mock_categories()
+        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
 
         response = Response(self.args)
 
@@ -74,14 +74,14 @@ class TestResponse(unittest.TestCase):
     @patch.object(CollectionFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "get_categories")
+    @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args_with_csv_format__returns_correct_object(
-        self, mock_pattern_get_categories, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
         mock_get.return_value = self.get_mock_collection()
         mock_validator_is_valid.return_value = False
         mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
-        mock_pattern_get_categories.return_value = self.get_mock_categories()
+        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
 
         self.args["format"] = TestResponse.CSV
         response = Response(self.args)
@@ -90,13 +90,13 @@ class TestResponse(unittest.TestCase):
 
     @patch.object(CollectionFactory, "get")
     @patch.object(Validator, "is_valid")
-    @patch.object(Pattern, "get_categories")
+    @patch.object(Pattern, "random")
     def test__get_qual_ids__valid_args__returns_correct_object(
-        self, mock_pattern_get_categories, mock_validator_is_valid, mock_get
+        self, mock_pattern_random, mock_validator_is_valid, mock_get
     ):
         mock_get.return_value = self.get_mock_collection()
         mock_validator_is_valid.return_value = True
-        mock_pattern_get_categories.return_value = self.get_mock_categories()
+        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
 
         response = Response(self.args)
 
