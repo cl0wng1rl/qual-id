@@ -42,43 +42,6 @@ class TestPattern(unittest.TestCase):
         expected_calls = [call(self.CATEGORY_KEYS[0]), call(self.CATEGORY_KEYS[0])]
         self.assertEqual(expected_calls, mock_collection.get.call_args_list)
 
-    def test__error__valid_pattern__returns_false(self):
-        pattern_string = TestPattern.PATTERN
-        mock_collection = self.get_mock_collection()
-        pattern = Pattern(pattern_string, mock_collection)
-
-        result = pattern.error()
-
-        self.assertFalse(result)
-
-    def test__error__pattern_with_invalid_category__returns_error_message(self):
-        pattern_string = TestPattern.PATTERN
-        mock_collection = self.get_mock_collection()
-        invalid = [self.CATEGORY_KEYS[0]]
-        mock_collection.invalid.return_value = invalid
-        pattern = Pattern(pattern_string, mock_collection)
-
-        result = pattern.error()
-
-        self.assertEqual("invalid categories: %s" % (invalid), result)
-
-    def test__error__empty_pattern__returns_error_message(self):
-        mock_collection = self.get_mock_collection()
-        pattern = Pattern("", mock_collection)
-
-        result = pattern.error()
-
-        self.assertEqual("number of categories should be between 1 and 5", result)
-
-    def test__error__pattern_with_too_many_categories__returns_error_message(self):
-        pattern_string = "-".join([self.CATEGORY_KEYS[0]] * 6)
-        mock_collection = self.get_mock_collection()
-        pattern = Pattern(pattern_string, mock_collection)
-
-        result = pattern.error()
-
-        self.assertEqual("number of categories should be between 1 and 5", result)
-
     def get_mock_collection(self):
         mock = Mock()
         mock.get.return_value = self.mock_category()
