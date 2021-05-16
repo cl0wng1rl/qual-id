@@ -6,10 +6,6 @@ from qual_id.pattern import Pattern
 
 class Response:
     def __init__(self, args):
-        self.__pattern = args.get("pattern", "")
-        self.__collection = args.get("collection", "all")
-        self.__number = int(args.get("number", 1))
-        self.__format = args.get("format", "json")
         self._config = Config(args)
 
     def get_response_obj(self):
@@ -24,12 +20,12 @@ class Response:
         return self.__format_response(response_obj)
 
     def get_qual_ids(self):
-        collection = CollectionFactory.get(self.__collection)
-        pattern = Pattern(self.__pattern, collection)
-        return [self.__get_qual_id(pattern) for _ in range(self.__number)]
+        collection = CollectionFactory.get(self._config.get_collection())
+        pattern = Pattern(self._config.get_categories(), collection)
+        return [pattern.random() for _ in range(self._config.get_number())]
 
     def __format_response(self, response_obj):
-        if self.__format == "csv":
+        if self._config.get_format() == "csv":
             return self.__data_or_error(response_obj)
         return response_obj
 
@@ -37,6 +33,3 @@ class Response:
         if "data" in response_obj:
             return ",".join(response_obj["data"])
         return response_obj["error"]
-
-    def __get_qual_id(self, pattern):
-        return "-".join([category.random() for category in pattern.get_categories()])
