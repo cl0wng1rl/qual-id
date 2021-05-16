@@ -1,10 +1,10 @@
 from qual_id.response import Response
-from qual_id.cli_parser import CliParser
+from qual_id.cli.parser import Parser
 
 
-class CliApp:
+class App:
     @staticmethod
     def run(args):
-        parser = CliParser(args)
+        parser = Parser(args)
         config = parser.parse()
         return Response(config).get_response_obj()

@@ -1,6 +1,6 @@
-from qual_id.flag import Flag
+from qual_id.cli.flag import Flag
 
-class CliParser:
+class Parser:
     def __init__(self, arguments):
         self._arguments = arguments
         self._shift_arguments()

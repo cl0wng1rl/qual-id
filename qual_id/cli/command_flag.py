@@ -1,4 +1,4 @@
-class CliFlag:
+class CommandFlag:
   def __init__(self, long, short):
       self._long = long
       self._short = short
