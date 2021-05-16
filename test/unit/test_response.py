@@ -108,9 +108,6 @@ class TestResponse(unittest.TestCase):
         mock.invalid.return_value = []
         return mock
 
-    def get_mock_categories(self):
-        return [self.mock_category(), self.mock_category()]
-
     def mock_category(self):
         mock = Mock()
         mock.random.return_value = TestResponse.QUAL_ID

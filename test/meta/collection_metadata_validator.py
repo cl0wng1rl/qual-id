@@ -70,7 +70,3 @@ class CollectionMetadataValidator:
     @staticmethod
     def __is_not_a_category(category):
         return category.__base__ != Category
-
-    @staticmethod
-    def __string_contains_uppercase_character(str):
-        return any([c for c in list(str) if c.isupper()])
