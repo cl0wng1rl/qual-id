@@ -1,43 +1,44 @@
+from qual_id.flag import Flag
+
 class CliParser:
-    def __init__(self, args):
-        self.__args = args
-        self.__shift()
-        self.__config = {"format": "csv"}
+    def __init__(self, arguments):
+        self._arguments = arguments
+        self._shift_arguments()
+        self._config = {"format": "csv"}
 
     def parse(self):
-        while len(self.__args):
-            if self.__args[0] in {"-h", "--help"}:
-                self.__print_help()
-                exit()
-            if self.__parameter("collection"):
-                continue
-            if self.__parameter("pattern"):
-                continue
-            if self.__parameter("number"):
-                continue
-            if self.__parameter("format"):
-                continue
-            print("invalid parameter: " + self.__args[0])
+        self._check_for_help()
+        while len(self._arguments):
+            self._extract_parameter(self._get_next_flag())
+        return self._config
+
+    def _check_for_help(self):
+        if any(map(lambda arg: Flag.HELP.value.equals(arg), self._arguments)):
+            self._print_help()
             exit()
-        return self.__config
+    
+    def _get_next_flag(self):
+        flag = next((flag for flag in Flag if flag.value.equals(self._arguments[0])), None)
+        if not flag:
+            print("invalid parameter: " + self._arguments[0])
+            exit()
+        return flag
 
-    def __shift(self):
-        self.__args = self.__args[1:]
+    def _check_for_remaining_args(self, flag):
+        if not len(self._arguments):
+            print("no {0} specified".format(flag.value.name()))
+            exit()
+    
+    def _shift_arguments(self):
+        self._arguments = self._arguments[1:]
 
-    def __parameter(self, key):
-        if self.__args[0] in {"-{0}".format(key[0]), "--{0}".format(key)}:
-            self.__shift()
-            if len(self.__args):
-                self.__config[key] = self.__args[0]
-                self.__shift()
-                return True
-            else:
-                print("no {0} specified".format(key))
-                exit()
-        else:
-            return False
+    def _extract_parameter(self, flag):
+        self._shift_arguments()
+        self._check_for_remaining_args(flag)
+        self._config[flag.value.name()] = self._arguments[0]
+        self._shift_arguments()
 
-    def __print_help(self):
+    def _print_help(self):
         print(" ")
         print("Qual ID - get qualitative IDs")
         print(" ")
