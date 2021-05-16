@@ -40,7 +40,7 @@ class Validator:
         flag = next((flag for flag in Flag if flag.value.equals(self._arguments[0])), None)
         if not flag:
             self._is_valid = False
-            self._error_message = "invalid parameter: {0}".format(self._arguments[0])
+            self._error_message = "invalid flag: {0}".format(self._arguments[0])
         return flag
 
     def _check_for_remaining_args(self, flag):
