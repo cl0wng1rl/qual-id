@@ -13,14 +13,6 @@ class Pattern:
     def get_categories(self):
         return [self._collection.get(category) for category in self.__categories]
 
-    def error(self):
-        if not self.__valid_number_of_categories():
-            return "number of categories should be between 1 and 5"
-        invalid = self._collection.invalid(self.__categories)
-        if invalid:
-            return "invalid categories: %s" % (invalid)
-        return False
-
     def __valid_number_of_categories(self):
         return 0 < len(self.__categories) < 6
 
