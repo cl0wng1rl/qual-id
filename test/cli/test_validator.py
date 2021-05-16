@@ -50,6 +50,14 @@ class TestValidator(unittest.TestCase):
         expected_message = "invalid flag: {0}".format(self.INVALID_FLAG)
         self.assertEqual(expected_message, validator.error_message())
 
+    def test__is_valid__help_flag__true(self):
+        validator = Validator(self.get_valid_args__help())
+        self.assertTrue(validator.is_valid())
+
+    def test__is_help__help_flag__true(self):
+        validator = Validator(self.get_valid_args__help())
+        self.assertTrue(validator.is_help())
+
     def get_valid_args(self):
         return [
             self.COMMAND_NAME,
@@ -64,6 +72,9 @@ class TestValidator(unittest.TestCase):
 
     def get_invalid_args__invalid_flag(self):
         return [self.COMMAND_NAME, self.INVALID_FLAG]
+    
+    def get_valid_args__help(self):
+        return [self.COMMAND_NAME, self.PATTERN, self.HELP_FLAG, self.FORMAT]
 
 
 if __name__ == "__main__":  # pragma: no cover
