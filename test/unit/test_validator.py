@@ -1,69 +1,131 @@
 import unittest
-from qual_id.pattern import Pattern
-from qual_id.collection import Collection
-from qual_id.collection_factory import CollectionFactory
 from qual_id.validator import Validator
-from unittest.mock import Mock, call, patch
+from qual_id.validators import *
+
+from unittest.mock import Mock, patch
 
 
 class TestValidator(unittest.TestCase):
-    @patch.object(CollectionFactory, "has")
-    @patch.object(CollectionFactory, "get")
-    @patch.object(Pattern, "error")
-    def test__error__valid_pattern_and_collection__false(
-        self, mock_error, mock_get, mock_has
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__is_valid__mock_validators_all_valid__true(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
+    ):  
+        mock_format_validator.return_value.is_valid.return_value = True
+        mock_number_validator.return_value.is_valid.return_value = True
+        mock_collection_validator.return_value.is_valid.return_value = True
+        mock_pattern_validator.return_value.is_valid.return_value = True
+
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertTrue(validator.is_valid())
+
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__error_message__pattern_validator_invalid__correct_error_message(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
-        mock_has.return_value = True
-        mock_get.return_value = self.get_mock_collection()
-        mock_error.return_value = False
+        mock_format_validator.return_value.is_valid.return_value = True
+        mock_number_validator.return_value.is_valid.return_value = True
+        mock_collection_validator.return_value.is_valid.return_value = True
+        mock_pattern_validator.return_value.is_valid.return_value = False
 
-        pattern_string = "pattern"
-        collection_string = "collection"
+        expected_error_message = "pattern error"
+        mock_pattern_validator.return_value.error_message.return_value = expected_error_message
 
-        validator = Validator(pattern_string, collection_string)
-        self.assertFalse(validator.error())
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertFalse(validator.is_valid())
+        self.assertEqual(expected_error_message, validator.error_message())
 
-    @patch.object(CollectionFactory, "has")
-    @patch.object(CollectionFactory, "get")
-    @patch("qual_id.pattern.Pattern")
-    def test__error__invalid_collection__error_message(
-        self, mock_error, mock_get, mock_has
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__error_message__collection_validator_invalid__correct_error_message(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
-        mock_has.return_value = False
+        mock_format_validator.return_value.is_valid.return_value = True
+        mock_number_validator.return_value.is_valid.return_value = True
+        mock_collection_validator.return_value.is_valid.return_value = False
+        mock_pattern_validator.return_value.is_valid.return_value = True
 
-        pattern_string = "pattern"
-        collection_string = "invalid_collection"
+        expected_error_message = "collection error"
+        mock_collection_validator.return_value.error_message.return_value = expected_error_message
 
-        validator = Validator(pattern_string, collection_string)
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertFalse(validator.is_valid())
+        self.assertEqual(expected_error_message, validator.error_message())
 
-        expected_error_message = "invalid collection: " + collection_string
-        self.assertEqual(expected_error_message, validator.error())
-
-    @patch.object(CollectionFactory, "has")
-    @patch.object(CollectionFactory, "get")
-    @patch.object(Pattern, "error")
-    def test__error__invalid_pattern__error_message(
-        self, mock_error, mock_get, mock_has
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__error_message__number_validator_invalid__correct_error_message(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
-        mock_has.return_value = True
-        mock_get.return_value = self.get_mock_collection()
+        mock_format_validator.return_value.is_valid.return_value = True
+        mock_number_validator.return_value.is_valid.return_value = False
+        mock_collection_validator.return_value.is_valid.return_value = True
+        mock_pattern_validator.return_value.is_valid.return_value = True
 
-        mock_error_message = "error message"
-        mock_error.return_value = mock_error_message
+        expected_error_message = "number error"
+        mock_number_validator.return_value.error_message.return_value = expected_error_message
 
-        pattern_string = "pattern"
-        collection_string = "collection"
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertFalse(validator.is_valid())
+        self.assertEqual(expected_error_message, validator.error_message())
 
-        validator = Validator(pattern_string, collection_string)
-        self.assertEqual(mock_error_message, validator.error())
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__error_message__format_validator_invalid__correct_error_message(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
+    ):
+        mock_format_validator.return_value.is_valid.return_value = False
+        mock_number_validator.return_value.is_valid.return_value = True
+        mock_collection_validator.return_value.is_valid.return_value = True
+        mock_pattern_validator.return_value.is_valid.return_value = True
 
-    def get_mock_collection(self):
-        mock = Mock()
-        mock.get.return_value = self.mock_category()
-        mock.invalid.return_value = []
-        return mock
+        expected_error_message = "format error"
+        mock_format_validator.return_value.error_message.return_value = expected_error_message
 
-    def mock_category(self):
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertFalse(validator.is_valid())
+        self.assertEqual(expected_error_message, validator.error_message())
+
+    
+    @patch("qual_id.validator.PatternValidator")
+    @patch("qual_id.validator.CollectionValidator")
+    @patch("qual_id.validator.NumberValidator")
+    @patch("qual_id.validator.FormatValidator")
+    def test__error_message__two_validators_invalid__second_validator_not_ran(
+        self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
+    ):
+        mock_format_validator.return_value.is_valid.return_value = False
+        mock_number_validator.return_value.is_valid.return_value = True
+        mock_collection_validator.return_value.is_valid.return_value = False
+        mock_pattern_validator.return_value.is_valid.return_value = True
+
+        not_expected_error_message = "format error"
+        mock_format_validator.return_value.error_message.return_value = not_expected_error_message
+        expected_error_message = "collection error"
+        mock_collection_validator.return_value.error_message.return_value = expected_error_message
+
+        validator = Validator(self.mock_config())
+        validator.validate()
+        self.assertFalse(validator.is_valid())
+        self.assertEqual(expected_error_message, validator.error_message())
+
+    def mock_config(self):
         return Mock()
 
 
