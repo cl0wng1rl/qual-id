@@ -1,25 +1,24 @@
-from random import choice
 from qual_id.collection import Collection
 
 
 class Pattern:
     __random_key = "random"
 
-    def __init__(self, pattern_string, collection):
-        self.__categories = [p for p in pattern_string.split("-") if p != ""]
+    def __init__(self, category_names, collection):
         self._collection = collection
-        self.__replace_randoms()
+        self._categories = self._get_categories(category_names)
 
-    def get_categories(self):
-        return [self._collection.get(category) for category in self.__categories]
+    def random(self):
+        return "-".join([category.random() for category in self._categories])
 
-    def __valid_number_of_categories(self):
-        return 0 < len(self.__categories) < 6
+    def _get_categories(self, category_names):
+        categories = self._replace_randoms(category_names)
+        return [self._collection.get(category) for category in categories]
 
-    def __replace_randoms(self):
-        self.__categories = [self.__replace_random(x) for x in self.__categories]
+    def _replace_randoms(self, categories):
+        return [self._replace_random(x) for x in categories]
 
-    def __replace_random(self, category):
+    def _replace_random(self, category):
         if category == Pattern.__random_key:
             return self._collection.random()
         return category
