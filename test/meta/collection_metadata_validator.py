@@ -34,13 +34,13 @@ class CollectionMetadataValidator:
 
     @staticmethod
     def __values_is_a_non_empty_list(collection):
-        is_list = isinstance(collection._categories, list)
-        is_empty = len(collection._categories) == 0
+        is_list = isinstance(collection.info(), list)
+        is_empty = len(collection.info()) == 0
         return is_list and not is_empty
 
     @staticmethod
     def __get_contains_repeats_message(collection):
-        repeats = list(collection._categories)
+        repeats = list(collection.info())
         uniques = set(repeats)
         [repeats.remove(unique) for unique in uniques]
         repeats = list(map(lambda x: str(x), repeats))
@@ -60,7 +60,7 @@ class CollectionMetadataValidator:
     @staticmethod
     def __get_alphabetical_message(collection):
         message = "should be in alphabetical order"
-        values = list(map(lambda x: x.name(), collection._categories))
+        values = collection.info()
         return "" if sorted(values) == values else message
 
     @staticmethod

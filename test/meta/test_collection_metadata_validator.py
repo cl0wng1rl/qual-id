@@ -7,7 +7,7 @@ from qual_id.categories.cake import Cake
 
 
 class TestCollectionMetadataValidator(unittest.TestCase):
-    def test__validate__with_valid_collection__returns_empty_string(self):
+    def test__validate__valid_collection__empty_string(self):
         error_message = CollectionMetadataValidator.validate(MockValidCollection)
         self.assertEqual(error_message, "")
 
@@ -64,7 +64,7 @@ class MockInvalidCollection_Empty(Collection):
 class MockInvalidCollection_Repeats(Collection):
     _name = "repeats"
     _categories = [Adjective, Bird, Bird]
-    EXPECTED_ERROR_MESSAGE = "contains repeats: " + str(Bird)
+    EXPECTED_ERROR_MESSAGE = "contains repeats: " + Bird.name()
 
 
 class MockInvalidCollection_NonAlphabetical(Collection):
