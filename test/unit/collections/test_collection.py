@@ -1,7 +1,6 @@
 import unittest
 from qual_id.categories.fruit import Fruit
 from qual_id.categories.fish import Fish
-from qual_id.category import Category
 from qual_id.collections.all import All
 import random
 

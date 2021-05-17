@@ -1,15 +1,19 @@
 import unittest
-from qual_id.validator import Validator
-from qual_id.validators import *
+from qual_id.validators import Validator
+
+from qual_id.validators.pattern_validator import PatternValidator
+from qual_id.validators.collection_validator import CollectionValidator
+from qual_id.validators.number_validator import NumberValidator
+from qual_id.validators.format_validator import FormatValidator
 
 from unittest.mock import Mock, patch
 
 
 class TestValidator(unittest.TestCase):
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__is_valid__mock_validators_all_valid__true(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):  
@@ -22,10 +26,10 @@ class TestValidator(unittest.TestCase):
         validator.validate()
         self.assertTrue(validator.is_valid())
 
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__error_message__pattern_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
@@ -42,10 +46,10 @@ class TestValidator(unittest.TestCase):
         self.assertFalse(validator.is_valid())
         self.assertEqual(expected_error_message, validator.error_message())
 
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__error_message__collection_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
@@ -62,10 +66,10 @@ class TestValidator(unittest.TestCase):
         self.assertFalse(validator.is_valid())
         self.assertEqual(expected_error_message, validator.error_message())
 
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__error_message__number_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
@@ -82,10 +86,10 @@ class TestValidator(unittest.TestCase):
         self.assertFalse(validator.is_valid())
         self.assertEqual(expected_error_message, validator.error_message())
 
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__error_message__format_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):
@@ -103,10 +107,10 @@ class TestValidator(unittest.TestCase):
         self.assertEqual(expected_error_message, validator.error_message())
 
     
-    @patch("qual_id.validator.PatternValidator")
-    @patch("qual_id.validator.CollectionValidator")
-    @patch("qual_id.validator.NumberValidator")
-    @patch("qual_id.validator.FormatValidator")
+    @patch("qual_id.validators.validator.PatternValidator")
+    @patch("qual_id.validators.validator.CollectionValidator")
+    @patch("qual_id.validators.validator.NumberValidator")
+    @patch("qual_id.validators.validator.FormatValidator")
     def test__error_message__two_validators_invalid__second_validator_not_ran(
         self, mock_format_validator, mock_number_validator, mock_collection_validator, mock_pattern_validator
     ):

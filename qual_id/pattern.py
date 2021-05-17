@@ -1,6 +1,3 @@
-from qual_id.collection import Collection
-
-
 class Pattern:
     __random_key = "random"
 

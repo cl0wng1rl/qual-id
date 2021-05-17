@@ -1,5 +1,5 @@
 import unittest
-from qual_id.collection import Collection
+from qual_id.collections.collection import Collection
 from test.meta.collection_metadata_validator import CollectionMetadataValidator
 from qual_id.categories.adjective import Adjective
 from qual_id.categories.bird import Bird

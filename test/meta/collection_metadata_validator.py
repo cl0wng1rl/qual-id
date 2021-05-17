@@ -1,4 +1,4 @@
-from qual_id.category import Category
+from qual_id.categories.category import Category
 
 class CollectionMetadataValidator:
     __disallowed_characters = [" ", "-", "_", "&"]

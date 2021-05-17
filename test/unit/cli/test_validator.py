@@ -13,7 +13,6 @@ class TestValidator(unittest.TestCase):
 
     def test__is_valid__valid_args__true(self):
         validator = Validator(self.get_valid_args())
-        print(validator.error_message())
         self.assertTrue(validator.is_valid())
 
     def test__is_help__valid_args__false(self):

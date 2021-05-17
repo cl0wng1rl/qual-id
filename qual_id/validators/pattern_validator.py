@@ -1,5 +1,5 @@
 from qual_id.pattern import Pattern
-from qual_id.collection_factory import CollectionFactory
+from qual_id.collections import CollectionFactory
 
 
 class PatternValidator:

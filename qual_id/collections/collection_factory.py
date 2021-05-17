@@ -1,4 +1,7 @@
-from .collections import *
+from .all import All
+from .minimal import Minimal
+from .neutral import Neutral
+
 
 class CollectionFactory:
     _collections = [All, Minimal, Neutral]

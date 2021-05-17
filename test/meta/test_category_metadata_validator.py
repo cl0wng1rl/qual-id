@@ -1,5 +1,5 @@
 import unittest
-from qual_id.category import Category
+from qual_id.categories.category import Category
 from test.meta.category_metadata_validator import CategoryMetadataValidator
 
 

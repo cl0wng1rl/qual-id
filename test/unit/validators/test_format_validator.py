@@ -1,5 +1,5 @@
 import unittest
-from qual_id.validators import FormatValidator
+from qual_id.validators.format_validator import FormatValidator
 
 
 class TestFormatValidator(unittest.TestCase):

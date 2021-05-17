@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.response import Response
-from qual_id.collection_factory import CollectionFactory
+from qual_id.collections import CollectionFactory
 import random
 
 app = Flask(__name__)

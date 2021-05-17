@@ -1,5 +1,5 @@
 from ..categories import *
-from ..collection import Collection
+from .collection import Collection
 
 class Minimal(Collection):
     _name = "minimal"

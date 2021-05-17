@@ -1,6 +1,6 @@
 import unittest
-from qual_id.collection import Collection
-from qual_id.collection_factory import CollectionFactory
+from qual_id.collections.collection import Collection
+from qual_id.collections import CollectionFactory
 
 
 class TestCollectionFactory(unittest.TestCase):

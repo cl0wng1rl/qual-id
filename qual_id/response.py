@@ -1,6 +1,6 @@
 from qual_id.config import Config
-from qual_id.validator import Validator
-from qual_id.collection_factory import CollectionFactory
+from qual_id.validators import Validator
+from qual_id.collections import CollectionFactory
 from qual_id.pattern import Pattern
 
 

@@ -1,8 +1,7 @@
 import unittest
 from qual_id.pattern import Pattern
-from qual_id.collection import Collection
-from qual_id.collection_factory import CollectionFactory
-from qual_id.validator import Validator
+from qual_id.collections import CollectionFactory
+from qual_id.validators import Validator
 from qual_id.response import Response
 from unittest.mock import Mock, call, patch
 

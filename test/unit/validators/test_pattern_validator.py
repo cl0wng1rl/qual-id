@@ -1,6 +1,6 @@
 import unittest
-from qual_id.validators import PatternValidator
-from qual_id.collection_factory import CollectionFactory
+from qual_id.validators.pattern_validator import PatternValidator
+from qual_id.collections import CollectionFactory
 from unittest.mock import Mock, patch
 
 

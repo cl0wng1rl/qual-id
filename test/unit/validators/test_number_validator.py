@@ -1,5 +1,5 @@
 import unittest
-from qual_id.validators import NumberValidator
+from qual_id.validators.number_validator import NumberValidator
 
 
 class TestNumberValidator(unittest.TestCase):

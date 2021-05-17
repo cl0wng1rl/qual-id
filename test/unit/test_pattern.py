@@ -1,6 +1,5 @@
 import unittest
 import random
-from qual_id.collection import Collection
 from qual_id.pattern import Pattern
 from unittest.mock import Mock, call, patch
 

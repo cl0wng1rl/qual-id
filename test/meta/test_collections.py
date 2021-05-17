@@ -1,5 +1,7 @@
 import unittest
-from qual_id.collections import *
+from qual_id.collections.all import All
+from qual_id.collections.minimal import Minimal
+from qual_id.collections.neutral import Neutral
 from test.meta.collection_metadata_validator import CollectionMetadataValidator
 
 
