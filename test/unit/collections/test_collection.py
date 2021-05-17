@@ -1,39 +1,43 @@
 import unittest
-from qual_id.categories.fruit import Fruit
-from qual_id.categories.fish import Fish
-from qual_id.collections.all import All
 import random
+from qual_id.collections.collection import Collection
+from qual_id.collections.all import All
+from qual_id.categories import Adjective, Bird, Cake, Fish
 
 
 class TestCollection(unittest.TestCase):
-    VALID_KEY = "fruit"
-    SECOND_VALID_KEY = "geography"
-    THIRD_VALID_KEY = "fish"
-    INVALID_KEY = "$$$"
-    ALL_COLLECTION_NAME = "all"
+    COLLECTION_NAME = "collection"
+    COLLECTION_VALUES = [Adjective, Bird, Cake]
+    VALID_KEYS = [Adjective.name(), Bird.name(), Cake.name()]
+    INVALID_KEY = Fish.name()
 
     def setUp(self):
-        self.collection = All()
+        self.collection = MockCollection()
 
-    def test__get__valid_key__returns_correct_category(self):
-        self.assertIsInstance(self.collection.get(self.VALID_KEY)(), Fruit)
+    def test__get__valid_key__correct_category(self):
+        self.assertIsInstance(self.collection.get(self.VALID_KEYS[0])(), Adjective)
         
-    def test__invalid__with_valid_keys__returns_empty_list(self):
-        keys_to_validate = [self.VALID_KEY, self.SECOND_VALID_KEY]
-        self.assertEqual(self.collection.invalid(keys_to_validate), [])
+    def test__invalid__valid_keys__empty_list(self):
+        self.assertEqual(self.collection.invalid(self.VALID_KEYS), [])
 
-    def test__invalid__with_an_invalid_key__returns_invalid_key(self):
-        keys_to_validate = [self.VALID_KEY, self.INVALID_KEY]
+    def test__invalid__an_invalid_key__invalid_key(self):
+        keys_to_validate = [self.VALID_KEYS[0], self.INVALID_KEY]
         result = self.collection.invalid(keys_to_validate)
         self.assertEqual(result, [self.INVALID_KEY])
     
-    def test__random__mock_random_choice__returns_correct_category(self):
+    def test__random__mock_random_choice__correct_category(self):
         random.seed(0)
-        self.assertIsInstance(self.collection.random()(), Fish)
+        self.assertIsInstance(self.collection.random()(), Bird)
 
-    def test__name__all_collection__returns_name_all(self):
-        self.assertEqual(self.collection.name(), self.ALL_COLLECTION_NAME)
+    def test__name__correct_name(self):
+        self.assertEqual(self.collection.name(), self.COLLECTION_NAME)
 
+    def test__info__correct_values(self):
+        self.assertEqual(self.collection.info(), self.VALID_KEYS)
+
+class MockCollection(Collection):
+    _name = TestCollection.COLLECTION_NAME
+    _categories = TestCollection.COLLECTION_VALUES
 
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
