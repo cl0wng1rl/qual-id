@@ -4,7 +4,7 @@ from test.meta.category_metadata_validator import CategoryMetadataValidator
 
 
 class TestCategoryMetadataValidator(unittest.TestCase):
-    def test__validate__with_valid_category__returns_empty_string(self):
+    def test__validate__with_valid_category__empty_string(self):
         error_message = CategoryMetadataValidator.validate(MockValidCategory)
         self.assertEqual(error_message, "")
 

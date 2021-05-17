@@ -28,18 +28,18 @@ class CategoryMetadataValidator:
 
     @staticmethod
     def __get_returns_list_error_message(category):
-        returns_list = CategoryMetadataValidator.__values_is_a_non_empty_list(category)
+        returns_list = CategoryMetadataValidator.__info_is_a_non_empty_list(category)
         return "" if returns_list else "should return non-empty list"
 
     @staticmethod
-    def __values_is_a_non_empty_list(category):
-        is_list = isinstance(category._values, list)
-        is_empty = len(category._values) == 0
+    def __info_is_a_non_empty_list(category):
+        is_list = isinstance(category.info(), list)
+        is_empty = len(category.info()) == 0
         return is_list and not is_empty
 
     @staticmethod
     def __get_contains_repeats_message(category):
-        repeats = list(category._values)
+        repeats = list(category.info())
         uniques = set(repeats)
         [repeats.remove(unique) for unique in uniques]
         return CategoryMetadataValidator.__get_message("contains repeats: ", repeats)
@@ -48,7 +48,7 @@ class CategoryMetadataValidator:
     def __get_contains_invalid_string_message(category):
         invalids = [
             value
-            for value in category._values
+            for value in category.info()
             if CategoryMetadataValidator.__string_contains_disallowed_character(value)
         ]
         return CategoryMetadataValidator.__get_message(
@@ -58,14 +58,14 @@ class CategoryMetadataValidator:
     @staticmethod
     def __get_alphabetical_message(category):
         message = "should be in alphabetical order"
-        values = category._values
+        values = category.info()
         return "" if sorted(values) == values else message
 
     @staticmethod
     def __get_contains_uppercase_string_message(category):
         invalids = [
             value
-            for value in category._values
+            for value in category.info()
             if CategoryMetadataValidator.__string_contains_uppercase_character(value)
         ]
         return CategoryMetadataValidator.__get_message(
