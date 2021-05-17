@@ -12,3 +12,7 @@ class Category:
     @classmethod
     def name(cls):
         return cls._name
+
+    @classmethod
+    def info(cls):
+        return cls._values
