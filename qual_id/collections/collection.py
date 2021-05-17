@@ -23,6 +23,10 @@ class Collection:
         return cls._name
 
     @classmethod
+    def info(cls):
+        return list(map(lambda c: c.name(), cls._categories))
+
+    @classmethod
     def _get_category_map(cls):
         if not cls._category_map:
             cls._category_map = dict((c.name(), c) for c in cls._categories)
