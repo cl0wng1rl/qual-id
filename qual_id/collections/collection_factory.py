@@ -14,3 +14,7 @@ class CollectionFactory:
     @staticmethod
     def has(name):
         return name in CollectionFactory._collection_map
+
+    @staticmethod
+    def info():
+        return map(lambda c: c.name(), CollectionFactory._collections)
