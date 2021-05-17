@@ -34,6 +34,7 @@ class All(Collection):
         Fruit,
         Gem,
         Geography,
+        Greek,
         Instrument,
         Language,
         Music,
