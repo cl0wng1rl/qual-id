@@ -3,19 +3,19 @@ from qual_id.cli.main.parser import Parser
 from qual_id.cli.main.validator import Validator
 
 
-class CLI:
+class App:
     @staticmethod
     def run(args):
-        CLI._validate_arguments(args)
-        return CLI._get_response(args)
+        App._validate_arguments(args)
+        return App._get_response(args)
     
     @staticmethod
     def _validate_arguments(args):
         validator = Validator(args)
         if validator.is_help():
-            CLI._print_help()
+            App._print_help()
         if not validator.is_valid():
-            CLI._print_error(validator)
+            App._print_error(validator)
 
     @staticmethod
     def _get_response(args):

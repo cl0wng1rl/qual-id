@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-from qual_id.cli.main import CLI
+from qual_id.cli.main.app import App
 
-print(CLI.run(sys.argv))
+print(App.run(sys.argv))
