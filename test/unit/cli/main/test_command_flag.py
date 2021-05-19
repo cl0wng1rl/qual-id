@@ -1,5 +1,5 @@
 import unittest
-from qual_id.cli.command_flag import CommandFlag
+from qual_id.cli.main.command_flag import CommandFlag
 
 
 class TestCommandFlag(unittest.TestCase):

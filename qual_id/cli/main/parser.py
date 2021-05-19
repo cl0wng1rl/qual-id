@@ -1,4 +1,4 @@
-from qual_id.cli.flag import Flag
+from qual_id.cli.main.flag import Flag
 
 class Parser:
     def __init__(self, arguments):

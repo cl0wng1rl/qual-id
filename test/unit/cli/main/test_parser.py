@@ -1,5 +1,5 @@
 import unittest
-from qual_id.cli.parser import Parser
+from qual_id.cli.main.parser import Parser
 
 
 class TestParser(unittest.TestCase):

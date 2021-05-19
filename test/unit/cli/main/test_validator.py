@@ -1,5 +1,5 @@
 import unittest
-from qual_id.cli.validator import Validator
+from qual_id.cli.main.validator import Validator
 
 
 class TestValidator(unittest.TestCase):

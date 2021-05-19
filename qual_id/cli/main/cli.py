@@ -1,6 +1,6 @@
 from qual_id.response import Response
-from qual_id.cli.parser import Parser
-from qual_id.cli.validator import Validator
+from qual_id.cli.main.parser import Parser
+from qual_id.cli.main.validator import Validator
 
 
 class CLI:
