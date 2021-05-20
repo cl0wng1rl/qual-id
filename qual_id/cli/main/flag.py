@@ -6,4 +6,3 @@ class Flag(enum.Enum):
   PATTERN = CommandFlag("pattern", "p")
   FORMAT = CommandFlag("format", "f")
   NUMBER = CommandFlag("number", "n")
-  HELP = CommandFlag("help", "h")

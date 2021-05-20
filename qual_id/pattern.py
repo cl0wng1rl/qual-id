@@ -1,5 +1,5 @@
 class Pattern:
-    __random_key = "random"
+    _RANDOM_KEY = "random"
 
     def __init__(self, category_names, group):
         self._group = group
@@ -16,6 +16,6 @@ class Pattern:
         return [self._replace_random(x) for x in categories]
 
     def _replace_random(self, category):
-        if category == Pattern.__random_key:
-            return self._group.random()
+        if category == Pattern._RANDOM_KEY:
+            return self._group.random().name()
         return category

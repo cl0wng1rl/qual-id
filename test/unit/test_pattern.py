@@ -14,27 +14,23 @@ class TestPattern(unittest.TestCase):
         category_names = TestPattern.CATEGORY_KEYS
         mock_group = self.get_mock_group()
         pattern = Pattern(category_names, mock_group)
-        
+
         result = pattern.random()
 
         self.assertEqual("-".join([self.CATEGORY_VALUES[0]] * 2), result)
 
-    def test__initialisation__pattern__correctly_calls_get_on_group(self):
+    def test__init__pattern__correctly_calls_get_on_group(self):
         category_names = TestPattern.CATEGORY_KEYS
         mock_group = self.get_mock_group()
-        
+
         pattern = Pattern(category_names, mock_group)
 
         expected_calls = [call(self.CATEGORY_KEYS[0]), call(self.CATEGORY_KEYS[1])]
         self.assertEqual(expected_calls, mock_group.get.call_args_list)
 
-    def test__initialisation__pattern_with_randoms__correctly_calls_get_on_group(
-        self,
-    ):
+    def test__init__pattern_with_randoms__correctly_calls_get_on_group(self):
         category_names = [self.RANDOM_KEY] * 2
         mock_group = self.get_mock_group()
-        mock_group.random.return_value = self.CATEGORY_KEYS[0]
-        
         pattern = Pattern(category_names, mock_group)
 
         expected_calls = [call(self.CATEGORY_KEYS[0]), call(self.CATEGORY_KEYS[0])]
@@ -49,6 +45,7 @@ class TestPattern(unittest.TestCase):
 
     def mock_category(self):
         mock = Mock()
+        mock.name.return_value = self.CATEGORY_KEYS[0]
         mock.random.return_value = self.CATEGORY_VALUES[0]
         return mock
 

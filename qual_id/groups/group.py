@@ -2,6 +2,8 @@ from random import choice
 
 
 class Group:
+    _RANDOM_CATEGORY_NAME = "random"
+
     _name = ""
     _categories = []
     _category_map = {}
@@ -12,7 +14,12 @@ class Group:
 
     @classmethod
     def invalid(cls, category_names):
-        return [name for name in category_names if name not in cls._get_category_map()]
+        return [name for name in category_names if cls._is_invalid(name)]
+
+    @classmethod
+    def _is_invalid(cls, name):
+        is_not_random = name != Group._RANDOM_CATEGORY_NAME
+        return (name not in cls._get_category_map()) and (is_not_random)
 
     @classmethod
     def random(cls):
