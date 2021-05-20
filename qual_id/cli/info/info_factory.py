@@ -4,19 +4,19 @@ from qual_id.groups.all import All
 
 class InfoFactory:
     @staticmethod
-    def get(parameter, value = None):
-        if parameter == Flag.GROUP:
+    def get(flag, value = None):
+        if flag == Flag.GROUP:
             return InfoFactory._group_get(value)
-        if parameter == Flag.CATEGORY:
+        if flag == Flag.CATEGORY:
             return InfoFactory._category_get(value)
-        if parameter == Flag.FORMAT:
+        if flag == Flag.FORMAT:
             return ["json", "csv"]
 
     @staticmethod
-    def has(parameter, value):
-        if parameter == Flag.GROUP:
+    def has(flag, value):
+        if flag == Flag.GROUP:
             return InfoFactory._group_has(value) 
-        if parameter == Flag.CATEGORY:
+        if flag == Flag.CATEGORY:
             return InfoFactory._category_has(value) 
 
     @staticmethod

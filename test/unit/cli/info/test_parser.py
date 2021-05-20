@@ -9,7 +9,7 @@ class TestParser(unittest.TestCase):
     COMMAND_NAME = "qid"
     INFO_FLAG = "--info"
     PARAMETER = Flag.CATEGORY
-    PARAMETER_NAME = "category"
+    PARAMETER_LONG = "--category"
     VALUE = "category-value"
     INFO = ["value1", "value2", "value3"]
 
@@ -43,10 +43,10 @@ class TestParser(unittest.TestCase):
         mock.get.return_value = self.INFO
 
     def get_valid_args__category(self):
-        return [self.COMMAND_NAME, self.INFO_FLAG, self.PARAMETER_NAME]
+        return [self.COMMAND_NAME, self.INFO_FLAG, self.PARAMETER_LONG]
 
     def get_valid_args__category_and_value(self):
-        return [self.COMMAND_NAME, self.INFO_FLAG, self.PARAMETER_NAME, self.VALUE]
+        return [self.COMMAND_NAME, self.INFO_FLAG, self.PARAMETER_LONG, self.VALUE]
 
 
 if __name__ == "__main__":  # pragma: no cover

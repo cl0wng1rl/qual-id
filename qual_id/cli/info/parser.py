@@ -5,7 +5,7 @@ from qual_id.cli.info.info_factory import InfoFactory
 class Parser:
     def parse(self, arguments):
         arguments = arguments[2:]
-        parameter = Flag.from_string(arguments[0])
+        flag = Flag.from_string(arguments[0])
         value = arguments[1] if len(arguments) > 1 else None
-        info = InfoFactory.get(parameter, value)
-        return InfoConfig(parameter, value, info)
+        info = InfoFactory.get(flag, value)
+        return InfoConfig(flag, value, info)

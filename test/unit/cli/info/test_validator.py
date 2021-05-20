@@ -7,11 +7,12 @@ from unittest.mock import patch
 class TestValidator(unittest.TestCase):
     COMMAND_NAME = "qid"
     INFO_FLAG = "--info"
-    CATEGORY = "category"
+    CATEGORY = "--category"
+    CATEGORY_NAME = "category"
     CATEGORY_VALUE = "category-value"
-    GROUP = "group"
+    GROUP = "--group"
     GROUP_VALUE = "group-value"
-    FORMAT = "format"
+    FORMAT = "--format"
     INVALID = "invalid"
     INVALID_VALUE = "invalid-value"
 
@@ -82,7 +83,7 @@ class TestValidator(unittest.TestCase):
         self.set_mock_info_factory(mock_info_factory, False)
         validator = Validator(self.get_invalid_args__invalid_value())
         expected_message = "invalid {0} value: {1}".format(
-            self.CATEGORY, self.INVALID_VALUE
+            self.CATEGORY_NAME, self.INVALID_VALUE
         )
         self.assertEqual(expected_message, validator.error_message())
 
