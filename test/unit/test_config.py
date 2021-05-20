@@ -5,7 +5,7 @@ from qual_id.config import Config
 class TestConfig(unittest.TestCase):
     ARGS = {
         "pattern": "TEST-PATTERN",
-        "collection": "TEST COLLECTION",
+        "group": "TEST GROUP",
         "number": 1,
         "format": "TEST FORMAT",
     }
@@ -15,10 +15,10 @@ class TestConfig(unittest.TestCase):
         expected_pattern = self.ARGS.get("pattern").split("-")
         self.assertEqual(config.get_categories(), expected_pattern)
 
-    def test__get_collection__returns_correct_collection(self):
+    def test__get_group__returns_correct_group(self):
         config = Config(self.ARGS)
-        expected_collection = self.ARGS.get("collection")
-        self.assertEqual(config.get_collection(), expected_collection)
+        expected_group = self.ARGS.get("group")
+        self.assertEqual(config.get_group(), expected_group)
 
     def test__get_number__returns_correct_number(self):
         config = Config(self.ARGS)

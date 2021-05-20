@@ -9,8 +9,8 @@ class TestValidator(unittest.TestCase):
     INFO_FLAG = "--info"
     CATEGORY = "category"
     CATEGORY_VALUE = "category-value"
-    COLLECTION = "collection"
-    COLLECTION_VALUE = "collection-value"
+    GROUP = "group"
+    GROUP_VALUE = "group-value"
     FORMAT = "format"
     INVALID = "invalid"
     INVALID_VALUE = "invalid-value"
@@ -28,15 +28,15 @@ class TestValidator(unittest.TestCase):
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
-    def test__is_valid__collection__true(self, mock_info_factory):
+    def test__is_valid__group__true(self, mock_info_factory):
         self.set_mock_info_factory(mock_info_factory)
-        validator = Validator(self.get_valid_args__collection())
+        validator = Validator(self.get_valid_args__group())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
-    def test__is_valid__collection_and_value__true(self, mock_info_factory):
+    def test__is_valid__group_and_value__true(self, mock_info_factory):
         self.set_mock_info_factory(mock_info_factory)
-        validator = Validator(self.get_valid_args__collection_and_value())
+        validator = Validator(self.get_valid_args__group_and_value())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
@@ -95,15 +95,15 @@ class TestValidator(unittest.TestCase):
     def get_valid_args__category_and_value(self):
         return [self.COMMAND_NAME, self.INFO_FLAG, self.CATEGORY, self.CATEGORY_VALUE]
 
-    def get_valid_args__collection(self):
-        return [self.COMMAND_NAME, self.INFO_FLAG, self.COLLECTION]
+    def get_valid_args__group(self):
+        return [self.COMMAND_NAME, self.INFO_FLAG, self.GROUP]
 
-    def get_valid_args__collection_and_value(self):
+    def get_valid_args__group_and_value(self):
         return [
             self.COMMAND_NAME,
             self.INFO_FLAG,
-            self.COLLECTION,
-            self.COLLECTION_VALUE,
+            self.GROUP,
+            self.GROUP_VALUE,
         ]
 
     def get_valid_args__format(self):

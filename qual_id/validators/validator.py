@@ -1,4 +1,4 @@
-from .collection_validator import CollectionValidator
+from .group_validator import GroupValidator
 from .format_validator import FormatValidator
 from .number_validator import NumberValidator
 from .pattern_validator import PatternValidator
@@ -30,8 +30,8 @@ class Validator:
     @staticmethod
     def _get_validators(config):
         return [
-            CollectionValidator(config.get_collection()),
-            PatternValidator(config.get_collection(), config.get_categories()),
+            GroupValidator(config.get_group()),
+            PatternValidator(config.get_group(), config.get_categories()),
             FormatValidator(config.get_format()),
             NumberValidator(config.get_number()),
         ]

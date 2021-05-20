@@ -10,12 +10,12 @@ class TestParser(unittest.TestCase):
     FORMAT = "format"
     NUMBER_FLAG = "--number"
     NUMBER = "3"
-    COLLECTION_FLAG = "--collection"
-    COLLECTION = "collection"
+    GROUP_FLAG = "--group"
+    GROUP = "group"
 
     EXPECTED_CONFIG = {
         "pattern": PATTERN,
-        "collection": COLLECTION,
+        "group": GROUP,
         "format": FORMAT,
         "number": NUMBER,
     }
@@ -33,8 +33,8 @@ class TestParser(unittest.TestCase):
             self.FORMAT,
             self.NUMBER_FLAG,
             self.NUMBER,
-            self.COLLECTION_FLAG,
-            self.COLLECTION,
+            self.GROUP_FLAG,
+            self.GROUP,
         ]
 
 

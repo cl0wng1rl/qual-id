@@ -10,7 +10,7 @@ class Helper(IHelper):
         "options:",
         "-h, --help                show brief help",
         "-p, --pattern             specify the pattern of the qual IDs",
-        "-c, --collection          specify which collection to use",
+        "-g, --group               specify which group to use",
         "-n, --number              specify how many qual IDs to receive",
         "-f, --format              specify the format of the qual IDs",
         " ",

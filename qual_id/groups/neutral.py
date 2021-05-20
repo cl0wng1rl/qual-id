@@ -1,7 +1,7 @@
 from ..categories import *
-from .collection import Collection
+from .group import Group
 
-class Neutral(Collection):
+class Neutral(Group):
     _name = "neutral"
     _categories = [
         Adjective,

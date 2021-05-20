@@ -1,7 +1,7 @@
 from ..categories import *
-from .collection import Collection
+from .group import Group
 
-class Minimal(Collection):
+class Minimal(Group):
     _name = "minimal"
     _categories = [
         Adjective,

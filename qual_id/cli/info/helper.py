@@ -9,11 +9,11 @@ class Helper(IHelper):
       " ",
       "[parameter]:",
       "  category                         show all category names",
-      "  collection                       show all collection names",
+      "  group                            show all group names",
       "  format                           show all available formats",
       " ",
       "[parameter] [value]:",
       "  category [category-name]         show all values for a given category",
-      "  collection [collection-name]     show all categories in a given collection",
+      "  group [group-name]     show all categories in a given group",
       " ",
     ]

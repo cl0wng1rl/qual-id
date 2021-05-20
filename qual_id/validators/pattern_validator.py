@@ -1,10 +1,10 @@
 from qual_id.pattern import Pattern
-from qual_id.collections import CollectionFactory
+from qual_id.groups import GroupFactory
 
 
 class PatternValidator:
-    def __init__(self, valid_collection, categories):
-        self._collection = valid_collection
+    def __init__(self, valid_group, categories):
+        self._group = valid_group
         self._categories = categories
         self._is_valid = None
         self._error_message = None
@@ -19,11 +19,11 @@ class PatternValidator:
         return self._error_message
 
     def _validate_pattern(self):
-        collection = CollectionFactory.get(self._collection)
+        group = GroupFactory.get(self._group)
         if not (0 < len(self._categories) < 6):
             self._error_message = "number of categories should be between 1 and 5"
             return False
-        invalid = collection.invalid(self._categories)
+        invalid = group.invalid(self._categories)
         if invalid:
             self._error_message = "invalid categories: %s" % (invalid)
             return False

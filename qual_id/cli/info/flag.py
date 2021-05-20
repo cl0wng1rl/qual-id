@@ -2,7 +2,7 @@ import enum
 from qual_id.cli.info.info_flag import InfoFlag
 
 class Flag(enum.Enum):
-  COLLECTION = InfoFlag("collection")
+  GROUP = InfoFlag("group")
   CATEGORY = InfoFlag("category")
   FORMAT = InfoFlag("format", True)
 

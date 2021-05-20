@@ -1,6 +1,6 @@
 import unittest
 from qual_id.pattern import Pattern
-from qual_id.collections import CollectionFactory
+from qual_id.groups import GroupFactory
 from qual_id.validators import Validator
 from qual_id.response import Response
 from unittest.mock import Mock, call, patch
@@ -14,19 +14,19 @@ class TestResponse(unittest.TestCase):
     def setUp(self):
         self.args = {
             "pattern": "pattern",
-            "collection": "all",
+            "group": "all",
             "number": 2,
             "format": "json",
         }
 
-    @patch.object(CollectionFactory, "get")
+    @patch.object(GroupFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args__returns_correct_object(
         self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
-        mock_get.return_value = self.get_mock_collection()
+        mock_get.return_value = self.get_mock_group()
         mock_validator_is_valid.return_value = True
         mock_validator_error_message.return_value = None
         mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
@@ -35,14 +35,14 @@ class TestResponse(unittest.TestCase):
         expected = {"data": self.dual_double_qual_id_array()}
         self.assertEqual(expected, response.get_response_obj())
 
-    @patch.object(CollectionFactory, "get")
+    @patch.object(GroupFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args_with_csv_format__returns_correct_object(
         self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
-        mock_get.return_value = self.get_mock_collection()
+        mock_get.return_value = self.get_mock_group()
         mock_validator_is_valid.return_value = True
         mock_validator_error_message.return_value = None
         mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
@@ -53,14 +53,14 @@ class TestResponse(unittest.TestCase):
         expected = self.dual_double_qual_id_string()
         self.assertEqual(expected, response.get_response_obj())
 
-    @patch.object(CollectionFactory, "get")
+    @patch.object(GroupFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args__returns_correct_object(
         self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
-        mock_get.return_value = self.get_mock_collection()
+        mock_get.return_value = self.get_mock_group()
         mock_validator_is_valid.return_value = False
         mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
         mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
@@ -70,14 +70,14 @@ class TestResponse(unittest.TestCase):
         expected = {"error": TestResponse.ERROR_MESSAGE}
         self.assertEqual(expected, response.get_response_obj())
 
-    @patch.object(CollectionFactory, "get")
+    @patch.object(GroupFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args_with_csv_format__returns_correct_object(
         self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
     ):
-        mock_get.return_value = self.get_mock_collection()
+        mock_get.return_value = self.get_mock_group()
         mock_validator_is_valid.return_value = False
         mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
         mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
@@ -87,13 +87,13 @@ class TestResponse(unittest.TestCase):
 
         self.assertEqual(TestResponse.ERROR_MESSAGE, response.get_response_obj())
 
-    @patch.object(CollectionFactory, "get")
+    @patch.object(GroupFactory, "get")
     @patch.object(Validator, "is_valid")
     @patch.object(Pattern, "random")
     def test__get_qual_ids__valid_args__returns_correct_object(
         self, mock_pattern_random, mock_validator_is_valid, mock_get
     ):
-        mock_get.return_value = self.get_mock_collection()
+        mock_get.return_value = self.get_mock_group()
         mock_validator_is_valid.return_value = True
         mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
 
@@ -101,7 +101,7 @@ class TestResponse(unittest.TestCase):
 
         self.assertEqual(self.dual_double_qual_id_array(), response.get_qual_ids())
 
-    def get_mock_collection(self):
+    def get_mock_group(self):
         mock = Mock()
         mock.get.return_value = self.mock_category()
         mock.invalid.return_value = []

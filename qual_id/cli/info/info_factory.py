@@ -1,12 +1,12 @@
 from qual_id.cli.info.flag import Flag
-from qual_id.collections import CollectionFactory
-from qual_id.collections.all import All
+from qual_id.groups import GroupFactory
+from qual_id.groups.all import All
 
 class InfoFactory:
     @staticmethod
     def get(parameter, value = None):
-        if parameter == Flag.COLLECTION:
-            return InfoFactory._collection_get(value)
+        if parameter == Flag.GROUP:
+            return InfoFactory._group_get(value)
         if parameter == Flag.CATEGORY:
             return InfoFactory._category_get(value)
         if parameter == Flag.FORMAT:
@@ -14,16 +14,16 @@ class InfoFactory:
 
     @staticmethod
     def has(parameter, value):
-        if parameter == Flag.COLLECTION:
-            return InfoFactory._collection_has(value) 
+        if parameter == Flag.GROUP:
+            return InfoFactory._group_has(value) 
         if parameter == Flag.CATEGORY:
             return InfoFactory._category_has(value) 
 
     @staticmethod
-    def _collection_get(name):
+    def _group_get(name):
       if name:
-        return CollectionFactory.get(name).info()
-      return CollectionFactory.info()
+        return GroupFactory.get(name).info()
+      return GroupFactory.info()
     
     @staticmethod
     def _category_get(name):
@@ -32,8 +32,8 @@ class InfoFactory:
       return All.info()
 
     @staticmethod
-    def _collection_has(name):
-        return CollectionFactory.has(name)
+    def _group_has(name):
+        return GroupFactory.has(name)
 
     @staticmethod
     def _category_has(name):

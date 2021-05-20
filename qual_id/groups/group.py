@@ -1,7 +1,7 @@
 from random import choice
 
 
-class Collection:
+class Group:
     _name = ""
     _categories = []
     _category_map = {}

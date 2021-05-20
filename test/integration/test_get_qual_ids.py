@@ -8,7 +8,7 @@ class TestGetQualIDsIntegration(unittest.TestCase):
         random.seed(1)
         self.args = {
             "pattern": "fruit-geography",
-            "collection": "all",
+            "group": "all",
             "number": 3,
             "format": "json",
         }

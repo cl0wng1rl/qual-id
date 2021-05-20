@@ -1,6 +1,6 @@
 from qual_id.config import Config
 from qual_id.validators import Validator
-from qual_id.collections import CollectionFactory
+from qual_id.groups import GroupFactory
 from qual_id.pattern import Pattern
 
 
@@ -20,8 +20,8 @@ class Response:
         return self.__format_response(response_obj)
 
     def get_qual_ids(self):
-        collection = CollectionFactory.get(self._config.get_collection())
-        pattern = Pattern(self._config.get_categories(), collection)
+        group = GroupFactory.get(self._config.get_group())
+        pattern = Pattern(self._config.get_categories(), group)
         return [pattern.random() for _ in range(self._config.get_number())]
 
     def __format_response(self, response_obj):

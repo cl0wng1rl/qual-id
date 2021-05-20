@@ -1,7 +1,7 @@
 from ..categories import *
-from .collection import Collection
+from .group import Group
 
-class All(Collection):
+class All(Group):
     _name = "all"
     _categories = [
         Adjective,

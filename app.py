@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, make_response
 from qual_id.response import Response
-from qual_id.collections import CollectionFactory
+from qual_id.groups import GroupFactory
 import random
 
 app = Flask(__name__)
@@ -13,10 +13,10 @@ def get_response():
 
 @app.route("/categories/", methods=["GET"])
 def categories_response():
-    collection_string = request.args.get("collection", "all")
-    if not CollectionFactory.has(collection_string):
-        return jsonify({"error": "invalid collection: %s" % (collection_string)})
-    return jsonify({"data": CollectionFactory.get(collection_string).categories()})
+    group_string = request.args.get("group", "all")
+    if not GroupFactory.has(group_string):
+        return jsonify({"error": "invalid group: %s" % (group_string)})
+    return jsonify({"data": GroupFactory.get(group_string).categories()})
 
 
 @app.route("/badge-endpoint/", methods=["GET"])

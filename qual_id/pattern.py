@@ -1,8 +1,8 @@
 class Pattern:
     __random_key = "random"
 
-    def __init__(self, category_names, collection):
-        self._collection = collection
+    def __init__(self, category_names, group):
+        self._group = group
         self._categories = self._get_categories(category_names)
 
     def random(self):
@@ -10,12 +10,12 @@ class Pattern:
 
     def _get_categories(self, category_names):
         categories = self._replace_randoms(category_names)
-        return [self._collection.get(category) for category in categories]
+        return [self._group.get(category) for category in categories]
 
     def _replace_randoms(self, categories):
         return [self._replace_random(x) for x in categories]
 
     def _replace_random(self, category):
         if category == Pattern.__random_key:
-            return self._collection.random()
+            return self._group.random()
         return category
