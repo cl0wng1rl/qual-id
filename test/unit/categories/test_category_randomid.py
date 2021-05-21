@@ -4,10 +4,13 @@ import random
 
 
 class TestRandomId(unittest.TestCase):
+    """Unit Tests for RandomId"""
+
     def setUp(self):
         random.seed(1)
 
     def test__random__is_random_id(self):
+        """RandomId -> random"""
         randomId = RandomId()
         result = randomId.random()
         expected_id = "ieqh524yng"
