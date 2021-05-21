@@ -6,6 +6,8 @@ from unittest.mock import Mock, patch
 
 
 class TestParser(unittest.TestCase):
+    """Unit Tests for info.Parser"""
+
     COMMAND_NAME = "qid"
     INFO_FLAG = "--info"
     PARAMETER = Flag.CATEGORY
@@ -18,6 +20,7 @@ class TestParser(unittest.TestCase):
     def test__parse__category__correct_config(
         self, mock_info_config, mock_info_factory
     ):
+        """info.Parser -> parse - category"""
         mock_config = Mock()
         mock_info_config.return_value = mock_config
         self.set_mock_info_factory(mock_info_factory)
@@ -31,6 +34,7 @@ class TestParser(unittest.TestCase):
     def test__parse__category_and_value__correct_config(
         self, mock_info_config, mock_info_factory
     ):
+        """info.Parser -> parse - category and value"""
         mock_config = Mock()
         mock_info_config.return_value = mock_config
         self.set_mock_info_factory(mock_info_factory)

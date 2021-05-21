@@ -5,6 +5,8 @@ from unittest.mock import patch
 
 
 class TestValidator(unittest.TestCase):
+    """Unit Tests for info.Validator"""
+
     COMMAND_NAME = "qid"
     INFO_FLAG = "--info"
     CATEGORY = "--category"
@@ -18,54 +20,63 @@ class TestValidator(unittest.TestCase):
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__category__true(self, mock_info_factory):
+        """info.Validator -> is_valid - category_ tru"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_valid_args__category())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__category_and_value__true(self, mock_info_factory):
+        """info.Validator -> is_valid - category and value"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_valid_args__category_and_value())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__group__true(self, mock_info_factory):
+        """info.Validator -> is_valid - lf, """
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_valid_args__group())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__group_and_value__true(self, mock_info_factory):
+        """info.Validator -> is_valid - group and value"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_valid_args__group_and_value())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__format__true(self, mock_info_factory):
+        """info.Validator -> is_valid - format"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_valid_args__format())
         self.assertTrue(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__format_and_value__false(self, mock_info_factory):
+        """info.Validator -> is_valid - format and value"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_invalid_args__format_and_value())
         self.assertFalse(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__invalid_parameter__false(self, mock_info_factory):
+        """info.Validator -> is_valid - invalid parameter"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_invalid_args__invalid_parameter())
         self.assertFalse(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__is_valid__invalid_value__false(self, mock_info_factory):
+        """info.Validator -> is_valid - invalid value"""
         self.set_mock_info_factory(mock_info_factory, False)
         validator = Validator(self.get_invalid_args__invalid_value())
         self.assertFalse(validator.is_valid())
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__error_message__format_and_value__false(self, mock_info_factory):
+        """info.Validator -> error_message - format and value"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_invalid_args__format_and_value())
         expected_message = "invalid value: {0}".format(self.INVALID_VALUE)
@@ -73,6 +84,7 @@ class TestValidator(unittest.TestCase):
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__error_message__invalid_parameter__false(self, mock_info_factory):
+        """info.Validator -> error_message - invalid parameter"""
         self.set_mock_info_factory(mock_info_factory)
         validator = Validator(self.get_invalid_args__invalid_parameter())
         expected_message = "invalid info value: {0}".format(self.INVALID)
@@ -80,6 +92,7 @@ class TestValidator(unittest.TestCase):
 
     @patch("qual_id.cli.info.validator.InfoFactory")
     def test__error_message__invalid_value__false(self, mock_info_factory):
+        """info.Validator -> error_message - invalid value"""
         self.set_mock_info_factory(mock_info_factory, False)
         validator = Validator(self.get_invalid_args__invalid_value())
         expected_message = "invalid {0} value: {1}".format(

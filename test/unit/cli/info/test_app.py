@@ -6,6 +6,8 @@ from unittest.mock import Mock, patch
 
 
 class TestApp(unittest.TestCase):
+    """Unit Tests for info.App"""
+
     COMMAND_NAME = "qid"
     INFO_FLAG = "--info"
     PARAMETER = "parameter"
@@ -20,6 +22,7 @@ class TestApp(unittest.TestCase):
     def test__run__valid_arguments__info(
         self, mock_info_parser, mock_info_validator, mock_info_helper
     ):
+        """info.App -> run - valid arguments"""
         self.set_mock_info_parser(mock_info_parser.return_value)
         self.set_mock_info_validator(mock_info_validator.return_value, True)
         self.set_mock_info_helper(mock_info_helper.return_value, False)
@@ -32,6 +35,7 @@ class TestApp(unittest.TestCase):
     def test__run__invalid_arguments__error(
         self, mock_info_parser, mock_info_validator, mock_info_helper
     ):
+        """info.App -> run - invalid arguments"""
         self.set_mock_info_parser(mock_info_parser.return_value)
         self.set_mock_info_validator(mock_info_validator.return_value, False)
         self.set_mock_info_helper(mock_info_helper.return_value, False)
@@ -44,6 +48,7 @@ class TestApp(unittest.TestCase):
     def test__run__help_arguments__help(
         self, mock_info_parser, mock_info_validator, mock_info_helper
     ):
+        """info.App -> run - help arguments"""
         self.set_mock_info_parser(mock_info_parser.return_value)
         self.set_mock_info_validator(mock_info_validator.return_value, True)
         self.set_mock_info_helper(mock_info_helper.return_value, True)
