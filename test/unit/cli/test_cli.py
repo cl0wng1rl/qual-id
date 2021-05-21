@@ -4,6 +4,8 @@ from unittest.mock import Mock, patch
 
 
 class TestCLI(unittest.TestCase):
+    """Unit Tests for CLI"""
+
     COMMAND_NAME = "qid"
     PARAMETER = "parameter"
     INFO_FLAG = "--info"
@@ -15,6 +17,7 @@ class TestCLI(unittest.TestCase):
     @patch("qual_id.cli.cli.InfoApp")
     @patch("qual_id.cli.cli.App")
     def test__run__main_arguments__main_message(self, mock_main_app, mock_info_app):
+        """CLI -> run - main arguments"""
         mock_main_app.run.return_value = self.MAIN_RESPONSE
         mock_info_app.run.return_value = self.INFO_RESPONSE
         self.assertEqual(self.MAIN_RESPONSE, CLI.run(self.get_args__main()))
@@ -22,6 +25,7 @@ class TestCLI(unittest.TestCase):
     @patch("qual_id.cli.cli.InfoApp")
     @patch("qual_id.cli.cli.App")
     def test__run__info_arguments__info_message(self, mock_main_app, mock_info_app):
+        """CLI -> run - info arguments"""
         mock_main_app.run.return_value = self.MAIN_RESPONSE
         mock_info_app.run.return_value = self.INFO_RESPONSE
         self.assertEqual(self.INFO_RESPONSE, CLI.run(self.get_args__info()))
@@ -29,6 +33,7 @@ class TestCLI(unittest.TestCase):
     @patch("qual_id.cli.cli.InfoApp")
     @patch("qual_id.cli.cli.App")
     def test__run__info_short_args__info_message(self, mock_main_app, mock_info_app):
+        """CLI -> run - short info arguments"""
         mock_main_app.run.return_value = self.MAIN_RESPONSE
         mock_info_app.run.return_value = self.INFO_RESPONSE
         self.assertEqual(self.INFO_RESPONSE, CLI.run(self.get_args__info_short()))
