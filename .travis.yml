@@ -17,7 +17,7 @@ before_deploy:
   - mkdir $tag
   - cp -R qual_id/ $tag/qual_id/
   - cp cli.py $tag/
-  - mv $tag/cli.py $tag/qual-id
+  - mv $tag/cli.py $tag/qid
   - cp README.md LICENSE $tag/
   - tar czvf $tag.tar.gz $tag
 deploy:
