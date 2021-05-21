@@ -3,24 +3,30 @@ from qual_id.validators.format_validator import FormatValidator
 
 
 class TestFormatValidator(unittest.TestCase):
+    """Unit Tests for FormatValidator"""
+
     VALID_FORMATS = ["json", "csv"]
 
-    def test__validate__json_string__is_valid_returns_true(self):
+    def test__validate__json_string__true(self):
+        """FormatValidator -> validate - json string"""
         validator = FormatValidator("json")
         validator.validate()
         self.assertTrue(validator.is_valid())
 
-    def test__validate__csv_string__is_valid_returns_true(self):
+    def test__validate__csv_string__true(self):
+        """FormatValidator -> validate - csv string"""
         validator = FormatValidator("csv")
         validator.validate()
         self.assertTrue(validator.is_valid())
 
-    def test__validate__invalid_string__is_valid_returns_false(self):
+    def test__validate__invalid_string__false(self):
+        """FormatValidator -> validate - invalid string"""
         validator = FormatValidator("invalid string")
         validator.validate()
         self.assertFalse(validator.is_valid())
 
-    def test__validate__invalid_string__error_message_returns_correct_message(self):
+    def test__error_message__invalid_string__correct_message(self):
+        """FormatValidator -> error_message - invalid string"""
         validator = FormatValidator("6")
         validator.validate()
         expected_message = "'format' argument must be " + self.join_valid_formats()

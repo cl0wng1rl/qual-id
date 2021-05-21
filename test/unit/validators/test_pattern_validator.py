@@ -5,10 +5,13 @@ from unittest.mock import Mock, patch
 
 
 class TestPatternValidator(unittest.TestCase):
+    """Unit Tests for PatternValidator"""
+
     @patch.object(GroupFactory, "get")
-    def test__validate__valid_pattern__is_valid_returns_true(
+    def test__validate__valid_pattern__true(
         self, mock_group_factory_get
     ):
+        """PatternValidator -> validate - valid pattern"""
         mock_group_factory_get.return_value = self.get_mock_group()
         categories = ["c1", "c2"]
         validator = PatternValidator("ValidGroupName", categories)
@@ -16,9 +19,10 @@ class TestPatternValidator(unittest.TestCase):
         self.assertTrue(validator.is_valid())
 
     @patch.object(GroupFactory, "get")
-    def test__validate__pattern_with_too_many_categories__is_valid_returns_false(
+    def test__validate__pattern_with_too_many_categories__false(
         self, mock_group_factory_get
     ):
+        """PatternValidator -> validate - too many categories"""
         mock_group_factory_get.return_value = self.get_mock_group()
         categories = ["c1", "c2", "c3", "c4", "c5", "c6"]
         validator = PatternValidator("ValidGroupName", categories)
@@ -26,9 +30,10 @@ class TestPatternValidator(unittest.TestCase):
         self.assertFalse(validator.is_valid())
 
     @patch.object(GroupFactory, "get")
-    def test__validate__pattern_with_too_many_categories__error_message_returns_correct_message(
+    def test__error_message__pattern_with_too_many_categories__correct_message(
         self, mock_group_factory_get
     ):
+        """PatternValidator -> error_message - too many categories"""
         mock_group_factory_get.return_value = self.get_mock_group()
         categories = ["c1", "c2", "c3", "c4", "c5", "c6"]
         validator = PatternValidator("ValidGroupName", categories)
@@ -37,9 +42,10 @@ class TestPatternValidator(unittest.TestCase):
         self.assertEqual(expected_message, validator.error_message())
 
     @patch.object(GroupFactory, "get")
-    def test__validate__pattern_with_invalid_categories__is_valid_returns_false(
+    def test__validate__pattern_with_invalid_categories__false(
         self, mock_group_factory_get
     ):
+        """PatternValidator -> validate - invalid categories"""
         mock_group_factory_get.return_value = (
             self.get_mock_group_with_invalid_category()
         )
@@ -49,9 +55,10 @@ class TestPatternValidator(unittest.TestCase):
         self.assertFalse(validator.is_valid())
 
     @patch.object(GroupFactory, "get")
-    def test__validate__pattern_with_invalid_categories__error_message_returns_correct_message(
+    def test__error_message__pattern_with_invalid_categories__correct_message(
         self, mock_group_factory_get
     ):
+        """PatternValidator -> error_message - invalid categories"""
         mock_group_factory_get.return_value = (
             self.get_mock_group_with_invalid_category()
         )

@@ -10,6 +10,8 @@ from unittest.mock import Mock, patch
 
 
 class TestValidator(unittest.TestCase):
+    """Unit Tests for Validator"""
+
     @patch("qual_id.validators.validator.PatternValidator")
     @patch("qual_id.validators.validator.GroupValidator")
     @patch("qual_id.validators.validator.NumberValidator")
@@ -17,6 +19,7 @@ class TestValidator(unittest.TestCase):
     def test__is_valid__mock_validators_all_valid__true(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):  
+        """Validator -> is_valid - valid mock validators"""
         mock_format_validator.return_value.is_valid.return_value = True
         mock_number_validator.return_value.is_valid.return_value = True
         mock_group_validator.return_value.is_valid.return_value = True
@@ -33,6 +36,7 @@ class TestValidator(unittest.TestCase):
     def test__error_message__pattern_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):
+        """Validator -> error_message - invalid pattern validator"""
         mock_format_validator.return_value.is_valid.return_value = True
         mock_number_validator.return_value.is_valid.return_value = True
         mock_group_validator.return_value.is_valid.return_value = True
@@ -53,6 +57,7 @@ class TestValidator(unittest.TestCase):
     def test__error_message__group_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):
+        """Validator -> error_message - invalid group validator"""
         mock_format_validator.return_value.is_valid.return_value = True
         mock_number_validator.return_value.is_valid.return_value = True
         mock_group_validator.return_value.is_valid.return_value = False
@@ -73,6 +78,7 @@ class TestValidator(unittest.TestCase):
     def test__error_message__number_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):
+        """Validator -> error_message - invalid number validator"""
         mock_format_validator.return_value.is_valid.return_value = True
         mock_number_validator.return_value.is_valid.return_value = False
         mock_group_validator.return_value.is_valid.return_value = True
@@ -93,6 +99,7 @@ class TestValidator(unittest.TestCase):
     def test__error_message__format_validator_invalid__correct_error_message(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):
+        """Validator -> error_message - invalid format validator"""
         mock_format_validator.return_value.is_valid.return_value = False
         mock_number_validator.return_value.is_valid.return_value = True
         mock_group_validator.return_value.is_valid.return_value = True
@@ -114,6 +121,7 @@ class TestValidator(unittest.TestCase):
     def test__error_message__two_validators_invalid__second_validator_not_ran(
         self, mock_format_validator, mock_number_validator, mock_group_validator, mock_pattern_validator
     ):
+        """Validator -> error_message - two invalid validators"""
         mock_format_validator.return_value.is_valid.return_value = False
         mock_number_validator.return_value.is_valid.return_value = True
         mock_group_validator.return_value.is_valid.return_value = False
