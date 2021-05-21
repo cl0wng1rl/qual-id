@@ -4,22 +4,28 @@ import random
 
 
 class TestCLI_Integration(unittest.TestCase):
+    """Integration Tests for CLI module"""
     def setUp(self):
         random.seed(1)
 
     def test__run__long_flags_and_csv_format__expected_response(self):
+        """CLI App -> run - long flags and csv format"""
         self.assert_scenario(LongFlagsAndCSVFormatScenario())
 
     def test__run__short_flags_and_json_format__expected_response(self):
+        """CLI App -> run - short flags and json format"""
         self.assert_scenario(ShortFlagsAndJSONFormatScenario())
 
     def test__run__random_pattern__expected_response(self):
+        """CLI App -> run - random pattern"""
         self.assert_scenario(RandomPatternScenario())
 
     def test__run__info_group_without_value__expected_response(self):
+        """CLI App -> run - info; group without value"""
         self.assert_scenario(GroupWithoutValueScenario())
 
     def test__run__info_category_with_value__expected_response(self):
+        """CLI App -> run - info; category with value"""
         self.assert_scenario(CategoryWithValueScenario())
 
     def assert_scenario(self, scenario):
