@@ -61,7 +61,7 @@ class TestApp(unittest.TestCase):
     def set_mock_info_validator(self, mock, is_valid):
         mock.is_valid.return_value = is_valid
         mock.error_message.return_value = self.ERROR_MESSAGE
-    
+
     def set_mock_info_helper(self, mock, is_help):
         mock.is_help.return_value = is_help
         mock.help_message.return_value = self.HELP_MESSAGE

@@ -6,6 +6,7 @@ from unittest.mock import Mock, call, patch
 
 class TestPattern(unittest.TestCase):
     """Unit Tests for Pattern"""
+
     CATEGORY_KEYS = ["first_category", "second_category"]
     CATEGORY_VALUES = ["first_category_value", "second_category_value"]
     PATTERN = "-".join(CATEGORY_KEYS[:2])

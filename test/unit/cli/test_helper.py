@@ -30,6 +30,7 @@ class TestHelper(unittest.TestCase):
         expected_message = "\n".join(self.HELP_MESSAGE_LINES)
         self.assertEqual(expected_message, helper.help_message())
 
+
 class MockHelper(Helper):
     HELP_MESSAGE_LINES = TestHelper.HELP_MESSAGE_LINES
 

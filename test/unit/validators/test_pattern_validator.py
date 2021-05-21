@@ -8,9 +8,7 @@ class TestPatternValidator(unittest.TestCase):
     """Unit Tests for PatternValidator"""
 
     @patch.object(GroupFactory, "get")
-    def test__validate__valid_pattern__true(
-        self, mock_group_factory_get
-    ):
+    def test__validate__valid_pattern__true(self, mock_group_factory_get):
         """PatternValidator -> validate - valid pattern"""
         mock_group_factory_get.return_value = self.get_mock_group()
         categories = ["c1", "c2"]

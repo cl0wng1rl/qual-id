@@ -8,9 +8,7 @@ class TestGroupValidator(unittest.TestCase):
     """Unit Tests for GroupValidator"""
 
     @patch.object(GroupFactory, "has")
-    def test__validate__valid_group__true(
-        self, mock_group_factory_has
-    ):
+    def test__validate__valid_group__true(self, mock_group_factory_has):
         """GroupValidator -> validate - valid group"""
         mock_group_factory_has.return_value = True
         validator = GroupValidator("ValidGroupName")
@@ -18,9 +16,7 @@ class TestGroupValidator(unittest.TestCase):
         self.assertTrue(validator.is_valid())
 
     @patch.object(GroupFactory, "has")
-    def test__validate__invalid_group__false(
-        self, mock_group_factory_has
-    ):
+    def test__validate__invalid_group__false(self, mock_group_factory_has):
         """GroupValidator -> validate - invalid group"""
         mock_group_factory_has.return_value = False
         validator = GroupValidator("InvalidGroupName")

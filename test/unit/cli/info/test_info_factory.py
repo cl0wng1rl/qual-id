@@ -3,6 +3,7 @@ from qual_id.cli.info.info_factory import InfoFactory
 from qual_id.cli.info.flag import Flag
 from unittest.mock import patch
 
+
 class TestInfoFactory(unittest.TestCase):
     """Unit Tests for InfoFactory"""
 
@@ -61,7 +62,6 @@ class TestInfoFactory(unittest.TestCase):
         has = InfoFactory.has(Flag.CATEGORY, self.CATEGORY_NAME)
         self.assertEqual(True, has)
 
-
     def set_mock_group_factory(self, mock):
         self.set_mock_group(mock.get.return_value)
         mock.has.return_value = True
@@ -71,12 +71,12 @@ class TestInfoFactory(unittest.TestCase):
         mock.name.return_value = self.GROUP_NAME
         mock.info.return_value = self.SPECIFIC_GROUP_INFO
         self.set_mock_category(mock.get.return_value)
-    
+
     def set_mock_all_group(self, mock):
         mock.name.return_value = self.GROUP_NAME
         mock.info.return_value = self.CATEGORY_INFO
         self.set_mock_category(mock.get.return_value)
-    
+
     def set_mock_category(self, mock):
         mock.name.return_value = self.CATEGORY_NAME
         mock.info.return_value = self.SPECIFIC_CATEGORY_INFO

@@ -18,7 +18,7 @@ class TestInfoFlag(unittest.TestCase):
     def test__name__correct_name(self):
         """InfoFlag -> name - correct name"""
         self.assertEqual(self.LONG, self.flag.name())
-    
+
     def test__equals__long_flag__true(self):
         """InfoFlag -> equals - long flag"""
         self.assertTrue(self.flag.equals(self.LONG_FLAG))

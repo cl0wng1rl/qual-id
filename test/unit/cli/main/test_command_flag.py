@@ -31,5 +31,6 @@ class TestCommandFlag(unittest.TestCase):
         """CommandFlag -> equals - incorrect short flag"""
         self.assertFalse(self.flag.equals("--{0}".format(self.SHORT)))
 
+
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()

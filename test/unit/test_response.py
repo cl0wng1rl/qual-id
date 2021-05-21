@@ -8,6 +8,7 @@ from unittest.mock import Mock, call, patch
 
 class TestResponse(unittest.TestCase):
     """Unit Tests for Response"""
+
     CSV = "csv"
     QUAL_ID = "qual_id"
     ERROR_MESSAGE = "error message"
@@ -25,7 +26,11 @@ class TestResponse(unittest.TestCase):
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args__correct_object(
-        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self,
+        mock_pattern_random,
+        mock_validator_error_message,
+        mock_validator_is_valid,
+        mock_get,
     ):
         """Response -> get_response_obj - valid arguments"""
         mock_get.return_value = self.get_mock_group()
@@ -42,7 +47,11 @@ class TestResponse(unittest.TestCase):
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__valid_args_with_csv_format__correct_object(
-        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self,
+        mock_pattern_random,
+        mock_validator_error_message,
+        mock_validator_is_valid,
+        mock_get,
     ):
         """Response -> get_response_obj - valid arguments with CSV format"""
         mock_get.return_value = self.get_mock_group()
@@ -61,7 +70,11 @@ class TestResponse(unittest.TestCase):
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args__correct_object(
-        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self,
+        mock_pattern_random,
+        mock_validator_error_message,
+        mock_validator_is_valid,
+        mock_get,
     ):
         """Response -> get_response_obj - invalid arguments"""
         mock_get.return_value = self.get_mock_group()
@@ -79,7 +92,11 @@ class TestResponse(unittest.TestCase):
     @patch.object(Validator, "error_message")
     @patch.object(Pattern, "random")
     def test__get_response_obj__invalid_args_with_csv_format__correct_object(
-        self, mock_pattern_random, mock_validator_error_message, mock_validator_is_valid, mock_get
+        self,
+        mock_pattern_random,
+        mock_validator_error_message,
+        mock_validator_is_valid,
+        mock_get,
     ):
         """Response -> get_response_obj - invalid arguments with CSV format"""
         mock_get.return_value = self.get_mock_group()

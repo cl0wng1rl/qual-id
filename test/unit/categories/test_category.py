@@ -8,7 +8,7 @@ class TestCategory(unittest.TestCase):
 
     CATEGORY_NAME = "category"
     CATEGORY_VALUES = ["valuea", "valueb", "valuec"]
-    
+
     def test__name__correct_name(self):
         """Category -> name"""
         self.assertEqual(MockCategory.name(), TestCategory.CATEGORY_NAME)
@@ -23,9 +23,11 @@ class TestCategory(unittest.TestCase):
         """Category -> info"""
         self.assertListEqual(MockCategory.info(), TestCategory.CATEGORY_VALUES)
 
+
 class MockCategory(Category):
     _name = TestCategory.CATEGORY_NAME
     _values = TestCategory.CATEGORY_VALUES
+
 
 if __name__ == "__main__":  # pragma: no cover
     unittest.main()
