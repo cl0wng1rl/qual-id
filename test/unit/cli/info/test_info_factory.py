@@ -40,6 +40,18 @@ class TestInfoFactory(unittest.TestCase):
         info = InfoFactory.get(Flag.FORMAT)
         self.assertEqual(self.FORMAT_INFO, info)
 
+    @patch("qual_id.cli.info.info_factory.GroupFactory")
+    def test__has__group_and_value__correct_boolean(self, mock_group_factory):
+        self.set_mock_group_factory(mock_group_factory)
+        has = InfoFactory.has(Flag.GROUP, self.GROUP_NAME)
+        self.assertEqual(True, has)
+
+    @patch("qual_id.cli.info.info_factory.All")
+    def test__has__category_and_value__correct_boolean(self, mock_group):
+        self.set_mock_group(mock_group)
+        has = InfoFactory.has(Flag.CATEGORY, self.CATEGORY_NAME)
+        self.assertEqual(True, has)
+
 
     def set_mock_group_factory(self, mock):
         self.set_mock_group(mock.get.return_value)
