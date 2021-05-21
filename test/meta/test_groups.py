@@ -6,10 +6,13 @@ from test.meta.group_metadata_validator import GroupMetadataValidator
 
 
 class TestGroups(unittest.TestCase):
+    """Metadata Tests for Groups"""
+
     def setUp(self):
         self.groups = TestGroups._get_all_groups()
 
     def test__all_groups__values_are_valid(self):
+        """Groups Metadata"""
         [self.validate_values_are_valid(group) for group in self.groups]
 
     def validate_values_are_valid(self, group):

@@ -4,32 +4,43 @@ from test.meta.category_metadata_validator import CategoryMetadataValidator
 
 
 class TestCategoryMetadataValidator(unittest.TestCase):
-    def test__validate__with_valid_category__empty_string(self):
+    """Unit Tests for CategoryMetadataValidator"""
+
+    def test__validate__valid_category__empty_string(self):
+        """CategoryMetadataValidator -> valid category"""
         error_message = CategoryMetadataValidator.validate(MockValidCategory)
         self.assertEqual(error_message, "")
 
-    def test__validate__invalid_category_due_to_no_name__correct_error(self):
+    def test__validate__category_with_no_name__correct_error(self):
+        """CategoryMetadataValidator -> category with no name"""
         self.validate_category(MockInvalidCategory_NoName)
 
-    def test__validate__invalid_category_due_to_uppercase_name__correct_error(self):
+    def test__validate__category_with_uppercase_name__correct_error(self):
+        """CategoryMetadataValidator -> category with uppercase name"""
         self.validate_category(MockInvalidCategory_UppercaseName)
 
-    def test__validate__invalid_category_due_to_spaces__correct_error(self):
+    def test__validate__category_with_spaces__correct_error(self):
+        """CategoryMetadataValidator -> category with spaces"""
         self.validate_category(MockInvalidCategory_Spaces)
 
-    def test__validate__invalid_category_due_to_dashes__correct_error(self):
+    def test__validate__category_with_dashes__correct_error(self):
+        """CategoryMetadataValidator -> category with dashes"""
         self.validate_category(MockInvalidCategory_Dashes)
 
-    def test__validate__invalid_category_due_to_empty_list__correct_error(self):
+    def test__validate__category_with_empty_list__correct_error(self):
+        """CategoryMetadataValidator -> category with empty list"""
         self.validate_category(MockInvalidCategory_Empty)
 
-    def test__validate__invalid_category_due_to_repeats__correct_error(self):
+    def test__validate__category_with_repeats__correct_error(self):
+        """CategoryMetadataValidator -> category with repeats"""
         self.validate_category(MockInvalidCategory_Repeats)
 
-    def test__validate__invalid_category_due_to_non_alphabetical__correct_error(self):
+    def test__validate__category_in_wrong_order__correct_error(self):
+        """CategoryMetadataValidator -> category in wrong order"""
         self.validate_category(MockInvalidCategory_NonAlphabetical)
 
-    def test__validate__invalid_category_due_to_uppercase__correct_error(self):
+    def test__validate__category_with_uppercase__correct_error(self):
+        """CategoryMetadataValidator -> category with uppercase"""
         self.validate_category(MockInvalidCategory_Uppercase)
 
     def validate_category(self, category):

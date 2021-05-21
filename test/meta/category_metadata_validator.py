@@ -1,4 +1,6 @@
 class CategoryMetadataValidator:
+    """Class to validate the metadata of Categories"""
+
     __disallowed_characters = [" ", "-", "_", "&"]
 
     @staticmethod

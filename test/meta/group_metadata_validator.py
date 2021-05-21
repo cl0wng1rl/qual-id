@@ -1,6 +1,8 @@
 from qual_id.categories.category import Category
 
 class GroupMetadataValidator:
+    """Class to validate the metadata of Groups"""
+
     __disallowed_characters = [" ", "-", "_", "&"]
 
     @staticmethod

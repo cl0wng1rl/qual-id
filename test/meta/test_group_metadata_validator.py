@@ -7,27 +7,36 @@ from qual_id.categories.cake import Cake
 
 
 class TestGroupMetadataValidator(unittest.TestCase):
+    """Unit Tests for GroupMetadataValidator"""
+
     def test__validate__valid_group__empty_string(self):
+        """GroupMetadataValidator -> validate - valid group"""
         error_message = GroupMetadataValidator.validate(MockValidGroup)
         self.assertEqual(error_message, "")
 
-    def test__validate__invalid_group_due_to_no_name__correct_error(self):
+    def test__validate__group_with_no_name__correct_error(self):
+        """GroupMetadataValidator -> validate - group with no name"""
         self.validate_group(MockInvalidGroup_NoName)
 
-    def test__validate__invalid_group_due_to_uppercase_name__correct_error(self):
+    def test__validate__group_with_uppercase_name__correct_error(self):
+        """GroupMetadataValidator -> validate - group with uppercase name"""
         self.validate_group(MockInvalidGroup_UppercaseName)
 
-    def test__validate__invalid_group_due_to_empty_list__correct_error(self):
+    def test__validate__group_with_empty_list__correct_error(self):
+        """GroupMetadataValidator -> validate - group with empty list"""
         self.validate_group(MockInvalidGroup_Empty)
 
-    def test__validate__invalid_group_due_to_repeats__correct_error(self):
+    def test__validate__group_with_repeats__correct_error(self):
+        """GroupMetadataValidator -> validate - group with repeats"""
         self.validate_group(MockInvalidGroup_Repeats)
 
-    def test__validate__invalid_group_due_to_non_alphabetical__correct_error(self):
+    def test__validate__group_in_wrong_order__correct_error(self):
+        """GroupMetadataValidator -> validate - group in wrong order"""
         self.validate_group(MockInvalidGroup_NonAlphabetical)
 
-    def test__validate__invalid_group_due_to_containing_a_non_group__correct_error(self):
-        self.validate_group(MockInvalidGroup_Nongroup)
+    def test__validate__group_containing_a_non_category__correct_error(self):
+        """GroupMetadataValidator -> validate - group containing a non category"""
+        self.validate_group(MockInvalidGroup_NonCategory)
 
     def validate_group(self, group):
         error_message = GroupMetadataValidator.validate(group)
@@ -73,12 +82,12 @@ class MockInvalidGroup_NonAlphabetical(Group):
     EXPECTED_ERROR_MESSAGE = "should be in alphabetical order"
 
 
-class NongroupClass:
+class NonCategory:
         @classmethod
         def name(cls):
             return "nongroupclass"
 
-class MockInvalidGroup_Nongroup(Group):
+class MockInvalidGroup_NonCategory(Group):
     _name = "nongroup"
-    _categories = [Adjective, Bird, NongroupClass]
-    EXPECTED_ERROR_MESSAGE = "contains invalid class: " + str(NongroupClass)
+    _categories = [Adjective, Bird, NonCategory]
+    EXPECTED_ERROR_MESSAGE = "contains invalid class: " + str(NonCategory)
