@@ -10,9 +10,6 @@ class CommandFlag:
   def equals(self, flag):
     return flag in self._values
 
-  def _format(self, long, short):
-    return { self._format_long(), self._format_short() }
-
   def _format_long(self):
       return "--{0}".format(self._long)
 
