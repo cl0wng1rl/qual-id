@@ -6,6 +6,8 @@ from unittest.mock import Mock, patch
 
 
 class TestApp(unittest.TestCase):
+    """Unit Tests for main.App"""
+
     COMMAND_NAME = "qid"
     PARAMETER = "parameter"
     VALUE = "value"
@@ -20,6 +22,7 @@ class TestApp(unittest.TestCase):
     def test__run__valid_arguments__info(
         self, mock_response, mock_parser, mock_validator, mock_helper
     ):
+        """main.App -> run - valid arguments"""
         self.set_mock_response(mock_response.return_value)
         self.set_mock_parser(mock_parser.return_value)
         self.set_mock_validator(mock_validator.return_value, True)
@@ -35,6 +38,7 @@ class TestApp(unittest.TestCase):
     def test__run__invalid_arguments__error(
         self, mock_response, mock_parser, mock_validator, mock_helper
     ):
+        """main.App -> run - invalid arguments"""
         self.set_mock_response(mock_response.return_value)
         self.set_mock_parser(mock_parser.return_value)
         self.set_mock_validator(mock_validator.return_value, False)
@@ -50,6 +54,7 @@ class TestApp(unittest.TestCase):
     def test__run__help_arguments__help(
         self, mock_response, mock_parser, mock_validator, mock_helper
     ):
+        """main.App -> run - help arguments"""
         self.set_mock_response(mock_response.return_value)
         self.set_mock_parser(mock_parser.return_value)
         self.set_mock_validator(mock_validator.return_value, True)

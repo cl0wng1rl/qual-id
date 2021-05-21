@@ -3,6 +3,8 @@ from qual_id.cli.main.parser import Parser
 
 
 class TestParser(unittest.TestCase):
+    """Unit Tests for main.Parser"""
+
     COMMAND_NAME = "qid"
     PATTERN_FLAG = "--pattern"
     PATTERN = "category1-category2"
@@ -21,6 +23,7 @@ class TestParser(unittest.TestCase):
     }
 
     def test__parse__args__correct_config(self):
+        """main.Parser -> parse"""
         parser = Parser(self.get_valid_args())
         self.assertDictEqual(self.EXPECTED_CONFIG, parser.parse())
 
