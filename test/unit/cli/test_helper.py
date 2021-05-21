@@ -23,7 +23,7 @@ class TestHelper(unittest.TestCase):
     def test__help_message__correct_message(self):
         helper = MockHelper(["arg1", self.HELP_LONG, "arg2"])
         expected_message = "\n".join(self.HELP_MESSAGE_LINES)
-        self.assertEqual(expected_message, helper.help_messge())
+        self.assertEqual(expected_message, helper.help_message())
 
 class MockHelper(Helper):
     HELP_MESSAGE_LINES = TestHelper.HELP_MESSAGE_LINES

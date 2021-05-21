@@ -9,5 +9,5 @@ class Helper:
         return self._is_help
 
     @classmethod
-    def help_messge(cls):
+    def help_message(cls):
         return "\n".join(cls.HELP_MESSAGE_LINES)

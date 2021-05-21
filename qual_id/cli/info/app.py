@@ -7,7 +7,7 @@ class App:
     def run(args):
         helper = Helper(args)
         if helper.is_help():
-            return helper.help_messge()
+            return helper.help_message()
 
         validator = Validator(args)
         if validator.is_valid():
