@@ -83,9 +83,10 @@ class MockInvalidGroup_NonAlphabetical(Group):
 
 
 class NonCategory:
-        @classmethod
-        def name(cls):
-            return "nongroupclass"
+    @classmethod
+    def name(cls):
+        return "nongroupclass"
+
 
 class MockInvalidGroup_NonCategory(Group):
     _name = "nongroup"
