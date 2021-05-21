@@ -5,6 +5,7 @@ import random
 
 class TestCLI_Integration(unittest.TestCase):
     """Integration Tests for CLI module"""
+
     def setUp(self):
         random.seed(1)
 
@@ -124,10 +125,12 @@ class CategoryWithValueScenario(Scenario):
         Scenario.CATEGORY_FLAG_SHORT,
         Scenario.CATEGORY,
     ]
-    _expected = ("Values for the category, 'bread': \n"
-    "bagel, baguette, brioche, bun, chapati, ciabatta, cornbread, croissant, "
-    "focaccia, granary, matzo, muffin, naan, paratha, pitta, poppadom, "
-    "pumpernickel, roll, roti, rye, sourdough, tortilla, wholemeal")
+    _expected = (
+        "Values for the category, 'bread': \n"
+        "bagel, baguette, brioche, bun, chapati, ciabatta, cornbread, croissant, "
+        "focaccia, granary, matzo, muffin, naan, paratha, pitta, poppadom, "
+        "pumpernickel, roll, roti, rye, sourdough, tortilla, wholemeal"
+    )
 
 
 if __name__ == "__main__":  # pragma: no cover
