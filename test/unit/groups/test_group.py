@@ -6,6 +6,8 @@ from qual_id.categories import Adjective, Bird, Cake, Fish
 
 
 class TestGroup(unittest.TestCase):
+    """Unit Tests for Group"""
+
     GROUP_NAME = "group"
     GROUP_VALUES = [Adjective, Bird, Cake]
     RANDOM_NAME = "random"
@@ -16,24 +18,30 @@ class TestGroup(unittest.TestCase):
         self.group = MockGroup()
 
     def test__get__valid_name__correct_category(self):
+        """Group -> get"""
         self.assertIsInstance(self.group.get(self.VALID_NAMES[0])(), Adjective)
 
     def test__invalid__valid_names__empty_list(self):
+        """Group -> invalid - valid names"""
         self.assertEqual(self.group.invalid(self.VALID_NAMES), [])
 
     def test__invalid__an_invalid_name__invalid_name(self):
+        """Group -> invalid - invalid name"""
         names_to_validate = [self.VALID_NAMES[0], self.INVALID_NAME]
         result = self.group.invalid(names_to_validate)
         self.assertEqual(result, [self.INVALID_NAME])
 
     def test__get__random_name__correct_category(self):
+        """Group -> get - random"""
         random.seed(0)
         self.assertIsInstance(self.group.get(self.RANDOM_NAME)(), Bird)
 
     def test__name__correct_name(self):
+        """Group -> name"""
         self.assertEqual(self.group.name(), self.GROUP_NAME)
 
     def test__info__correct_values(self):
+        """Group -> info"""
         self.assertEqual(self.group.info(), self.VALID_NAMES)
 
 
