@@ -1,11 +1,11 @@
 from qual_id.groups import GroupFactory
 
 class Arguments:
-    def __init__(self, args_object):
-        self._group = self._get_group_from_name(args_object["group"])
-        self._categories = self._get_list_of_categories(args_object["categories"])
-        self._format = args_object["format"]
-        self._number = args_object["number"]
+    def __init__(self, args):
+        self._group = self._get_group_from_name(args["group"] or "all")
+        self._categories = self._get_list_of_categories((args["categories"] or "").split("-"))
+        self._format = args["format"] or "json"
+        self._number = int(args["number"]) or 1
 
     def get_categories(self):
         return self._categories
