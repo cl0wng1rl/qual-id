@@ -1,5 +1,5 @@
 from .command import Command
-from qual_id.cli.info.flag import Flag
+from qual_id.info.flag import Flag
 from qual_id.groups.all import All
 from qual_id.groups import GroupFactory
 

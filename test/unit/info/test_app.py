@@ -1,6 +1,6 @@
 import unittest
-from qual_id.cli.info.app import App
-from qual_id.cli.info.flag import Flag
+from qual_id.info.app import App
+from qual_id.info.flag import Flag
 from unittest.mock import Mock, patch
 
 
@@ -15,8 +15,8 @@ class TestApp(unittest.TestCase):
     def setUp(self):
         self.arguments = self.mock_arguments()
 
-    @patch("qual_id.cli.info.app.InfoFactory")
-    @patch("qual_id.cli.info.app.InfoMessage")
+    @patch("qual_id.info.app.InfoFactory")
+    @patch("qual_id.info.app.InfoMessage")
     def test__run__valid_arguments__info(
         self, mock_info_message, mock_info_factory
     ):

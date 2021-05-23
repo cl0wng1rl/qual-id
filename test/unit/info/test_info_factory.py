@@ -1,6 +1,6 @@
 import unittest
-from qual_id.cli.info.info_factory import InfoFactory
-from qual_id.cli.info.flag import Flag
+from qual_id.info.info_factory import InfoFactory
+from qual_id.info.flag import Flag
 from unittest.mock import patch
 
 
@@ -15,28 +15,28 @@ class TestInfoFactory(unittest.TestCase):
     SPECIFIC_CATEGORY_INFO = ["value1", "value2", "value3"]
     FORMAT_INFO = ["json", "csv"]
 
-    @patch("qual_id.cli.info.info_factory.GroupFactory")
+    @patch("qual_id.info.info_factory.GroupFactory")
     def test__get__group_and_no_value__correct_info(self, mock_group_factory):
         """InfoFactory -> get - group and no value"""
         self.set_mock_group_factory(mock_group_factory)
         info = InfoFactory.get(Flag.GROUP)
         self.assertEqual(self.GROUP_INFO, info)
 
-    @patch("qual_id.cli.info.info_factory.GroupFactory")
+    @patch("qual_id.info.info_factory.GroupFactory")
     def test__get__group_and_value__correct_info(self, mock_group_factory):
         """InfoFactory -> get - group and value"""
         self.set_mock_group_factory(mock_group_factory)
         info = InfoFactory.get(Flag.GROUP, self.GROUP_NAME)
         self.assertEqual(self.SPECIFIC_GROUP_INFO, info)
 
-    @patch("qual_id.cli.info.info_factory.All")
+    @patch("qual_id.info.info_factory.All")
     def test__get__category_and_no_value__correct_info(self, mock_group):
         """InfoFactory -> get - category and no value"""
         self.set_mock_all_group(mock_group)
         info = InfoFactory.get(Flag.CATEGORY)
         self.assertEqual(self.CATEGORY_INFO, info)
 
-    @patch("qual_id.cli.info.info_factory.All")
+    @patch("qual_id.info.info_factory.All")
     def test__get__category_and_value__correct_info(self, mock_group):
         """InfoFactory -> get - category and value"""
         self.set_mock_group(mock_group)
@@ -48,14 +48,14 @@ class TestInfoFactory(unittest.TestCase):
         info = InfoFactory.get(Flag.FORMAT)
         self.assertEqual(self.FORMAT_INFO, info)
 
-    @patch("qual_id.cli.info.info_factory.GroupFactory")
+    @patch("qual_id.info.info_factory.GroupFactory")
     def test__has__group_and_value__correct_boolean(self, mock_group_factory):
         """InfoFactory -> has - group and value"""
         self.set_mock_group_factory(mock_group_factory)
         has = InfoFactory.has(Flag.GROUP, self.GROUP_NAME)
         self.assertEqual(True, has)
 
-    @patch("qual_id.cli.info.info_factory.All")
+    @patch("qual_id.info.info_factory.All")
     def test__has__category_and_value__correct_boolean(self, mock_group):
         """InfoFactory -> has - category and value"""
         self.set_mock_group(mock_group)
