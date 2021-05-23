@@ -1,5 +1,6 @@
 import unittest
 from qual_id.cli import CLI
+from qual_id.parser.command import Command
 from unittest.mock import Mock, patch
 
 
@@ -8,44 +9,41 @@ class TestCLI(unittest.TestCase):
 
     COMMAND_NAME = "qid"
     PARAMETER = "parameter"
-    INFO_FLAG = "--info"
-    INFO_FLAG_SHORT = "--info"
     VALUE = "value"
     INFO_RESPONSE = "info response"
     MAIN_RESPONSE = "main response"
 
+    @patch("qual_id.cli.cli.Parser")
     @patch("qual_id.cli.cli.InfoApp")
     @patch("qual_id.cli.cli.App")
-    def test__run__main_arguments__main_message(self, mock_main_app, mock_info_app):
+    def test__run__main_arguments__main_message(
+        self, mock_main_app, mock_info_app, mock_parser
+    ):
         """CLI -> run - main arguments"""
+        mock_parser.parse.return_value = self.get_mock_arguments(Command.MAIN)
         mock_main_app.run.return_value = self.MAIN_RESPONSE
         mock_info_app.run.return_value = self.INFO_RESPONSE
-        self.assertEqual(self.MAIN_RESPONSE, CLI.run(self.get_args__main()))
+        self.assertEqual(self.MAIN_RESPONSE, CLI.run(self.get_args()))
 
+    @patch("qual_id.cli.cli.Parser")
     @patch("qual_id.cli.cli.InfoApp")
     @patch("qual_id.cli.cli.App")
-    def test__run__info_arguments__info_message(self, mock_main_app, mock_info_app):
+    def test__run__info_arguments__info_message(
+        self, mock_main_app, mock_info_app, mock_parser
+    ):
         """CLI -> run - info arguments"""
+        mock_parser.parse.return_value = self.get_mock_arguments(Command.INFO)
         mock_main_app.run.return_value = self.MAIN_RESPONSE
         mock_info_app.run.return_value = self.INFO_RESPONSE
-        self.assertEqual(self.INFO_RESPONSE, CLI.run(self.get_args__info()))
+        self.assertEqual(self.INFO_RESPONSE, CLI.run(self.get_args()))
 
-    @patch("qual_id.cli.cli.InfoApp")
-    @patch("qual_id.cli.cli.App")
-    def test__run__info_short_args__info_message(self, mock_main_app, mock_info_app):
-        """CLI -> run - short info arguments"""
-        mock_main_app.run.return_value = self.MAIN_RESPONSE
-        mock_info_app.run.return_value = self.INFO_RESPONSE
-        self.assertEqual(self.INFO_RESPONSE, CLI.run(self.get_args__info_short()))
+    def get_mock_arguments(self, command):
+        mock = Mock()
+        mock.get_command.return_value = command
+        return mock
 
-    def get_args__main(self):
+    def get_args(self):
         return [self.COMMAND_NAME, self.PARAMETER, self.VALUE]
-
-    def get_args__info(self):
-        return [self.COMMAND_NAME, self.INFO_FLAG, self.VALUE]
-
-    def get_args__info_short(self):
-        return [self.COMMAND_NAME, self.INFO_FLAG_SHORT, self.VALUE]
 
 
 if __name__ == "__main__":  # pragma: no cover

@@ -1,6 +1,6 @@
-class InfoConfig:
+class InfoMessage:
     def __init__(self, parameter, value, info):
-        self._type = parameter.value.name()
+        self._type = parameter.value
         self._value = value
         self._info = info
     

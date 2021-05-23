@@ -35,12 +35,12 @@ class TestCLI_Integration(unittest.TestCase):
 
 class Scenario:
     COMMAND_NAME = "qid"
-    INFO_FLAG = "--info"
-    INFO_FLAG_SHORT = "-i"
-    PATTERN_FLAG = "--pattern"
-    PATTERN_FLAG_SHORT = "-p"
-    PATTERN = "fruit-geography"
-    RANDOM_PATTERN = "random-random"
+    INFO = "info"
+    INFO_SHORT = "i"
+    CATEGORIES_FLAG = "--categories"
+    CATEGORIES_FLAG_SHORT = "-c"
+    CATEGORIES = ["fruit", "geography"]
+    RANDOM_CATEGORIES = ["random", "random"]
     GROUP_FLAG = "--group"
     GROUP_FLAG_SHORT = "-g"
     GROUP = "all"
@@ -67,8 +67,8 @@ class Scenario:
 class LongFlagsAndCSVFormatScenario(Scenario):
     _arguments = [
         Scenario.COMMAND_NAME,
-        Scenario.PATTERN_FLAG,
-        Scenario.PATTERN,
+        Scenario.CATEGORIES_FLAG,
+        *Scenario.CATEGORIES,
         Scenario.GROUP_FLAG,
         Scenario.GROUP,
         Scenario.FORMAT_FLAG,
@@ -82,8 +82,8 @@ class LongFlagsAndCSVFormatScenario(Scenario):
 class ShortFlagsAndJSONFormatScenario(Scenario):
     _arguments = [
         Scenario.COMMAND_NAME,
-        Scenario.PATTERN_FLAG_SHORT,
-        Scenario.PATTERN,
+        Scenario.CATEGORIES_FLAG_SHORT,
+        *Scenario.CATEGORIES,
         Scenario.GROUP_FLAG_SHORT,
         Scenario.GROUP,
         Scenario.FORMAT_FLAG_SHORT,
@@ -97,8 +97,8 @@ class ShortFlagsAndJSONFormatScenario(Scenario):
 class RandomPatternScenario(Scenario):
     _arguments = [
         Scenario.COMMAND_NAME,
-        Scenario.PATTERN_FLAG_SHORT,
-        Scenario.RANDOM_PATTERN,
+        Scenario.CATEGORIES_FLAG_SHORT,
+        *Scenario.RANDOM_CATEGORIES,
         Scenario.GROUP_FLAG_SHORT,
         Scenario.GROUP,
         Scenario.FORMAT_FLAG_SHORT,
@@ -112,7 +112,7 @@ class RandomPatternScenario(Scenario):
 class GroupWithoutValueScenario(Scenario):
     _arguments = [
         Scenario.COMMAND_NAME,
-        Scenario.INFO_FLAG,
+        Scenario.INFO,
         Scenario.GROUP_FLAG,
     ]
     _expected = "Options for 'group' parameter: \nall, minimal, neutral"
@@ -121,7 +121,7 @@ class GroupWithoutValueScenario(Scenario):
 class CategoryWithValueScenario(Scenario):
     _arguments = [
         Scenario.COMMAND_NAME,
-        Scenario.INFO_FLAG,
+        Scenario.INFO,
         Scenario.CATEGORY_FLAG_SHORT,
         Scenario.CATEGORY,
     ]

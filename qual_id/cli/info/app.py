@@ -1,16 +1,11 @@
-from .helper import Helper
-from .validator import Validator
-from .parser import Parser
+from .flag import Flag
+from .info_message import InfoMessage
+from .info_factory import InfoFactory
 
 class App:
     @staticmethod
-    def run(args):
-        helper = Helper(args)
-        if helper.is_help():
-            return helper.help_message()
-
-        validator = Validator(args)
-        if validator.is_valid():
-            return Parser().parse(args).message()
-
-        return validator.error_message()
+    def run(arguments):
+        flag = arguments.get_flag()
+        value = arguments.get_value()
+        info = InfoFactory.get(flag, value)
+        return InfoMessage(flag, value, info).message()

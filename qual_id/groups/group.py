@@ -7,6 +7,7 @@ class Group:
     _name = ""
     _categories = []
     _category_map = {}
+    _category_names = []
 
     @classmethod
     def name(cls):
@@ -24,7 +25,11 @@ class Group:
 
     @classmethod
     def info(cls):
-        return list(map(lambda c: c.name(), cls._categories))
+        if not cls._category_names:
+            cls._category_names = list(map(lambda c: c.name(), cls._categories))
+            cls._category_names.append(cls._RANDOM_CATEGORY_NAME)
+            cls._category_names.sort()
+        return cls._category_names
 
     @classmethod
     def _is_invalid(cls, name):

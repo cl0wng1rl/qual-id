@@ -1,7 +1,6 @@
 import unittest
 from qual_id.pattern import Pattern
-from qual_id.groups import GroupFactory
-from qual_id.validators import Validator
+from qual_id.parser.command import Command
 from qual_id.response import Response
 from unittest.mock import Mock, call, patch
 
@@ -10,139 +9,57 @@ class TestResponse(unittest.TestCase):
     """Unit Tests for Response"""
 
     CSV = "csv"
-    QUAL_ID = "qual_id"
-    ERROR_MESSAGE = "error message"
+    JSON = "json"
+    QUAL_IDS = ["qual_id1", "qual_id2", "qual_id3"]
+    CATEGORIES = ["category1", "category2"]
+    GROUP = "all"
+    NUMBER = 3
 
-    def setUp(self):
-        self.args = {
-            "pattern": "pattern",
-            "group": "all",
-            "number": 2,
-            "format": "json",
-        }
+    @patch("qual_id.response.Pattern")
+    def test__get_response_obj__json_format__correct_object(self, mock_pattern):
+        """Response -> get_response_obj - JSON format"""
+        arguments = self.mock_arguments(self.JSON)
+        mock_pattern.return_value = self.get_mock_pattern()
 
-    @patch.object(GroupFactory, "get")
-    @patch.object(Validator, "is_valid")
-    @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "random")
-    def test__get_response_obj__valid_args__correct_object(
-        self,
-        mock_pattern_random,
-        mock_validator_error_message,
-        mock_validator_is_valid,
-        mock_get,
-    ):
-        """Response -> get_response_obj - valid arguments"""
-        mock_get.return_value = self.get_mock_group()
-        mock_validator_is_valid.return_value = True
-        mock_validator_error_message.return_value = None
-        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
-        response = Response(self.args)
-
-        expected = {"data": self.dual_double_qual_id_array()}
+        response = Response(arguments)
+        expected = {"data": self.QUAL_IDS}
         self.assertEqual(expected, response.get_response_obj())
 
-    @patch.object(GroupFactory, "get")
-    @patch.object(Validator, "is_valid")
-    @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "random")
-    def test__get_response_obj__valid_args_with_csv_format__correct_object(
-        self,
-        mock_pattern_random,
-        mock_validator_error_message,
-        mock_validator_is_valid,
-        mock_get,
-    ):
-        """Response -> get_response_obj - valid arguments with CSV format"""
-        mock_get.return_value = self.get_mock_group()
-        mock_validator_is_valid.return_value = True
-        mock_validator_error_message.return_value = None
-        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
+    @patch("qual_id.response.Pattern")
+    def test__get_response_obj__csv_format__correct_object(self, mock_pattern):
+        """Response -> get_response_obj - CSV format"""
+        arguments = self.mock_arguments(self.CSV)
+        mock_pattern.return_value = self.get_mock_pattern()
 
-        self.args["format"] = TestResponse.CSV
-        response = Response(self.args)
+        response = Response(arguments)
 
-        expected = self.dual_double_qual_id_string()
+        expected = ",".join(self.QUAL_IDS)
         self.assertEqual(expected, response.get_response_obj())
 
-    @patch.object(GroupFactory, "get")
-    @patch.object(Validator, "is_valid")
-    @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "random")
-    def test__get_response_obj__invalid_args__correct_object(
-        self,
-        mock_pattern_random,
-        mock_validator_error_message,
-        mock_validator_is_valid,
-        mock_get,
-    ):
-        """Response -> get_response_obj - invalid arguments"""
-        mock_get.return_value = self.get_mock_group()
-        mock_validator_is_valid.return_value = False
-        mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
-        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
+    @patch("qual_id.response.Pattern")
+    def test__get_qual_ids__correct_string(self, mock_pattern):
+        """Response -> get_qual_ids"""
+        arguments = self.mock_arguments(self.CSV)
+        mock_pattern.return_value = self.get_mock_pattern()
 
-        response = Response(self.args)
+        response = Response(arguments)
 
-        expected = {"error": TestResponse.ERROR_MESSAGE}
-        self.assertEqual(expected, response.get_response_obj())
+        self.assertEqual(self.QUAL_IDS, response.get_qual_ids())
 
-    @patch.object(GroupFactory, "get")
-    @patch.object(Validator, "is_valid")
-    @patch.object(Validator, "error_message")
-    @patch.object(Pattern, "random")
-    def test__get_response_obj__invalid_args_with_csv_format__correct_object(
-        self,
-        mock_pattern_random,
-        mock_validator_error_message,
-        mock_validator_is_valid,
-        mock_get,
-    ):
-        """Response -> get_response_obj - invalid arguments with CSV format"""
-        mock_get.return_value = self.get_mock_group()
-        mock_validator_is_valid.return_value = False
-        mock_validator_error_message.return_value = TestResponse.ERROR_MESSAGE
-        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
-
-        self.args["format"] = TestResponse.CSV
-        response = Response(self.args)
-
-        self.assertEqual(TestResponse.ERROR_MESSAGE, response.get_response_obj())
-
-    @patch.object(GroupFactory, "get")
-    @patch.object(Validator, "is_valid")
-    @patch.object(Pattern, "random")
-    def test__get_qual_ids__valid_args__correct_object(
-        self, mock_pattern_random, mock_validator_is_valid, mock_get
-    ):
-        """Response -> get_qual_ids - valid arguments"""
-        mock_get.return_value = self.get_mock_group()
-        mock_validator_is_valid.return_value = True
-        mock_pattern_random.return_value = "-".join([TestResponse.QUAL_ID] * 2)
-
-        response = Response(self.args)
-
-        self.assertEqual(self.dual_double_qual_id_array(), response.get_qual_ids())
-
-    def get_mock_group(self):
+    def get_mock_pattern(self):
         mock = Mock()
-        mock.get.return_value = self.mock_category()
-        mock.invalid.return_value = []
+        mock.random = Mock()
+        mock.random.side_effect = TestResponse.QUAL_IDS
         return mock
 
-    def mock_category(self):
+    def mock_arguments(self, format_string):
         mock = Mock()
-        mock.random.return_value = TestResponse.QUAL_ID
+        mock.get_categories.return_value = self.CATEGORIES
+        mock.get_group.return_value = self.GROUP
+        mock.get_format.return_value = format_string
+        mock.get_number.return_value = self.NUMBER
+        mock.get_command.return_value = Command.MAIN
         return mock
-
-    def dual_double_qual_id_string(self):
-        return "{0},{0}".format(self.double_qual_id())
-
-    def dual_double_qual_id_array(self):
-        return [self.double_qual_id()] * 2
-
-    def double_qual_id(self):
-        return "{0}-{0}".format(TestResponse.QUAL_ID)
 
 
 if __name__ == "__main__":  # pragma: no cover

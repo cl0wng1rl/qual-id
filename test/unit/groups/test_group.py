@@ -11,7 +11,7 @@ class TestGroup(unittest.TestCase):
     GROUP_NAME = "group"
     GROUP_VALUES = [Adjective, Bird, Cake]
     RANDOM_NAME = "random"
-    VALID_NAMES = [Adjective.name(), Bird.name(), Cake.name()]
+    VALID_NAMES = [Adjective.name(), Bird.name(), Cake.name(), RANDOM_NAME]
     INVALID_NAME = Fish.name()
 
     def setUp(self):
