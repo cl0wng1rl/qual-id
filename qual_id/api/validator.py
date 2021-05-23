@@ -3,7 +3,11 @@ from qual_id.groups import GroupFactory
 
 class Validator:
     @staticmethod
-    def validate(group_name, category_names, number, format_string):
+    def validate(args):
+        return Validator._validate(args["group"], args["categories"], args["number"], args["format"])
+
+    @staticmethod
+    def _validate(group_name, category_names, number, format_string):
         error_message = (
             Validator._validate_group(group_name)
             or Validator._validate_categories(group_name, category_names)
