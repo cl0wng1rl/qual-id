@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, make_response
-from qual_id.response import Response
 from qual_id.groups import GroupFactory
+from qual_id.api import API
 import random
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/get/", methods=["GET"])
 def get_response():
-    return make_response(Response(request.args).get_response_obj())
+    return make_response(API.run(request.args))
 
 
 @app.route("/categories/", methods=["GET"])
@@ -16,13 +16,13 @@ def categories_response():
     group_string = request.args.get("group", "all")
     if not GroupFactory.has(group_string):
         return jsonify({"error": "invalid group: %s" % (group_string)})
-    return jsonify({"data": GroupFactory.get(group_string).categories()})
+    return jsonify({"data": GroupFactory.get(group_string).info()})
 
 
 @app.route("/badge-endpoint/", methods=["GET"])
 def badge_endpoint_response():
-    qual_id = Response({"pattern": "fruit-geography"}).get_qual_ids()[0]
-    response = make_response(get_badge_response_object(qual_id))
+    badge_args = {"categories": "fruit-geography", "format": "csv", "number": "1"}
+    response = make_response(get_badge_response_object(API.run(badge_args)))
     response.headers["Cache-Control"] = "no-cache, no-store"
     return response
 
