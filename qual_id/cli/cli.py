@@ -1,5 +1,5 @@
-from qual_id.parser.command import Command
-from qual_id.parser.parser import Parser
+from .parser import Command
+from .parser import Parser
 from qual_id.qual_id_factory import QualIDFactory
 from qual_id.formatter import Formatter
 from qual_id.info import App as InfoApp

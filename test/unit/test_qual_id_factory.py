@@ -1,6 +1,5 @@
 import unittest
 from qual_id.pattern import Pattern
-from qual_id.parser.command import Command
 from qual_id.qual_id_factory import QualIDFactory
 from unittest.mock import Mock, call, patch
 
@@ -37,7 +36,6 @@ class TestQualIDFactory(unittest.TestCase):
         mock.get_group.return_value = self.GROUP
         mock.get_format.return_value = format_string
         mock.get_number.return_value = self.NUMBER
-        mock.get_command.return_value = Command.MAIN
         return mock
 
 

@@ -1,6 +1,6 @@
 import unittest
 from qual_id.cli import CLI
-from qual_id.parser.command import Command
+from qual_id.cli.parser import Command
 from unittest.mock import Mock, patch
 
 
