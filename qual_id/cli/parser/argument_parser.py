@@ -19,7 +19,8 @@ class ArgumentParser:
 
     @staticmethod
     def _create_main_parser() -> ArgParser:
-        parser = ArgParser(prog="qid", description="DESCRIPTION")
+        description = "Qual ID: generate random qualitative ID's"
+        parser = ArgParser(prog="qid", description=description)
         ArgumentParser._add_main_arguments_to(parser)
         parser.set_defaults(command=Command.MAIN)
         return parser
@@ -27,7 +28,8 @@ class ArgumentParser:
     @staticmethod
     def _create_info_subparser(main_parser) -> None:
         subparsers = main_parser.add_subparsers(title='sub-commands')
-        parser = subparsers.add_parser("info", help="info --help", aliases=['i'])
+        description = "Qual ID info: get info on Qual ID elements"
+        parser = subparsers.add_parser("info", description=description, help="info --help", aliases=['i'])
         ArgumentParser._add_info_arguments_to(parser)
         parser.set_defaults(command=Command.INFO)
 
