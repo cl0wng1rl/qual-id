@@ -9,7 +9,7 @@
   <a href="https://qual-id.herokuapp.com">
     <img src="http://heroku-shields.herokuapp.com/qual-id"/>
   </a>
-  <a href="https://qual-id.herokuapp.com/get/?pattern=fruit-geography">
+  <a href="https://qual-id.herokuapp.com/get/?categories=fruit-geography">
     <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fqual-id.herokuapp.com%2Fbadge-endpoint%2F"/>
   </a>
   <a href="https://github.com/psf/black">
@@ -41,55 +41,74 @@ The Qual ID REST API can be accessed using the URL
 https://qual-id.herokuapp.com/
 ```
 
+### The 'get' Endpoint
+
+#### The `categories` Parameter
+
+To get Qual IDs from the REST API, supply categories, separated by hyphens, to the `/get/` endpoint. For example:
+
+```
+https://qual-id.herokuapp.com/get/?categories=food-animal
+```
+
+which would give a JSON object, with results in the form of a _food_ followed by an _animal_. e.g.
+
+```json
+{ "data": ["lemon-lobster"] }
+```
+In addition to defined categories, the word `random` can be used, which will use a random category in it's place.
+
+#### The `number` Parameter
+
+As well as the `categories` parameter, the `number` parameter can also be used, to determine how many Qual ID's will be returned. For example:
+
+```
+https://qual-id.herokuapp.com/get/?categories=food-animal&number=3
+```
+
+which would return a JSON object containing 3 Qual ID's matching the `food-animal` pattern. e.g.
+
+
+```json
+{ "data": ["lemon-lobster", "cookie-whale", "egg-lizard"] }
+```
+
+#### The `format` Parameter
+
+The `format` parameter can also be used to determine in what format the results will be returned. This value is, by default, _"json"_, but can also be _"csv"_, which gives results in simple comma-separated format. e.g.
+
+```
+https://qual-id.herokuapp.com/get/?categories=food-animal&format=csv
+```
+which would return
+
+```js
+"lemon-lobster"
+```
+
+#### The `group` Parameter
+
+By default, all categories are avaiable, but if you want a more predictable range of categories when using `random`, you can supply a `group`. A group is a subset of all the categories, and `random` will only return a category from this group. Examples of groups are _"all"_ (which is the default group), _"minimal"_ and _"neutral"_. e.g.
+
+```
+https://qual-id.herokuapp.com/get/?categories=food-random&group=minimal
+```
+
 ### The 'categories' Endpoint
 
-The 'categories' endpoint returns a list of categories that can be composed to make _patterns_ accepted by the 'get' endpoint. For example:
+The `/categories/` endpoint returns a list of categories that can are accepted by the 'get' endpoint. For example:
 
 ```
 https://qual-id.herokuapp.com/categories/
 ```
 
-which would return a JSON object containing the list of category names, e.g.
+would return a JSON object containing the list of category names, e.g.
 
 ```json
-{ "data": ["animal", "food"] }
+{ "data": ["animal", "food", ...] }
 ```
 
-### Qual ID Patterns
-
-An acceptable pattern for the 'get' endpoint is any list of up to 5 categories, joined by hyphens. For example,
-
-```
-food-animal
-```
-
-which would give results in the form of a _food_ followed by an _animal_. In addition categories, the word `random` can be used, which will use a random category in it's place.
-
-### The 'get' Endpoint
-
-To get Qual IDs from the REST API, supply a pattern to the `/get/` endpoint. For example:
-
-```
-https://qual-id.herokuapp.com/get/?pattern=food-animal
-```
-
-which would return a JSON object containing a Qual ID matching the `food-animal` pattern. e.g.
-
-```json
-{ "data": ["lemon-lobster"] }
-```
-
-In addition to the `pattern` parameter, the `number` parameter can also be used, to determine how many Qual ID's matching a given pattern will return. For example:
-
-```
-https://qual-id.herokuapp.com/get/?pattern=food-animal&number=3
-```
-
-which would return a JSON object containing a Qual ID matching the `food-animal` pattern. e.g.
-
-```json
-{ "data": ["lemon-lobster", "cookie-whale", "egg-lizard"] }
-```
+The 'categories' endpoint also accepts a `group` paramter.
 
 # Contributing
 
