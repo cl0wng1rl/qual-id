@@ -22,9 +22,9 @@ class API:
         new_args["categories"] = (
             (API._get_field(args, "pattern"))
             or (API._get_field(args, "categories"))
-            or []
-        )
-        new_args["number"] = API._get_field(args, "number") or 1
+            or ""
+        ).split("-")
+        new_args["number"] = API._get_field(args, "number") or "1"
         new_args["format"] = API._get_field(args, "format") or "json"
         return new_args
 
