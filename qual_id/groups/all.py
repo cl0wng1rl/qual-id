@@ -1,6 +1,7 @@
 from ..categories import *
 from .group import Group
 
+
 class All(Group):
     _name = "all"
     _categories = [

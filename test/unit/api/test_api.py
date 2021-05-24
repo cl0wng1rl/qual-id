@@ -9,7 +9,7 @@ class TestAPI(unittest.TestCase):
     QUAL_IDS = ["qual_id1", "qual_id2", "qual_id3"]
     FORMAT = "format_value"
     ERROR = "error message"
-    CATEGORIES = ["category1","category2"]
+    CATEGORIES = ["category1", "category2"]
     ARGS = {
         "group": "group_value",
         "categories": "-".join(CATEGORIES),

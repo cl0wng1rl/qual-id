@@ -1,17 +1,18 @@
 from .command import Command
 from qual_id.info.flag import Flag
 
+
 class InfoArguments:
     def __init__(self, namespace):
         self._flag = self._get_flag(namespace)
         self._value = self._get_value(namespace)
-    
+
     def get_flag(self):
         return self._flag
 
     def get_value(self):
         return self._value
-    
+
     def get_command(self):
         return Command.INFO
 

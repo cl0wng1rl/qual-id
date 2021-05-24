@@ -6,7 +6,7 @@ from .neutral import Neutral
 class GroupFactory:
     _groups = [All, Minimal, Neutral]
     _group_map = dict((c.name(), c) for c in _groups)
-    
+
     @staticmethod
     def get(name):
         return GroupFactory._group_map.get(name)

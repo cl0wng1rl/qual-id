@@ -1,5 +1,6 @@
 from qual_id.groups import GroupFactory
 
+
 class Arguments:
     def __init__(self, args):
         self._group = self._get_group_from_name(args["group"])

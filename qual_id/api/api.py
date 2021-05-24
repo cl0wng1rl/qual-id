@@ -19,7 +19,8 @@ class API:
     def _get_defaults(args):
         new_args = {}
         new_args["group"] = args.get("group", "all")
-        new_args["categories"] = args.get("pattern", args.get("categories", "")).split("-")
+        categories = args.get("pattern", args.get("categories", "")).split("-")
+        new_args["categories"] = categories
         new_args["number"] = args.get("number", "1")
         new_args["format"] = args.get("format", "json")
         return new_args

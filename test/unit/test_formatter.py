@@ -5,6 +5,7 @@ from unittest.mock import Mock, call, patch
 
 class TestFormatter(unittest.TestCase):
     """Unit Tests for Formatter"""
+
     CSV = "csv"
     JSON = "json"
     QUAL_IDS = ["qual_id1", "qual_id2", "qual_id3"]
@@ -19,7 +20,7 @@ class TestFormatter(unittest.TestCase):
     def test__format_qual_ids__json_format__correct_object(self):
         """Formatter -> format_qual_ids - json format"""
         result = Formatter.format_qual_ids(self.JSON, self.QUAL_IDS)
-        excepted_result = { "data": self.QUAL_IDS }
+        excepted_result = {"data": self.QUAL_IDS}
         self.assertEqual(excepted_result, result)
 
     def test__format_error__csv_format__correct_string(self):
@@ -31,7 +32,7 @@ class TestFormatter(unittest.TestCase):
     def test__format_error__json_format__correct_object(self):
         """Formatter -> format_error - json format"""
         result = Formatter.format_error(self.JSON, self.ERROR_MESSAGE)
-        excepted_result = { "error": self.ERROR_MESSAGE }
+        excepted_result = {"error": self.ERROR_MESSAGE}
         self.assertEqual(excepted_result, result)
 
 

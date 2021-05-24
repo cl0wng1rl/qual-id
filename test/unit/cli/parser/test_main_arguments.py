@@ -10,14 +10,11 @@ class TestMainArguments(unittest.TestCase):
 
     GROUP = "all"
     CATEGORIES = ["fruit", "geography"]
-    MOCK_CATEGORIES = [ Mock(), Mock() ]
+    MOCK_CATEGORIES = [Mock(), Mock()]
     NUMBER = 3
     FORMAT = "json"
     NAMESPACE = Namespace(
-        group=GROUP,
-        categories=CATEGORIES,
-        number=NUMBER,
-        format=FORMAT
+        group=GROUP, categories=CATEGORIES, number=NUMBER, format=FORMAT
     )
 
     @patch("qual_id.cli.parser.main_arguments.GroupFactory")

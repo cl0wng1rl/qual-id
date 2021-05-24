@@ -1,6 +1,7 @@
 from .command import Command
 from qual_id.groups import GroupFactory
 
+
 class MainArguments:
     def __init__(self, namespace):
         self._group = self._get_group_from_name(namespace.group)

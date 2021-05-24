@@ -1,6 +1,7 @@
 from ..categories import *
 from .group import Group
 
+
 class Minimal(Group):
     _name = "minimal"
     _categories = [

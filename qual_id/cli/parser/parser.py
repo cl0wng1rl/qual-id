@@ -3,6 +3,7 @@ from .info_arguments import InfoArguments
 from .main_arguments import MainArguments
 from .command import Command
 
+
 class Parser:
     @staticmethod
     def parse(arguments):

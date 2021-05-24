@@ -8,14 +8,14 @@ class TestArguments(unittest.TestCase):
 
     GROUP = "all"
     CATEGORIES = ["fruit", "geography"]
-    MOCK_CATEGORIES = [ Mock(), Mock() ]
+    MOCK_CATEGORIES = [Mock(), Mock()]
     NUMBER = "3"
     FORMAT = "json"
     ARGS = {
         "group": GROUP,
         "categories": CATEGORIES,
         "number": NUMBER,
-        "format": FORMAT
+        "format": FORMAT,
     }
 
     @patch("qual_id.api.arguments.GroupFactory")

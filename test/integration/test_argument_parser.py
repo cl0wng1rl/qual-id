@@ -49,14 +49,14 @@ class TestArgumentParser_Integration(unittest.TestCase):
             parser.parse(scenario.arguments())
         except Exception as err:
             self.assertEqual(scenario.expected(), err.args[0])
-    
+
     def assert_scenario_includes(self, scenario):
         parser = self.get_parser()
         try:
             parser.parse(scenario.arguments())
         except Exception as err:
             self.assertTrue(scenario.expected() in err.args[0])
-    
+
     def get_parser(self):
         parser = ArgumentParser()
         # Suppress exiting method and displaying usage info
@@ -142,7 +142,9 @@ class InvalidGroupScenario(Scenario):
 
 class InvalidCategoriesScenario(Scenario):
     _arguments = [Scenario.CATEGORIES_FLAG, *Scenario.INVALID_CATEGORIES]
-    _expected = "qid: error: argument -c/--categories: invalid choice: 'invalid' (choose from "
+    _expected = (
+        "qid: error: argument -c/--categories: invalid choice: 'invalid' (choose from "
+    )
 
 
 class InvalidFormatScenario(Scenario):
@@ -152,7 +154,9 @@ class InvalidFormatScenario(Scenario):
         Scenario.FORMAT_FLAG,
         Scenario.INVALID_FORMAT,
     ]
-    _expected = "qid: error: argument -f/--format: invalid choice: '{0}' (choose from 'csv', 'json')\n".format(Scenario.INVALID_FORMAT)
+    _expected = "qid: error: argument -f/--format: invalid choice: '{0}' (choose from 'csv', 'json')\n".format(
+        Scenario.INVALID_FORMAT
+    )
 
 
 class InvalidNumberScenario(Scenario):

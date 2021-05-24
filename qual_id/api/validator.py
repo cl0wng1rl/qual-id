@@ -4,7 +4,9 @@ from qual_id.groups import GroupFactory
 class Validator:
     @staticmethod
     def validate(args):
-        return Validator._validate(args["group"], args["categories"], args["number"], args["format"])
+        return Validator._validate(
+            args["group"], args["categories"], args["number"], args["format"]
+        )
 
     @staticmethod
     def _validate(group_name, category_names, number, format_string):

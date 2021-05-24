@@ -15,7 +15,9 @@ class TestParser(unittest.TestCase):
     @patch("qual_id.cli.parser.parser.MainArguments")
     @patch("qual_id.cli.parser.parser.InfoArguments")
     @patch("qual_id.cli.parser.parser.ArgumentParser")
-    def test__parse__main_command_namespace__correct_aruments_type(self, mock_parser, mock_info_args, mock_main_args):
+    def test__parse__main_command_namespace__correct_aruments_type(
+        self, mock_parser, mock_info_args, mock_main_args
+    ):
         """Parser -> parse - main command namespace"""
         main_mock = Mock()
         mock_main_args.return_value = main_mock
@@ -28,7 +30,9 @@ class TestParser(unittest.TestCase):
     @patch("qual_id.cli.parser.parser.MainArguments")
     @patch("qual_id.cli.parser.parser.InfoArguments")
     @patch("qual_id.cli.parser.parser.ArgumentParser")
-    def test__parse__info_command_namespace__correct_aruments_type(self, mock_parser, mock_info_args, mock_main_args):
+    def test__parse__info_command_namespace__correct_aruments_type(
+        self, mock_parser, mock_info_args, mock_main_args
+    ):
         """Parser -> parse - info command namespace"""
         info_mock = Mock()
         mock_info_args.return_value = info_mock
@@ -42,6 +46,6 @@ class TestParser(unittest.TestCase):
         mock = Mock()
         mock.command = command
         return mock
-    
+
     def set_mock_parser(self, parser, namespace):
         parser.return_value.parse.return_value = namespace

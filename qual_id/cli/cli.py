@@ -4,6 +4,7 @@ from qual_id.qual_id_factory import QualIDFactory
 from qual_id.formatter import Formatter
 from qual_id.info import App as InfoApp
 
+
 class CLI:
     @staticmethod
     def run(args):

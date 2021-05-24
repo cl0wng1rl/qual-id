@@ -28,9 +28,7 @@ class TestCLI(unittest.TestCase):
 
     @patch("qual_id.cli.cli.Parser")
     @patch("qual_id.cli.cli.InfoApp")
-    def test__run__info_arguments__info_message(
-        self, mock_info_app, mock_parser
-    ):
+    def test__run__info_arguments__info_message(self, mock_info_app, mock_parser):
         """CLI -> run - info arguments"""
         mock_parser.parse.return_value = self.get_mock_arguments(Command.INFO)
         mock_info_app.run.return_value = self.INFO_RESPONSE

@@ -1,6 +1,7 @@
 from ..categories import *
 from .group import Group
 
+
 class Neutral(Group):
     _name = "neutral"
     _categories = [

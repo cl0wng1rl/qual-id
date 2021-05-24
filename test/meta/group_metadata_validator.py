@@ -54,9 +54,7 @@ class GroupMetadataValidator:
             for value in group._categories
             if GroupMetadataValidator._is_not_a_category(value)
         ]
-        return GroupMetadataValidator._get_message(
-            "contains invalid class: ", invalids
-        )
+        return GroupMetadataValidator._get_message("contains invalid class: ", invalids)
 
     @staticmethod
     def _get_alphabetical_message(group):

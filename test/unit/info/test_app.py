@@ -17,9 +17,7 @@ class TestApp(unittest.TestCase):
 
     @patch("qual_id.info.app.InfoFactory")
     @patch("qual_id.info.app.InfoMessage")
-    def test__run__valid_arguments__info(
-        self, mock_info_message, mock_info_factory
-    ):
+    def test__run__valid_arguments__info(self, mock_info_message, mock_info_factory):
         """info.App -> run"""
         self.set_mock_info_factory(mock_info_factory)
         self.set_mock_info_message(mock_info_message)

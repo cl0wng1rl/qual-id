@@ -27,28 +27,59 @@ class ArgumentParser:
 
     @staticmethod
     def _create_info_subparser(main_parser) -> None:
-        subparsers = main_parser.add_subparsers(title='sub-commands')
+        subparsers = main_parser.add_subparsers(title="sub-commands")
         description = "Qual ID info: get info on Qual ID elements"
-        parser = subparsers.add_parser("info", description=description, help="info --help", aliases=['i'])
+        parser = subparsers.add_parser(
+            "info", description=description, help="info --help", aliases=["i"]
+        )
         ArgumentParser._add_info_arguments_to(parser)
         parser.set_defaults(command=Command.INFO)
 
     @staticmethod
     def _add_main_arguments_to(parser) -> None:
-        parser.add_argument('-c', '--categories', action=ArgumentParser.RequiredLength, nargs='+', choices=list(All.info()), metavar="CATEGORY")
-        parser.add_argument('-g', '--group', default='all', choices=list(GroupFactory.info()), metavar="GROUP")
-        parser.add_argument('-f', '--format', default='csv', choices=['csv', 'json'], metavar="FORMAT")
-        parser.add_argument('-n', '--number', default=1, type=int)
+        parser.add_argument(
+            "-c",
+            "--categories",
+            action=ArgumentParser.RequiredLength,
+            nargs="+",
+            choices=list(All.info()),
+            metavar="CATEGORY",
+        )
+        parser.add_argument(
+            "-g",
+            "--group",
+            default="all",
+            choices=list(GroupFactory.info()),
+            metavar="GROUP",
+        )
+        parser.add_argument(
+            "-f", "--format", default="csv", choices=["csv", "json"], metavar="FORMAT"
+        )
+        parser.add_argument("-n", "--number", default=1, type=int)
 
     @staticmethod
     def _add_info_arguments_to(parser) -> None:
-        parser.add_argument('-c', '--category', nargs='?', default=False, choices=list(All.info()), metavar="CATEGORY")
-        parser.add_argument('-g', '--group', nargs='?', default=False, choices=list(GroupFactory.info()), metavar="GROUP")
-        parser.add_argument('-f', '--format', action='store_true')
+        parser.add_argument(
+            "-c",
+            "--category",
+            nargs="?",
+            default=False,
+            choices=list(All.info()),
+            metavar="CATEGORY",
+        )
+        parser.add_argument(
+            "-g",
+            "--group",
+            nargs="?",
+            default=False,
+            choices=list(GroupFactory.info()),
+            metavar="GROUP",
+        )
+        parser.add_argument("-f", "--format", action="store_true")
 
     class RequiredLength(Action):
-        MINIMUM=1
-        MAXIMUM=5
+        MINIMUM = 1
+        MAXIMUM = 5
 
         def __call__(self, parser, args, values, option_string=None):
             if not (self.MINIMUM <= len(values) <= self.MAXIMUM):
