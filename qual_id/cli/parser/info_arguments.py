@@ -1,15 +1,10 @@
 from .command import Command
 from qual_id.info.flag import Flag
-from qual_id.groups.all import All
-from qual_id.groups import GroupFactory
 
 class InfoArguments:
     def __init__(self, namespace):
         self._flag = self._get_flag(namespace)
-        if self._flag == Flag.GROUP:
-            self._value = namespace.group
-        if self._flag == Flag.CATEGORY:
-            self._value = namespace.category
+        self._value = self._get_value(namespace)
     
     def get_flag(self):
         return self._flag
@@ -26,3 +21,9 @@ class InfoArguments:
         if namespace.category != False:
             return Flag.CATEGORY
         return Flag.FORMAT
+
+    def _get_value(self, namespace):
+        if self._flag == Flag.GROUP:
+            return namespace.group
+        if self._flag == Flag.CATEGORY:
+            return namespace.category
