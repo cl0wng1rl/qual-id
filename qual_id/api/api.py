@@ -18,16 +18,8 @@ class API:
     @staticmethod
     def _get_defaults(args):
         new_args = {}
-        new_args["group"] = API._get_field(args, "group") or "all"
-        new_args["categories"] = (
-            (API._get_field(args, "pattern"))
-            or (API._get_field(args, "categories"))
-            or ""
-        ).split("-")
-        new_args["number"] = API._get_field(args, "number") or "1"
-        new_args["format"] = API._get_field(args, "format") or "json"
+        new_args["group"] = args.get("group", "all")
+        new_args["categories"] = args.get("pattern", args.get("categories", "")).split("-")
+        new_args["number"] = args.get("number", "1")
+        new_args["format"] = args.get("format", "json")
         return new_args
-
-    @staticmethod
-    def _get_field(args, field):
-        return field in args and args[field]
