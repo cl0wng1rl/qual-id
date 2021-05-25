@@ -44,6 +44,7 @@ class Scenario:
     GROUP_FLAG = "--group"
     GROUP_FLAG_SHORT = "-g"
     GROUP = "all"
+    GROUP_MINIMAL = "minimal"
     FORMAT_FLAG = "--format"
     FORMAT_FLAG_SHORT = "-f"
     FORMAT_CSV = "csv"
@@ -100,13 +101,13 @@ class RandomPatternScenario(Scenario):
         Scenario.CATEGORIES_FLAG_SHORT,
         *Scenario.RANDOM_CATEGORIES,
         Scenario.GROUP_FLAG_SHORT,
-        Scenario.GROUP,
+        Scenario.GROUP_MINIMAL,
         Scenario.FORMAT_FLAG_SHORT,
         Scenario.FORMAT_CSV,
         Scenario.NUMBER_FLAG_SHORT,
         Scenario.NUMBER,
     ]
-    _expected = "turnover-jupiter,donut-jupiter,gingerbread-venus"
+    _expected = "swan-jupiter,finch-jupiter,magpie-venus"
 
 
 class GroupWithoutValueScenario(Scenario):
