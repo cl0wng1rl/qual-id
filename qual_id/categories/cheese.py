@@ -5,8 +5,8 @@ class Cheese(Category):
     _name = "cheese"
     _values = [
         "caerphilly",
-        "camembert",
         "cambozola",
+        "camembert",
         "cheddar",
         "edam",
         "emmenthal",
