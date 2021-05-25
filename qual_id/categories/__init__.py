@@ -54,3 +54,4 @@ from .vegetable import Vegetable
 from .vehicle import Vehicle
 from .weather import Weather
 from .wine import Wine
+from .zodiac import Zodiac

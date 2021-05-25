@@ -61,4 +61,5 @@ class All(Group):
         Vehicle,
         Weather,
         Wine,
+        Zodiac,
     ]
