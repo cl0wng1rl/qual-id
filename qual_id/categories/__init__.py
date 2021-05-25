@@ -8,6 +8,7 @@ from .brand import Brand
 from .bread import Bread
 from .cake import Cake
 from .capital import Capital
+from .cheese import Cheese
 from .city import City
 from .clothing import Clothing
 from .color import Color

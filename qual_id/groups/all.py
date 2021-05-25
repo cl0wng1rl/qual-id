@@ -15,6 +15,7 @@ class All(Group):
         Bread,
         Cake,
         Capital,
+        Cheese,
         City,
         Clothing,
         Color,
