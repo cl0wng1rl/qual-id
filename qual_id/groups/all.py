@@ -18,6 +18,7 @@ class All(Group):
         City,
         Clothing,
         Color,
+        Condiment,
         Constellation,
         Country,
         Cuisine,

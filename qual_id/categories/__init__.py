@@ -11,6 +11,7 @@ from .capital import Capital
 from .city import City
 from .clothing import Clothing
 from .color import Color
+from .condiment import Condiment
 from .constellation import Constellation
 from .country import Country
 from .cuisine import Cuisine
