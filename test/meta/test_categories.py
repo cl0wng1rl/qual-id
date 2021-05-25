@@ -1,4 +1,5 @@
 import unittest
+from qual_id.groups.all import All
 from qual_id.categories import *
 from test.meta.category_metadata_validator import CategoryMetadataValidator
 
@@ -26,61 +27,7 @@ class TestCategories(unittest.TestCase):
 
     @staticmethod
     def _get_all_categories():
-        return [
-            Adjective,
-            Animal,
-            Atmosphere,
-            Author,
-            Bird,
-            Book,
-            Brand,
-            Bread,
-            Cake,
-            Capital,
-            City,
-            Clothing,
-            Color,
-            Constellation,
-            Country,
-            Cuisine,
-            Currency,
-            Dog,
-            Drink,
-            Electronic,
-            Element,
-            Emotion,
-            Festivals,
-            Film,
-            Fish,
-            Flower,
-            Food,
-            Fruit,
-            Gem,
-            Geography,
-            Instrument,
-            Language,
-            Music,
-            OperatingSystem,
-            Particle,
-            Planet,
-            Pokemon,
-            Profession,
-            ProgrammingLanguage,
-            RandomId,
-            Scientist,
-            SearchEngine,
-            Shape,
-            Spice,
-            Sport,
-            State,
-            Tea,
-            Tool,
-            Utensil,
-            Vegetable,
-            Vehicle,
-            Weather,
-            Wine,
-        ]
+        return All._categories
 
 
 if __name__ == "__main__":  # pragma: no cover
