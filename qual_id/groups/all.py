@@ -50,6 +50,7 @@ class All(Group):
         Profession,
         ProgrammingLanguage,
         RandomId,
+        Reptile,
         Scientist,
         SearchEngine,
         Shape,

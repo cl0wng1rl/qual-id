@@ -43,6 +43,7 @@ from .pokemon import Pokemon
 from .profession import Profession
 from .programminglanguage import ProgrammingLanguage
 from .randomid import RandomId
+from .reptile import Reptile
 from .scientist import Scientist
 from .searchengine import SearchEngine
 from .shape import Shape
