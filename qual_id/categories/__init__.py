@@ -30,6 +30,7 @@ from .fruit import Fruit
 from .gem import Gem
 from .geography import Geography
 from .greek import Greek
+from .insect import Insect
 from .instrument import Instrument
 from .language import Language
 from .music import Music

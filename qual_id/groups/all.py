@@ -37,6 +37,7 @@ class All(Group):
         Gem,
         Geography,
         Greek,
+        Insect,
         Instrument,
         Language,
         Music,
