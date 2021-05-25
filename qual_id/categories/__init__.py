@@ -38,6 +38,7 @@ from .language import Language
 from .music import Music
 from .operatingsystem import OperatingSystem
 from .particle import Particle
+from .pasta import Pasta
 from .planet import Planet
 from .pokemon import Pokemon
 from .profession import Profession

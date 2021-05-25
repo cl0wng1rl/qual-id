@@ -45,6 +45,7 @@ class All(Group):
         Music,
         OperatingSystem,
         Particle,
+        Pasta,
         Planet,
         Pokemon,
         Profession,
