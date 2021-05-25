@@ -3,41 +3,88 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
 />
+
 <body class="container">
   <h1>Welcome to the Qual ID RESTful API</h1>
-  <h2>'categories' Endpoint</h2>
   <p>
-    This endpoint will return a list of available categories. Each one can be used in the pattern
-    parameter in the url.
+    Qual ID is a RESTful API that returns <em>qualitative ID&#39;s</em>. A
+    <em>qualitative ID</em> is a unique signifier that is readable and understandable to humans.
+    This serves the same purpose as any other ID, while also being much nicer to deal with and much
+    easier to remember.
   </p>
-  <h2>'get' Endpoint</h2>
+  <h2 id="using-the-api">Using The API</h2>
+  <p>The Qual ID REST API can be accessed using the URL</p>
+  <pre><code><span class="hljs-symbol">https:</span><span class="hljs-comment">//qual-id.herokuapp.com/</span>
+</code></pre>
+  <h3 id="the-get-endpoint">The &#39;get&#39; Endpoint</h3>
+  <h4 id="-the-categories-parameter-">
+    <strong>The <code>categories</code> Parameter</strong>
+  </h4>
   <p>
-    This endpoint will return qualitative ID's based on the <i>pattern</i> and
-    <i>number</i> parameters.
+    To get Qual IDs from the REST API, supply categories, separated by hyphens, to the
+    <code>/get/</code> endpoint. For example:
   </p>
-  <h3>'pattern' Parameter</h3>
+  <pre><code>http<span class="hljs-variable">s:</span>//qual-id.herokuapp.<span class="hljs-keyword">com</span>/<span class="hljs-built_in">get</span>/?categories=food-animal
+</code></pre>
   <p>
-    A valid pattern is given as a list of categories, seperated by hyphens ('-'). This will
-    determine the pattern that the Qual IDs will follow. For example the pattern
-    <code>food-animal</code> would return results composed of a <code>food</code> and an
-    <code>animal</code>.
+    which would give a JSON object, with results in the form of a <em>food</em> followed by an
+    <em>animal</em>. e.g.
   </p>
+  <pre><code class="lang-json">{ <span class="hljs-attr">"data"</span>: [<span class="hljs-string">"lemon-lobster"</span>] }
+</code></pre>
   <p>
-    Up to 5 categories can be joined together to make a pattern. Additionally, the word
-    <code>random</code> can be given in place of a category, and a random category will be used.
+    In addition to defined categories, the word <code>random</code> can be used, which will use a
+    random category in it&#39;s place.
   </p>
-  <h3>'number' Parameter</h3>
+  <h4 id="-the-number-parameter-">
+    <strong>The <code>number</code> Parameter</strong>
+  </h4>
   <p>
-    The number parameter simply dictates how many Qual IDs following a given pattern will be
-    returned. If this parameter is omitted it will default to 1.
+    As well as the <code>categories</code> parameter, the <code>number</code> parameter can also be
+    used, to determine how many Qual ID&#39;s will be returned. For example:
   </p>
-  <h3>An Example Request</h3>
-  <p>Here is an example URL for the 'get' endpoint:</p>
-  <code>https://qual-id.herokuapp.com/get/?pattern=food-animal&number=3</code>
+  <pre><code>http<span class="hljs-variable">s:</span>//qual-id.herokuapp.<span class="hljs-keyword">com</span>/<span class="hljs-built_in">get</span>/?categories=food-animal&amp;<span class="hljs-keyword">number</span>=<span class="hljs-number">3</span>
+</code></pre>
   <p>
-    <br />
-    This would return 3 Qual IDs following the pattern of <code>food-animal</code>. An example
-    response would be:
+    which would return a JSON object containing 3 Qual ID&#39;s matching the
+    <code>food-animal</code> pattern. e.g.
   </p>
-  <code>{"data":["apple-dog","waffle-dog","cookie-snake"]}</code>
+  <pre><code class="lang-json">{ <span class="hljs-attr">"data"</span>: [<span class="hljs-string">"lemon-lobster"</span>, <span class="hljs-string">"cookie-whale"</span>, <span class="hljs-string">"egg-lizard"</span>] }
+</code></pre>
+  <h4 id="-the-format-parameter-">
+    <strong>The <code>format</code> Parameter</strong>
+  </h4>
+  <p>
+    The <code>format</code> parameter can also be used to determine in what format the results will
+    be returned. This value is, by default, <em>&quot;json&quot;</em>, but can also be
+    <em>&quot;csv&quot;</em>, which gives results in simple comma-separated format. e.g.
+  </p>
+  <pre><code>http<span class="hljs-variable">s:</span>//qual-id.herokuapp.<span class="hljs-keyword">com</span>/<span class="hljs-built_in">get</span>/?categories=food-animal&amp;format=csv
+</code></pre>
+  <p>which would return</p>
+  <pre><code class="lang-js"><span class="hljs-string">"lemon-lobster"</span>
+</code></pre>
+  <h4 id="-the-group-parameter-">
+    <strong>The <code>group</code> Parameter</strong>
+  </h4>
+  <p>
+    By default, all categories are avaiable, but if you want a more predictable range of categories
+    when using <code>random</code>, you can supply a <code>group</code>. A group is a subset of all
+    the categories, and <code>random</code> will only return a category from this group. Examples of
+    groups are <em>&quot;all&quot;</em> (which is the default group),
+    <em>&quot;minimal&quot;</em> and <em>&quot;neutral&quot;</em>. e.g.
+  </p>
+  <pre><code>http<span class="hljs-variable">s:</span>//qual-id.herokuapp.<span class="hljs-keyword">com</span>/<span class="hljs-built_in">get</span>/?categories=food-random&amp;group=minimal
+</code></pre>
+  <h3 id="the-categories-endpoint">The &#39;categories&#39; Endpoint</h3>
+  <p>
+    The <code>/categories/</code> endpoint returns a list of categories that can are accepted by the
+    &#39;get&#39; endpoint. For example:
+  </p>
+  <pre><code>https:<span class="hljs-regexp">//</span>qual-id.herokuapp.com<span class="hljs-regexp">/categories/</span>
+</code></pre>
+  <p>would return a JSON object containing the list of category names, e.g.</p>
+  <pre><code class="lang-json">{ <span class="hljs-attr">"data"</span>: [<span class="hljs-string">"animal"</span>, <span class="hljs-string">"food"</span>, ...] }
+</code></pre>
+  <p>The &#39;categories&#39; endpoint also accepts a <code>group</code> paramter.</p>
 </body>
