@@ -43,7 +43,7 @@ https://qual-id.herokuapp.com/
 
 ### The 'get' Endpoint
 
-#### The `categories` Parameter
+#### **The `categories` Parameter**
 
 To get Qual IDs from the REST API, supply categories, separated by hyphens, to the `/get/` endpoint. For example:
 
@@ -58,7 +58,7 @@ which would give a JSON object, with results in the form of a _food_ followed by
 ```
 In addition to defined categories, the word `random` can be used, which will use a random category in it's place.
 
-#### The `number` Parameter
+#### **The `number` Parameter**
 
 As well as the `categories` parameter, the `number` parameter can also be used, to determine how many Qual ID's will be returned. For example:
 
@@ -73,7 +73,7 @@ which would return a JSON object containing 3 Qual ID's matching the `food-anima
 { "data": ["lemon-lobster", "cookie-whale", "egg-lizard"] }
 ```
 
-#### The `format` Parameter
+#### **The `format` Parameter**
 
 The `format` parameter can also be used to determine in what format the results will be returned. This value is, by default, _"json"_, but can also be _"csv"_, which gives results in simple comma-separated format. e.g.
 
@@ -86,7 +86,7 @@ which would return
 "lemon-lobster"
 ```
 
-#### The `group` Parameter
+#### **The `group` Parameter**
 
 By default, all categories are avaiable, but if you want a more predictable range of categories when using `random`, you can supply a `group`. A group is a subset of all the categories, and `random` will only return a category from this group. Examples of groups are _"all"_ (which is the default group), _"minimal"_ and _"neutral"_. e.g.
 
@@ -109,6 +109,93 @@ would return a JSON object containing the list of category names, e.g.
 ```
 
 The 'categories' endpoint also accepts a `group` paramter.
+
+## Using The CLI
+
+The Qual ID CLI allows qual ID's to be generated locally. It only requires `python3` to be installed.
+
+### Installation
+
+To use the Qual ID CLI, download the [latest release](https://github.com/gabrielbarker/qual-id/releases/latest) zip file. Then unzip, and place the `qual_id` directory and `qid` executable in a directory that is part of your terminal path.
+
+### qid
+
+To view the help for `qid`, run
+
+```bash
+qid --help
+```
+
+This will give you the basics, but what follows is a more detailed description of some of `qid`'s features.
+
+#### **Generating Qual ID's**
+
+To generate a qual ID, run
+
+```bash
+qid --categories flower bread
+```
+
+where "flower" and "bread" can be replaced by the names of up to 5 categories. The above command will return, for example,
+
+```bash
+poppy-pumpernickel
+```
+_Note: the CLI has 'csv' format by default._
+
+The same parameters available in the REST API are available in the CLI. The following is an example of a command using all possible options:
+
+```bash
+qid --categories flower cake --group neutral --format json --number 3
+```
+
+or with shortened flags:
+
+```bash
+qid -c flower cake -g neutral -f json -n 3
+```
+returning, for example,
+
+```json
+{"data": ["chrysanthemum-crumpet", "wisteria-tart", "saffron-panettone"]}
+```
+
+#### **Info**
+
+Unique to the CLI is the _info_ subcommand. _info_ allows you to see possible options for all parameters, and what values are contained in a given category.
+
+To see a list of all categories, run 
+
+```bash
+qid info --category
+```
+
+To see a list of all groups, run 
+
+```bash
+qid info --group
+```
+
+To see a list of all categories in a given group, run 
+
+```bash
+qid info --group minimal
+```
+_where minimal can be any group name._
+
+To see a list of all values for a given category, run 
+
+```bash
+qid info --category animal
+```
+_where animal can be any category name._
+
+To see a list of all available formats, run 
+
+```bash
+qid info --format
+```
+
 
 # Contributing
 
