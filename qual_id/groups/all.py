@@ -24,6 +24,7 @@ class All(Group):
         Country,
         Cuisine,
         Currency,
+        Curry,
         Dog,
         Drink,
         Electronic,
