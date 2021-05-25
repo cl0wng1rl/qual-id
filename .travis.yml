@@ -10,7 +10,7 @@ after_success:
 before_deploy:
   - git config --local user.name "Gabriel Barker"
   - git config --local user.email "$GITHUB_EMAIL"
-  - name=$(python3 cli.py -p bird-instrument)
+  - name=$(python3 cli.py -c bird instrument)
   - tag="${name%\"}"
   - tag="${tag#\"}"
   - git tag $tag
