@@ -21,6 +21,7 @@ from .drink import Drink
 from .electronic import Electronic
 from .element import Element
 from .emotion import Emotion
+from .fabric import Fabric
 from .festivals import Festivals
 from .film import Film
 from .fish import Fish

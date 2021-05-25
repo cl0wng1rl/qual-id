@@ -28,6 +28,7 @@ class All(Group):
         Electronic,
         Element,
         Emotion,
+        Fabric,
         Festivals,
         Film,
         Fish,
