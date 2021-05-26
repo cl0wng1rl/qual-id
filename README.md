@@ -24,7 +24,8 @@
 
 <b>A RESTful API that returns randomly generated, custom _qualitative ID's_</b>
 
-<a href="#using-the-api">Using The API</a> •
+<a href="#using-the-api">Using the API</a> •
+<a href="#using-the-cli">Using the CLI</a> •
 <a href="#contributing">Contributing</a> •
 <a href="#license">License</a>
 
@@ -116,7 +117,13 @@ The Qual ID CLI allows qual ID's to be generated locally. It only requires `pyth
 
 ### Installation
 
-To use the Qual ID CLI, download the [latest release](https://github.com/gabrielbarker/qual-id/releases/latest) zip file. Then unzip, and place the `qual_id` directory and `qid` executable in a directory that is part of your terminal path.
+To use the Qual ID CLI, run
+```bash
+sh $(curl -s "https://raw.githubusercontent.com/gabrielbarker/qual-id/main/bin/install.sh") <INSTALL_DIRECTORY>
+```
+where `<INSTALL_DIRECTORY>` is the path of a directory that is part of your terminal path. _Note: If omitted, the current directory is used_
+
+Or alternatively, download the [latest release](https://github.com/gabrielbarker/qual-id/releases/latest) tar file. Then unzip, and place the `qual_id` directory and `qid` executable in a directory that is part of your terminal path.
 
 ### qid
 
