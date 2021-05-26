@@ -119,7 +119,7 @@ The Qual ID CLI allows qual ID's to be generated locally. It only requires `pyth
 
 To use the Qual ID CLI, run
 ```bash
-sh $(curl -s "https://raw.githubusercontent.com/gabrielbarker/qual-id/main/bin/install.sh") <INSTALL_DIRECTORY>
+curl -s "https://raw.githubusercontent.com/gabrielbarker/qual-id/main/bin/install.sh"|sh -s <INSTALL_DIRECTORY>
 ```
 where `<INSTALL_DIRECTORY>` is the path of a directory that is part of your terminal path. _Note: If omitted, the current directory is used_
 
