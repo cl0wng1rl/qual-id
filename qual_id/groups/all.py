@@ -40,6 +40,7 @@ class All(Group):
         Gem,
         Geography,
         Greek,
+        GreekGod,
         Insect,
         Instrument,
         Language,
