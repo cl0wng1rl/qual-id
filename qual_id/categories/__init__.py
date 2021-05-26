@@ -11,6 +11,7 @@ from .capital import Capital
 from .cheese import Cheese
 from .city import City
 from .clothing import Clothing
+from .coffee import Coffee
 from .color import Color
 from .condiment import Condiment
 from .constellation import Constellation

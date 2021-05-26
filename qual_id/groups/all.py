@@ -18,6 +18,7 @@ class All(Group):
         Cheese,
         City,
         Clothing,
+        Coffee,
         Color,
         Condiment,
         Constellation,
