@@ -46,6 +46,7 @@ class All(Group):
         Instrument,
         Language,
         Music,
+        Myth,
         OperatingSystem,
         Particle,
         Pasta,

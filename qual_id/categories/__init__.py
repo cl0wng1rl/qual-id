@@ -39,6 +39,7 @@ from .insect import Insect
 from .instrument import Instrument
 from .language import Language
 from .music import Music
+from .myth import Myth
 from .operatingsystem import OperatingSystem
 from .particle import Particle
 from .pasta import Pasta
