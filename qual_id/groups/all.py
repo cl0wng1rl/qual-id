@@ -13,6 +13,7 @@ class All(Group):
         Book,
         Brand,
         Bread,
+        Building,
         Cake,
         Capital,
         Cheese,

@@ -6,6 +6,7 @@ from .bird import Bird
 from .book import Book
 from .brand import Brand
 from .bread import Bread
+from .building import Building
 from .cake import Cake
 from .capital import Capital
 from .cheese import Cheese
