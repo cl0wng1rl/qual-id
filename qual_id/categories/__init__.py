@@ -58,6 +58,7 @@ from .spice import Spice
 from .sport import Sport
 from .state import State
 from .tea import Tea
+from .time import Time
 from .tool import Tool
 from .utensil import Utensil
 from .vegetable import Vegetable

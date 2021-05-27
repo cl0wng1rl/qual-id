@@ -65,6 +65,7 @@ class All(Group):
         Sport,
         State,
         Tea,
+        Time,
         Tool,
         Utensil,
         Vegetable,
