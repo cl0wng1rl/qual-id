@@ -36,6 +36,7 @@ class All(Group):
         Festivals,
         Film,
         Fish,
+        Flavour,
         Flower,
         Food,
         Fruit,

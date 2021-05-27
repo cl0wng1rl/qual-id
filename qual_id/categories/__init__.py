@@ -29,6 +29,7 @@ from .fabric import Fabric
 from .festivals import Festivals
 from .film import Film
 from .fish import Fish
+from .flavour import Flavour
 from .flower import Flower
 from .food import Food
 from .fruit import Fruit
