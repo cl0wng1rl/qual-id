@@ -26,7 +26,7 @@ from .electronic import Electronic
 from .element import Element
 from .emotion import Emotion
 from .fabric import Fabric
-from .festivals import Festivals
+from .festival import Festival
 from .film import Film
 from .fish import Fish
 from .flavour import Flavour

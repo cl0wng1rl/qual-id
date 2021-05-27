@@ -1,8 +1,8 @@
 from .category import Category
 
 
-class Festivals(Category):
-    _name = "festivals"
+class Festival(Category):
+    _name = "festival"
     _values = [
         "baisakhi",
         "christmas",

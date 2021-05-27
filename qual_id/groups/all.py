@@ -33,7 +33,7 @@ class All(Group):
         Element,
         Emotion,
         Fabric,
-        Festivals,
+        Festival,
         Film,
         Fish,
         Flavour,
