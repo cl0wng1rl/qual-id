@@ -26,5 +26,6 @@ class Insect(Category):
         "scarab",
         "silkworm",
         "wasp",
-        "woodlouse"
+        "woodlouse",
+        "worm",
     ]
