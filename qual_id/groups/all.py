@@ -63,6 +63,7 @@ class All(Group):
         SearchEngine,
         Shape,
         Spice,
+        Spirit,
         Sport,
         State,
         Taste,

@@ -56,6 +56,7 @@ from .scientist import Scientist
 from .searchengine import SearchEngine
 from .shape import Shape
 from .spice import Spice
+from .spirit import Spirit
 from .sport import Sport
 from .state import State
 from .taste import Taste
