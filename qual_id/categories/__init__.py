@@ -43,12 +43,15 @@ from .pasta import Pasta
 from .planet import Planet
 from .pokemon import Pokemon
 from .profession import Profession
+from .punctuation import Punctuation
 from .randomid import RandomId
 from .reptile import Reptile
 from .shape import Shape
 from .spice import Spice
+from .spirit import Spirit
 from .sport import Sport
 from .state import State
+from .taste import Taste
 from .tea import Tea
 from .time import Time
 from .tool import Tool
