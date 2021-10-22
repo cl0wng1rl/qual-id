@@ -49,6 +49,7 @@ from .planet import Planet
 from .pokemon import Pokemon
 from .profession import Profession
 from .programminglanguage import ProgrammingLanguage
+from .punctuation import Punctuation
 from .randomid import RandomId
 from .reptile import Reptile
 from .scientist import Scientist

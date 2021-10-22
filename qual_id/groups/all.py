@@ -56,6 +56,7 @@ class All(Group):
         Pokemon,
         Profession,
         ProgrammingLanguage,
+        Punctuation,
         RandomId,
         Reptile,
         Scientist,
