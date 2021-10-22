@@ -64,6 +64,7 @@ class All(Group):
         Spice,
         Sport,
         State,
+        Taste,
         Tea,
         Time,
         Tool,
