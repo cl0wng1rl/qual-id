@@ -17,6 +17,7 @@ from .country import Country
 from .cuisine import Cuisine
 from .currency import Currency
 from .curry import Curry
+from .dinosaur import Dinosaur
 from .dog import Dog
 from .drink import Drink
 from .electronic import Electronic

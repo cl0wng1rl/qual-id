@@ -24,6 +24,7 @@ class All(Group):
         Cuisine,
         Currency,
         Curry,
+        Dinosaur,
         Dog,
         Drink,
         Electronic,
