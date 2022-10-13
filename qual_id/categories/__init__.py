@@ -32,6 +32,7 @@ from .food import Food
 from .fruit import Fruit
 from .gem import Gem
 from .geography import Geography
+from .gibberish import Gibberish
 from .greek import Greek
 from .greekgod import GreekGod
 from .insect import Insect

@@ -39,6 +39,7 @@ class All(Group):
         Fruit,
         Gem,
         Geography,
+        Gibberish,
         Greek,
         GreekGod,
         Insect,
